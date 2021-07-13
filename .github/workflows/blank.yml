@@ -35,4 +35,6 @@ jobs:
           echo 给 gradlew wrapper 授予执行权限... 
           chmod +x gradlew
       - name: 执行 asciidoc生成html 任务
-        run: ./gradlew springbootAsciidoctor2Html
+        run: |
+          echo 执行网站生成任务
+          ./gradlew springbootAsciidoctor2Html
