@@ -1,2 +1,0 @@
-# springrealease-wikidoc
-
