@@ -26,7 +26,7 @@ task springbootAsciidoctor2Html(type: AsciidoctorTask, group: 'documentation') {
     sources {
         include "*.adoc"
     }
-    outputDir  file('build/docs/springboot/cn')
+    outputDir  file('docs/')
     attributes   \
           'build-gradle' : file('build.gradle') ,
     'sourcedir' : project.sourceSets.main.java.srcDirs[0] ,
