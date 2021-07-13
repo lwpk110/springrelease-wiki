@@ -37,4 +37,5 @@ jobs:
       - name: 执行 asciidoc生成html 任务
         run: |
           echo 执行网站生成任务
+          git checkout -b gh-pages
           ./gradlew springbootAsciidoctor2Html
