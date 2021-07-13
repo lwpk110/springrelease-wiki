@@ -1,0 +1,374 @@
+[[v2.5]]
+= Spring Boot 2.5 Release Notes
+include::authors.adoc[]
+include::attributes.adoc[]
+:root-docs: https://docs.spring.io/spring-boot/docs/2.5.0
+:docs: {root-docs}/reference/html/
+:actuator-api-docs: {root-docs}/actuator-api/htmlsingle
+:api-docs: {root-docs}/api/org/springframework/boot
+:gradle-docs: {root-docs}/gradle-plugin/reference/htmlsingle
+:maven-docs: {root-docs}/maven-plugin/reference/htmlsingle
+
+== 环境
+
+- icon:tags[] 6.8.x, 6.9.x, and 7.x
+- icon:tags[] Spring Framework 5.3.8 or above is also required
+- icon:tags[] jdk8...16
+
+=== Servlet Containers
+
+Spring Boot支持以下嵌入式servlet容器：
+
+|===
+|Name |Servlet Version
+
+|Tomcat 9.0
+|4.0
+
+|Tomcat 9.0
+|4.0
+
+|Jetty 9.4
+|3.1
+
+|Jetty 10.0
+|4.0
+
+|Undertow 2.0
+|4.0
+|===
+
+TIP: 您还可以将Spring BOOT 应用程序部署到任何与Servlet 3.1+兼容的容器中。
+
+== 重大更新
+
+=== SQL脚本数据源初始化
+Spring Boot 2.5 中重新设计了用于支持 `schema.sql` 和 `data.sql` 脚本的底层方法。
+与 `DataSource` 初始化相关的 `+++spring.datasource.*+++` 属性已被弃用，取而代之的是新的 `+++spring.sql.init.*+++` 属性。
+这些属性还可用于初始化通过 R2DBC 访问的 SQL 数据库。
+
+
+==== `schema.sql` and `data.sql`
+对于 Spring Boot 2.5.1 及更高版本，新的 SQL 初始化属性支持检测 JDBC 和 R2DBC 的嵌入式数据源。
+默认情况下，SQL 数据库初始化仅在使用嵌入式内存数据库时执行。
+要始终初始化 SQL 数据库，无论其类型如何，请将 `spring.sql.init.mode` 设置为 `always`。
+同样，要禁用初始化，请将 `spring.sql.init.mode` 设置为 `never`。
+
+
+==== 互相隔离的Credentials
+新的基于脚本的 SQL 数据库初始化不支持对架构 (DDL) 和数据 (DML) 更改使用单独的凭据。
+这降低了复杂性并使其功能与 Flyway 和 Liquibase 保持一致。
+如果您需要单独的架构和数据初始化凭据，请定义您自己的 `org.springframework.jdbc.datasource.init.DataSourceInitializer` bean。
+
+
+==== Hibernate and data.sql
+默认情况下，`data.sql` 脚本现在在 Hibernate 初始化之前运行。
+这使基于脚本的基本初始化行为与 Flyway 和 Liquibase 的行为保持一致。
+如果你想使用 `data.sql` 来填充 Hibernate 创建的模式，请将 `spring.jpa.defer-datasource-initialization` 设置为 `true`。
+虽然不推荐混合数据库初始化技术，但这也将允许您使用 `schema.sql` 脚本在通过 `data.sql` 填充之前构建在 Hibernate 创建的模式上。
+
+
+
+==== Initialization ordering
+{docs}/howto.html#howto.data-initialization.dependencies.depends-on-initialization-detection[certain well-known types] bean, 例如 `JdbcTemplate`, 将被排序，以便在数据库初始化后初始化它们。
+如果你有一个直接使用 `DataSource` 的 bean，用 `@DependsOnDatabaseInitialization` 注释它的类或 `@Bean` 方法，以确保它在数据库初始化后也被初始化。
+
+
+
+=== Flyway and Liquibase JDBC URLs
+如果你当前定义了一个 `spring.flyway.url` 或 `spring.liquibase.url`，你可能需要提供额外的 `username` 和 `password` 属性。
+在 Spring Boot 的早期版本中，这些设置是从 `spring.datasource` 属性派生的，但这对于提供自己的 DataSource bean 的人来说是有问题的。
+
+
+
+=== Spring Data Solr
+在 2021.0.0 从 Spring Data 中删除之后，此版本中删除了 Spring Data Solr 的自动配置。
+
+
+
+=== Secure Info Endpoint
+`/info` actuator endpoint默认情况下不再通过网络公开。
+此外，如果 Spring Security 在类路径上并且您的应用程序没有自定义安全配置，则端点默认需要经过身份验证的访问。
+
+请参阅有关文档 https://docs.spring.io/spring-boot/docs/2.5.0/reference/htmlsingle/#actuator.endpoints.exposing[exposing] ， https://docs.spring.io/spring-boot/docs/2.5.0/reference/htmlsingle/#actuator.endpoints.security[securing] actuator endpoints 来更改这些新的默认值.
+
+
+
+=== 默认表达式语言 (EL) 实现
+Spring Boot 的 web 和验证启动器中包含的 EL 实现已更改. Tomcat 的实现（`org.apache.tomcat.embed.tomcat-embed-el`）现在用于代替 Glassfish 的参考实现（`org.glassfish:jakrta.el`）.
+
+
+
+=== 默认错误视图中的消息
+默认错误视图中的 `message` 属性现在被删除，而不是在未显示时为空白。
+如果您解析错误响应 JSON，您可能需要处理丢失的项。
+
+TIP: 如果您希望包含消息，您仍然可以使用 `server.error.include-message` 属性。
+
+
+
+=== 日志关闭钩子
+我们现在默认为基于 jar 的应用程序注册一个日志关闭挂钩，以确保在 JVM 退出时释放日志资源。
+如果您的应用程序部署为 war，则不会注册关闭挂钩，因为 servlet 容器通常处理日志记录问题。
+
+大多数应用程序都需要关闭挂钩。但是，如果您的应用程序具有复杂的上下文层次结构，那么您可能需要禁用它。
+你可以使用 `logging.register-shutdown-hook` 属性来做到这一点。
+
+
+
+=== Gradle Default jar and war Tasks
+Spring Boot Gradle Plugin 不再自动禁用标准 Gradle `jar` 和 `war` 任务。
+取而代之的，使用 `classifier` 来替代这些任务.
+
+如果您希望禁用这些任务，请参阅参考文档 {gradle-docs}/#packaging-executable-and-plain[includes updated examples].
+
+
+
+=== Cassandra Throttling 属性
+Spring Boot 不再为 spring.data.cassandra.request.throttler 属性提供默认值。
+如果你依赖 `max-queue-size`、`max-concurrent-requests`、`max-requests-per-second` 或 `drain-interval`，你应该设置对你的应用程序有意义的值。
+
+
+
+===  jOOQ's `DefaultConfiguration` 自定义
+为了简化 jOOQ 的 `DefaultConfiguration` 的自定义，现在可以定义一个实现 `DefaultConfigurationCustomizer` 的 bean。这个定制器回调应该用于定义一个或多个 `Provider` bean，现在已经弃用了对它的支持。
+
+
+
+=== Groovy 3
+Groovy 的默认版本已升级到 3.x。如果您在使用 Groovy 和 Spock，您还应该升级到最新的 Groovy 3.0 兼容版本的 Spock 2.0。或者，使用 `groovy.version` 降级回 Groovy 2.5。
+
+
+
+=== gradle 版本最低要求变更
+使用 Gradle 构建的项目现在需要 Gradle 6.8 或更高版本。
+
+
+=== Hibernate Validator 6.2
+Hibernate Validate 的默认版本已升级到 6.2.x。 Hibernate Validator 6.2 更改了表达式语言用于插入约束消息的方式. 参阅 https://in.relation.to/2021/01/06/hibernate-validator-700-62-final-released/[this blog post from the Hibernate Validator team] 获取详情.
+
+
+
+=== Spring Boot 2.3 和 2.4 的弃用
+参阅 https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#release-compatibility[release compatibility policy], Spring Boot 2.3 中弃用的代码已在 Spring Boot 2.5 中删除。
+Spring Boot 2.4 中弃用的代码仍然存在，并计划在 Spring Boot 2.6 中删除。
+
+
+=== 环境变量前缀
+现在可以为系统环境变量指定前缀，以便您可以在同一环境中运行多个不同的 Spring Boot 应用程序。
+使用 `SpringApplication.setEnvironmentPrefix(...)` 设置绑定属性时要使用的前缀。
+
+例如，以下将添加一个 `myapp` 前缀：
+
+[source,java]
+----
+SpringApplication application = new SpringApplication(MyApp.class);
+application.setEnvironmentPrefix("myapp");
+application.run(args);
+----
+
+All properties will now expect a prefixed version.
+For example, to change the server port you can set `MYAPP_SERVER_PORT`.
+
+
+
+=== 基于 TCP 的 HTTP2 (h2c)
+所有四个嵌入式 Web 容器现在都支持 HTTP2 over TCP (h2c)，无需任何手动定制。要启用 h2c，请将 `server.http2.enabled` 设置为 `true`，并将 `server.ssl.enabled` 设置为 `false`（其默认值）。
+
+与现有的 h2 支持一样，根据所使用的嵌入式 Web 服务器，h2c 的使用可能需要额外的依赖项。有关详细信息，请参阅 {docs}howto.htmlhowto.webserver.configure-http2[参考文档]。
+
+
+
+=== Generic DataSource 初始化
+如果您编写初始化数据源的代码，现在可以使用新的通用机制。
+这种机制现在也在内部用于为 Flyway、Liquibase 和基于脚本的初始化设置正确的 bean 依赖项。
+
+大多数开发人员不需要直接使用新机制。
+但是，如果您正在为数据访问库开发第三方启动器，您可能需要提供一个 `DependsOnDataSourceInitializationDetector`。
+有关详细信息，请参阅 {docs}howto.htmlhowto-initialize-a-database-configuring-dependencies-initializer-detection[更新的参考文档]。
+
+
+
+===  R2DBC Database 初始化
+添加了对通过 R2DBC 访问的 SQL 数据库的基于脚本的初始化的支持。
+默认情况下，名为`schema.sql` 和`data.sql` 的类路径上的脚本将自动应用于数据库。
+可以使用 `spring.sql.init.` 配置属性自定义初始化。
+有关更多详细信息，请参阅 {docs}howto.htmlhowto-initialize-a-database-using-basic-scripts[参考文档]。
+
+
+
+=== Liquibase DataSource
+如果你定义了一个自定义的 DataSource 用于 Liquibase，我们现在使用 `SimpleDriverDataSource`.
+我们之前使用了一个池化数据源，这对于数据库初始化来说是不必要且效率低下的。
+
+
+
+=== Layered WARs
+Spring Boot Maven 和 Gradle 插件现在允许您创建分层 WAR 以与 Docker 镜像一起使用。
+分层 WAR 的工作方式与早期版本的 Spring Boot 中提供的分层 JAR 支持类似。
+查看 {gradle-docs}#packaging-layered-archives[Gradle] 和 {maven-docs}#repackage-layers[Maven] 参考文档了解更多详情。
+
+
+=== Docker 镜像构建支持
+
+
+==== 自定义 Buildpacks
+您可以将 `buildpacks` 属性设置目录、tar.gz 文件、特定构建器引用或 Docker 映像。
+
+有关更多详细信息，请参阅更新的 {gradle-docs}#packaging-oci-images[Gradle] 和 {maven-docs}#packaging-oci-images[Maven] 参考文档。
+
+
+
+==== Bindings
+Maven 和 Gradle 插件现在都支持可以传递给 buildpack 构建器的 volume bindings 。
+
+这些允许您绑定本地路径或卷以供buildpack使用。
+
+有关更多详细信息，请参阅更新的  {gradle-docs}#packaging-oci-images[Gradle] 和 {maven-docs}#packaging-oci-images[Maven]
+See the updated  reference documentation for more details.
+
+
+
+==== War 支持
+Maven和Gradle插件现在都可以将可执行的war文件打包成Docker镜像。
+如果你想为你的war创建一个 Docker 镜像，应该使用现有的 `mvn spring-boot:image` 或 `./gradlew bootBuildImage` 命令。
+
+
+=== Prometheus OpenMetrics
+`/actuator/prometheus` 执行器端点现在可以提供 “标准Prometheus” 和 “”OpenMetrics响应”。
+返回的响应将取决于随 HTTP 请求提供的接受标头。
+
+返回的响应将取决于HTTP请求提供的accept头。
+
+
+
+=== Spring Data Repositories 指标
+Actuator 可以为 Spring Data repositories 生成 Micrometer metrics .
+
+默认情况下，metrics被命名为 `spring.data.repository.invocations`。
+要了解更多信息，请参阅 {docs}actuator.html#actuator.metrics.supported.spring-data-repository[参考文档的相关部分]。
+
+
+
+=== WebFlux  @Timed 指标
+将其功能与 Spring MVC 的功能保持一致，`@Timed` 现在可用于手动启用由 WebFlux 控制器和功能处理程序处理的请求的计时。
+要使用手动计时，请将 `management.metrics.web.server.request.autotime.enabled` 设置为 `false`。
+
+
+=== MongoDB 指标
+使用 Actuator 时，Mongo 连接池的指标和客户端发送的命令现在会自动生成。
+要了解有关 MongoDB 指标的更多信息，请参阅 {docs}actuator.html#actuator.metrics.supported.mongodb[参考文档的相关部分]。
+
+
+
+=== Quartz Actuator Endpoint
+一个 `/quartz` 端点已添加到 Actuator。
+它提供了有关 Quartz 作业和触发器的详细信息。
+有关更多详细信息，请参阅 {actuator-api-docs}#quartz[Actuator API 文档的相关部分]。
+
+
+
+=== `GET` 对 `actuator/startup` 的请求
+执行器的 `startup` 端点现在支持 `GET` 请求。
+与 `POST` 请求不同，对端点的 `GET` 请求不会耗尽事件缓冲区，事件将继续保存在内存中。
+
+
+=== DataSource健康抽象路由
+Actuator 的运行状况端点现在显示“AbstractRoutingDataSource”的目标的运行状况。
+每个目标`DataSource` 都使用其路由键命名。
+和以前一样，要忽略健康端点中的路由数据源，请将“management.health.db.ignore-routing-data-sources”设置为“true”。
+
+
+=== Java 16 支持
+此版本提供支持并针对 Java 16 进行了测试。ava 16.
+Spring Boot 2.5 仍然与 Java 8 兼容。
+
+
+
+=== Gradle 7 支持
+Spring Boot Gradle 插件支持 Gradle 7.0.x 并对其进行了测试。
+
+=== Jetty 10 Support
+Spring Boot 2.5 现在可以使用 Jetty 10 作为嵌入式 Web 服务器。
+Jetty 10 尚不支持 WebSocket。
+由于 Jetty 10 需要 Java 11，我们的默认 Jetty 版本将保持为 9。
+
+要升级到 Jetty 10，请使用 `jetty.version` 属性来覆盖版本。
+您还应该从 `spring-boot-starter-jetty` 中排除 `org.eclipse.jetty.websocket:websocket-server` 和 `org.eclipse.jetty.websocket:javax-websocket-server-impl`，因为它们是 Jetty 9 -具体的。
+
+=== Documentation Updates
+该项目发布的 HTML 文档具有更新的外观和一些新功能。
+您现在可以通过将鼠标悬停在示例上并单击“复制”图标，轻松地将代码片段复制到剪贴板。
+此外，许多示例现在包括可以根据需要显示或隐藏的完整导入语句。
+
+我们现在还在每个文档的顶部有一个“深色主题”切换器。
+
+=== 其它
+除了上面列出的更改之外，还有许多小的调整和改进，包括：
+
+ - `management.endpoints.web.cors.allowed-origin-patterns` 现在可用于配置 Actuator 端点的允许来源patterns https://github.com/spring-projects/spring-boot/pull/24608[( #24608)]
+ - `HttpSessionIdListener` bean 现在自动注册到 servlet 上下文 https://github.com/spring-projects/spring-boot/issues/24879[(#24879)]
+ - Couchbase 现在默认使用自动配置的`ObjectMapper` https://github.com/spring-projects/spring-boot/issues/24616[(#24616)]
+-  当 `elasticsearch-rest-client-sniffer` 模块在类路径中时 Elasticsearch's `Sniffer` 现在将被自动配置 https://github.com/spring-projects/spring-boot/issues/24174[(#24174)]
+ - `spring.data.cassandra.controlconnection.timeout` 现在可以用于配置 Cassandra 的控制连接超时时间 https://github.com/spring-projects/spring-boot/issues/24189[(#24189)]
+ - `spring.kafka.listener.only-log-record-metadata` 现在可用于配置尝试重试时记录的内容 https://github.com/spring-projects/spring-boot/pull/24582[( #24582)]
+ - 支持 Apache Phoenix，自动检测 `jdbc:phoenix` JDBC URL https://github.com/spring-projects/spring-boot/pull/24114[(#24114)]
+ - Rabbit 的密钥存储和信任存储算法的配置属性 https://github.com/spring-projects/spring-boot/pull/24076[(#24076)]
+ - 现在可以使用`management.endpoints.web.discovery.enabled` 属性禁用`/actuator` 发现页面。
+ - `/actuator/configprops` 和 `actuator/env` 端点现在具有可用于清理密钥的 `additional-keys-to-sanitize` 属性。
+ - 如果要自定义 JMX 执行器端点的名称，现在可以使用“EndpointObjectNameFactory”。
+ - 添加了一个新的`DataSourceBuilder.derivedFrom(...)` 方法，允许您构建一个从现有的派生的新`DataSource`。
+ - 当 Spring Security 在类路径上时，配置属性现在可以绑定到 `RSAPublicKey` 和 `RSAPrivateKey`。
+ - Spring AMQP 使用的 RabbitMQ `ConnectionFactory` 现在可以使用 `ConnectionFactoryCustomizer` bean 进行自定义。
+ - 现在可以使用新的`spring.datasource.embedded-database-connection` 配置属性来控制自动配置的嵌入式数据库。它可以设置为“EmbeddedDatabaseConnection”的任何值，包括“none”以完全禁用自动配置的嵌入式数据库。
+ - `CloudPlatform` 现在可以自动检测 Azure 应用服务。
+ - `server.tomcat.keep-alive-timeout` 可用于配置 Tomcat 在关闭保持连接之前等待另一个请求的时间。
+ - `server.tomcat.max-keep-alive-requests` 可用于控制在关闭前保持活动连接可以发出的最大请求数。
+ - `spring.webflux.session.cookie.same-site` 可用于配置 WebFlux 的 SameSite cookie 策略。默认是宽松的。
+ - Apache HttpClient 5 现在自动配置为与 WebClient 一起使用。
+ - 引入了一个新的`ApplicationEnvironment` 类，它应该会稍微提高性能。
+ - 您现在可以使用 `spring.netty.leak-detection` 属性配置 Netty 内存。
+
+
+
+=== 依赖更新
+SpringBoot2.5迁移到几个Spring项目的新版本：
+
+- https://spring.io/blog/2021/04/20/what-s-new-in-spring-data-2021-0[Spring Data 2021.0]
+- https://docs.spring.io/spring-integration/docs/5.5.x/reference/html/whats-new.html#whats-new[Spring Integration 5.5]
+- https://docs.spring.io/spring-security/site/docs/5.5.x/reference/html5/#new[Spring Security 5.5]
+- Spring Session 2021.0
+- Spring HATEOAS 1.3
+- https://spring.io/blog/2021/04/14/spring-for-apache-kafka-2-7-0-available[Spring Kafka 2.7.0]
+
+许多第三方依赖项也已更新，其中一些更值得注意的是：
+
+- Kotlin 1.5
+- Groovy 3.0
+- Flyway 7.7
+- Liquibase 4.3
+- Jackson 2.12
+- Kafka 2.7
+- Cassandra Driver 4.10
+- Embedded Mongo 3.0
+- Hibernate Validator 6.2
+- Jersey 2.33
+- Mockito 3.7
+- MongoDB 4.2
+- JUnit Jupiter 5.7
+- Elasticsearch 7.12
+
+
+
+== SpringBoot2.5中值得注意的不推荐使用（deprecations）
+在SpringBoot2.5中有以下几个值得注意的deprecations：
+
+
+-  `org.springframework.boot.actuate.endpoint.http` 中的  `ActuatorMediaType` 和 `ApiVersion` 与 `org.springframework.boot.actuate.endpoint` 中的等价。
+- 对实现 jOOQ 的 `*Provider` 回调接口或 `Settings` 的 bean 的支持已被弃用。
+ `DefaultConfigurationCustomizer` 应该被替换.
+-  `org.springframework.boot.autoconfigure.data.jpa` 中的 搬迁至`org.springframework.boot.autoconfigure.orm.jpa`
+
+== New and Noteworthy
+
+TIP: 参阅 <<Spring-Boot-2.5-Configuration-Changelog#v2.5-configuration-changelog, Configuration properties change between `2.2.7.RELEASE` and `2.3.0.RELEASE`>> 查看有关配置更改的完整概述。

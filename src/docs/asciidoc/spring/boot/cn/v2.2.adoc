@@ -1,0 +1,7 @@
+[[v2.2]]
+= 重大变更
+include::authors.adoc[]
+v{spring-boot-version}
+include::attributes.adoc[]
+
+WARNING: 暂时没找到资料。

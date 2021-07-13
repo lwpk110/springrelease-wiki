@@ -1,0 +1,24 @@
+[[index]]
+= spring boot 版本更新概览
+Author Name <lw110@163.com>
+v0.0.1, 2021-07-08
+:toc: left
+// - image/font/text
+:icons: font
+:toc-title: 目录
+:homepage: https://example.org
+:experimental: true
+
+本文档描述了从spring boot `v2.0` -> `v2.4` 的主要重大更新，先只对中间版本进行描述 .
+
+版本目录如下:
+
+[horizontal]
+<<v2.0#v2.0,2.0>> :: `v1.5` -> `v2.0`.由于这是 Spring Boot 的一个主要版本，升级现有应用程序可能会比平时更复杂一些。请参阅本 https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide[迁移指南]，以帮助您升级现有的 `Spring Boot 1.5` 应用程序。 如果您当前使用的是较早版本的 Spring Boot， #强烈# 建议您先升级到 `Spring Boot 1.5`，然后再迁移到 `Spring Boot 2.0`。
+<<v2.1#v2.1,2.1>> ::  可以由 <<v2.0>> 平滑升级
+<<v2.2#v2.2,2.2>> ::  可以由 <<v2.1>>^+^ 平滑升级
+<<v2.3#v2.3,2.3>> ::  可以由 <<v2.2>>^+^ 平滑升级
+<<v2.4#v2.4,2.4>> ::  可以由 <<v2.3>>^+^ 平滑升级
+<<v2.5#v2.5,2.5>> ::  可以由 <<v2.4>>^+^ 平滑升级
+
+

@@ -1,0 +1,50 @@
+import org.asciidoctor.gradle.jvm.AsciidoctorTask
+
+plugins {
+    id 'java'
+    id 'org.asciidoctor.jvm.convert' version '3.3.2'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenCentral()
+}
+
+task springbootAsciidoctor2Pdf(type: org.asciidoctor.gradle.jvm.AsciidoctorTask, group: 'documentation') {
+    sources {
+        include "*.adoc"
+    }
+}
+
+
+task springbootAsciidoctor2Html(type: AsciidoctorTask, group: 'documentation') {
+    sourceDir  file('src/docs/asciidoc/spring/boot/cn')
+    sources {
+        include "*.adoc"
+    }
+    outputDir  file('build/docs/springboot/cn')
+    attributes   \
+          'build-gradle' : file('build.gradle') ,
+    'sourcedir' : project.sourceSets.main.java.srcDirs[0] ,
+    'endpoint-url' : 'http://example.org' ,
+    'imagesdir' : 'images' ,
+    'toc' : 'left' ,
+    'icons' : 'font' ,
+    'setanchors' : '' ,
+    'idprefix' : '' ,
+    'idseparator' : '-' ,
+    'docinfo' : 'shared'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
