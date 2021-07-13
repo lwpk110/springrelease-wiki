@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Unresolved directive in v2.3.adoc - include::authors.adoc[]">
+<title>v2.3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body id="v2.3" class="article toc2 toc-left">
+<div id="header">
+<h1>v2.3</h1>
+<div class="details">
+<span id="author" class="author">Unresolved directive in v2.3.adoc - include::authors.adoc[]</span><br>
+<span id="revnumber">version 1.0-SNAPSHOT</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#环境">环境</a></li>
+<li><a href="#重大变更">重大变更</a>
+<ul class="sectlevel2">
+<li><a href="#validation-starter-不再包含在web-starters-中">Validation Starter 不再包含在web starters 中</a></li>
+<li><a href="#spring-data-neumann">Spring Data <code>Neumann</code></a></li>
+<li><a href="#micrometer">Micrometer</a></li>
+<li><a href="#jackson">Jackson</a></li>
+<li><a href="#spring-cloud-connectors-starter-被移除">Spring Cloud Connectors starter 被移除</a></li>
+<li><a href="#内置-servlet-web-server-线程配置">内置 Servlet web server 线程配置</a></li>
+<li><a href="#对默认错误页内容的更改">对默认错误页内容的更改</a></li>
+<li><a href="#磁盘空间运行状况指示器">磁盘空间运行状况指示器</a></li>
+<li><a href="#developmentonly-gradle-configuration-的自动创建"><code>developmentOnly</code> Gradle configuration 的自动创建</a></li>
+<li><a href="#移除maven-site-plugin-management">移除Maven Site Plugin management</a></li>
+<li><a href="#移除-maven-exec-plugin-自定义配置">移除 Maven Exec Plugin 自定义配置</a></li>
+<li><a href="#applicationcontextrunner-默认禁用-bean-overriding">ApplicationContextRunner 默认禁用 bean overriding</a></li>
+<li><a href="#激活多个配置文件-activeprofiles">激活多个配置文件 <code>@ActiveProfiles</code></a></li>
+<li><a href="#webserverinitializedevent-and-contextrefreshedevent">WebServerInitializedEvent and ContextRefreshedEvent</a></li>
+<li><a href="#spring-boot-2-2-的弃用">Spring Boot 2.2 的弃用</a></li>
+<li><a href="#java-14-support">Java 14 support</a></li>
+<li><a href="#通过-cloud-native-buildpacks-构建-oci-镜像">通过 Cloud Native Buildpacks 构建 OCI 镜像</a></li>
+<li><a href="#构建jar-层以包含在-docker-映像中">构建jar 层以包含在 Docker 映像中</a></li>
+<li><a href="#分解-fat-jar-时可预测的类路径排序">分解 Fat jar 时可预测的类路径排序</a></li>
+<li><a href="#支持配置文件的通配符位置">支持配置文件的通配符位置</a></li>
+<li><a href="#graceful-shutdown">优雅停止</a></li>
+<li><a href="#liveness-readiness-探针">Liveness, Readiness 探针</a></li>
+<li><a href="#spring-data-neumann-2">Spring Data Neumann</a></li>
+<li><a href="#webflux-应用程序的可配置基本路径">WebFlux 应用程序的可配置基本路径</a></li>
+<li><a href="#web-应用程序中的date-time转换">Web 应用程序中的date-time转换</a></li>
+<li><a href="#actuator-改进">Actuator 改进</a></li>
+<li><a href="#rsocket-对-spring-integration-的支持">RSocket 对 Spring Integration 的支持</a></li>
+<li><a href="#绑定到-period">绑定到 <code>Period</code></a></li>
+<li><a href="#web服务切片测试">Web服务切片测试</a></li>
+<li><a href="#依赖项升级">依赖项升级</a></li>
+<li><a href="#其他">其他</a></li>
+</ul>
+</li>
+<li><a href="#springboot2-3中的弃用">SpringBoot2.3中的弃用</a></li>
+<li><a href="#new-and-noteworthy">New and Noteworthy</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unresolved directive in v2.3.adoc - include::attributes.adoc[]
+:root-docs: <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE" class="bare">https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE</a>
+:docs: {root-docs}/reference/html
+:gradle-docs: {root-docs}/gradle-plugin/reference/html
+:maven-docs: {root-docs}/maven-plugin/reference/html</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="环境">环境</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="icon"><i class="fa fa-tags"></i></span> Gradle 6.3+ (if you are building with Gradle). 5.6.x is also supported but in a deprecated form.</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-tags"></i></span> Jetty 9.4.22+ (if you are using Jetty as the embedded container)</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-tags"></i></span> jdk8+, jdk11, jdk14</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="重大变更">重大变更</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="validation-starter-不再包含在web-starters-中">Validation Starter 不再包含在web starters 中</h3>
+<div class="paragraph">
+<p>参阅issue:  <a href="https://github.com/spring-projects/spring-boot/issues/19550">#19550</a>, 默认情况下，Web和WebFlux启动器不再依赖于验证启动器.<br>
+如果应用程序正在使用验证功能, 例如你发现 <code>javax.validation.*</code> 导入未被解析, 你需要自己加一个启动器.</p>
+</div>
+<div class="paragraph">
+<p>For Maven builds:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For Gradle:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-gradle" data-lang="gradle">dependencies {
+  ...
+  implementation 'org.springframework.boot:spring-boot-starter-validation'
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-data-neumann">Spring Data <code>Neumann</code></h3>
+<div class="paragraph">
+<p>springboot2.3附带了Spring data的主要版本.<br>
+如果您正在使用Cassandra、Couchbase、Elasticsearch、MongoDB或JDBC，则需要格小心。</p>
+</div>
+<div class="sect3">
+<h4 id="cassandra">Cassandra</h4>
+<div class="paragraph">
+<p>这个版本切换到cassandrav4，它带来了许多向后不兼容的变化。<br>
+如果您依赖 <code>ClusterBuilderCustomizer</code> 自定义 <code>Cluster</code> ，则此概念在v4中已不存在，并已被两个更具体的自定义程序所取代：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DriverConfigLoaderBuilderCustomizer</code> 自定义驱动程序的属性。 Please use this for any property that is not exposed yet请将此用于尚未公开的任何属性.</p>
+</li>
+<li>
+<p><code>CqlSessionBuilderCustomizer</code> 自定义  <code>CqlSession</code> (former <code>Session</code>).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Cassandra v4 driver no longer has automatic local DC inference from contact points.
+因此, the "local-datacenter" 必须使用默认负载平衡策略设置属性，并且contact points 必须位于该数据中心。 添加了一个新的 <code>spring.data.cassandra.local datacenter</code> 属性，可以方便地设置本地数据中心。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="couchbase">Couchbase</h4>
+<div class="paragraph">
+<p>此版本切换到Couchbase sdkv3，它带来了许多向后不兼容的更改.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To connect to a cluster, you should now use <code>spring.couchbase.connection-string</code> instead of the former <code>spring.couchbase.bootstrap-hosts</code>.</p>
+</li>
+<li>
+<p>Role-based access controls have now been generalized.</p>
+</li>
+<li>
+<p>Spring Boot no longer auto-configures a <code>Bucket</code> but you can easily do so using the <code>Cluster</code> API.</p>
+</li>
+<li>
+<p>Endpoints IO configuration has been harmonized in <code>spring.couchbase.env.io</code>.</p>
+</li>
+<li>
+<p>If you were extending <code>CouchbaseConfiguration</code> to customize the environment, please use <code>ClusterEnvironmentBuilderCustomizer</code> to do so in a more idiomatic fashion.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A bucket name needs to be provided if you&#8217;re using Couchbase with Spring Data.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="elasticsearch">Elasticsearch</h4>
+<div class="paragraph">
+<p>不推荐使用的 Native Elasticsearch transport 已被删除，因为Elasticsearch和Spring data 它们在其下一版本中都不支持它。</p>
+</div>
+<div class="paragraph">
+<p>对Jest库的支持在这个版本中也被删除了。</p>
+</div>
+<div class="paragraph">
+<p>Spring Boot现在默认使用Elasticsearch 7.5+。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mongodb">MongoDB</h4>
+<div class="paragraph">
+<p>这个版本切换到mongodb4，并适配 reactive 和 imperative drivers。<br></p>
+</div>
+<div class="paragraph">
+<p>如果你用的是starter，这对你来说应该是相当透明的。<br></p>
+</div>
+<div class="paragraph">
+<p>一个显著的变化是`MongoClientSettingsBuilderCustomizer` beans 现在在使用imperative drivers时被应用.+</p>
+</div>
+<div class="paragraph">
+<p>以前它们只适用于reactive情况。</p>
+</div>
+<div class="paragraph">
+<p>通过这些适配,如果你使用 <code>spring-boot-starter-data-mongodb-reactive</code> 非 reactive infrastructure 不再提供 .<br>
+如果您需要在启动时使用imperative infrastructure (e.g. <code>MongoOperations</code>), 请考虑添加 `spring-boot-starter-data-mongodb`依赖.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="neo4j">Neo4j</h4>
+<div class="paragraph">
+<p>The open session in view interceptor for Neo4j is now disabled by default.
+If you need to enable it again, use the standard <code>spring.data.neo4j.open-in-view</code> property.</p>
+</div>
+<div class="paragraph">
+<p>The details of the Neo4j health indicator now contains the <code>version</code> and <code>edition</code> of the server, as shown in the following example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">neo4j: {
+  status: "UP",
+  details: {
+    edition: "community",
+    version: "4.0.0"
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="jdbc">JDBC</h4>
+<div class="paragraph">
+<p>Among its <a href="https://docs.spring.io/spring-data/jdbc/docs/2.0.0.RELEASE/reference/html/#new-features.2-0-0">new features</a>, Spring Data JDBC 2.0 now quotes identifiers by default.
+This behaviour can be disabled by calling <code>setForceQuote(false)</code> on the <code>RelationalMappingContext</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="micrometer">Micrometer</h3>
+<div class="paragraph">
+<p>此版本升级到Millimeter 1.5，这带来了许多不推荐的情况：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Service Level Agreements 被重命名为 Service Level Objectives，边界表示为 <code>double</code> 而不是 <code>long</code>.</p>
+</li>
+<li>
+<p>Wavefront metrics 现在通过 <code>WavefrontSender</code> 来暴露.
+因此，读取和连接超时属性不再有效。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jackson">Jackson</h3>
+<div class="paragraph">
+<p>此版本升级到jackson2.11，其中包括对 <code>java.util.Date</code> and <code>java.util.Calendar</code> 默认格式的更改. 请参阅 <a href="https://github.com/FasterXML/jackson-databind/issues/2643">FasterXML/jackson-databind#2643</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-cloud-connectors-starter-被移除">Spring Cloud Connectors starter 被移除</h3>
+<div class="paragraph">
+<p><code>Spring Cloud Connectors starter</code>  <a href="https://github.com/spring-projects/spring-boot/issues/17877">deprecated in 2.2 in favor of Java CFEnv</a>.
+这个 starter 已删除, Spring Cloud Connectors 依赖项不再包含在Spring Boot的托管依赖项中.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="内置-servlet-web-server-线程配置">内置 Servlet web server 线程配置</h3>
+<div class="paragraph">
+<p>用于配置嵌入式Servlet web服务器使用的线程的配置属性 (Jetty, Tomcat, and Undertow) 已转移到专用的 <code>threads</code> 组.<br>
+这些属性目前可以在 <code>server.jetty.threads</code>, <code>server.tomcat.threads</code>, and <code>server.undertow.threads</code> 中找到.<br>
+旧属性保留为不推荐使用的形式，以便于迁移。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="对默认错误页内容的更改">对默认错误页内容的更改</h3>
+<div class="paragraph">
+<p>默认情况下，错误消息和任何绑定错误不再包含在默认错误页中。 这降低了向客户泄露信息的风险。
+<code>server.error.include-message</code> and <code>server.error.include-binding-errors</code> 可以用来分别控制消息的包含和绑定错误.
+支持的值为 <code>always</code>, <code>on-param</code>, and <code>never</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="磁盘空间运行状况指示器">磁盘空间运行状况指示器</h3>
+<div class="paragraph">
+<p>The auto-configured disk space health indicator no longer requires the path that is monitored to exist when the application starts.
+A non-existent path will be detected as having zero usable space resulting in a down response from the indicator.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="developmentonly-gradle-configuration-的自动创建"><code>developmentOnly</code> Gradle configuration 的自动创建</h3>
+<div class="paragraph">
+<p>The <code>developmentOnly</code> 配置主要用于在springboot的DevTools上声明依赖关系，现在由springboot的Gradle插件自动创建.
+任何 <code>developmentOnly</code> 的手动配置都应该从Gradle脚本中删除，因为它的存在将导致build 失败，并显示消息 <code>cannot add a configuration with name“developmentOnly</code> ，因为该名称的配置已经存在`</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="移除maven-site-plugin-management">移除Maven Site Plugin management</h3>
+<div class="paragraph">
+<p>Spring Boot&#8217;s 构建 不再使用 site plugin (<code>maven-site-plugin</code>) 并且它的插件管理已被删除.
+如果你依赖 Spring Boot 的版本管理，你应该添加你自己的插件管理.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="移除-maven-exec-plugin-自定义配置">移除 Maven Exec Plugin 自定义配置</h3>
+<div class="paragraph">
+<p>如果你继承自 <code>spring-boot-starter-parent</code>, 它不用再配置 Maven&#8217;s exec plugin (<code>exec-maven-plugin</code>) 用 <code>start-class</code> 去设置 main class . 如果你依赖那个, 您可以按如下方式恢复该行为:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;plugin&gt;
+   &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+   &lt;artifactId&gt;exec-maven-plugin&lt;/artifactId&gt;
+   &lt;configuration&gt;
+       &lt;mainClass&gt;${start-class}&lt;/mainClass&gt;
+   &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="applicationcontextrunner-默认禁用-bean-overriding">ApplicationContextRunner 默认禁用 bean overriding</h3>
+<div class="paragraph">
+<p>为了与`SpringApplication`保持一致, <code>ApplicationContextRunner</code> 现在默认禁用 bean 覆盖.<br>
+如果您需要使用 bean 覆盖进行测试, <code>withAllowBeanDefinitionOverriding</code> 可以用来启用它.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="激活多个配置文件-activeprofiles">激活多个配置文件 <code>@ActiveProfiles</code></h3>
+<div class="paragraph">
+<p><code>@ActiveProfiles</code> 注释现在支持包含逗号的配置文件名称.<br>
+这意味着像 <code>@ActiveProfiles("p1,p2")</code> 这样的注释会将提供的值 <code>p1,p2</code> 视为单个名称的配置文件。<br>
+要激活多个配置文件，请将每个配置文件名称作为单独的值提供，如`@ActiveProfiles({"p1","p2"})`。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="webserverinitializedevent-and-contextrefreshedevent">WebServerInitializedEvent and ContextRefreshedEvent</h3>
+<div class="paragraph">
+<p>作为引入对 <a href="#graceful-shutdown">graceful shutdown</a> 支持的一部分，Web 服务器初始化现在在应用程序上下文刷新处理结束时执行，而不是在刷新处理完成后立即执行.
+因此，<code>WebServerInitializedEvent</code> 现在在 <code>ContextRefreshedEvent</code> 之前发布。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-boot-2-2-的弃用">Spring Boot 2.2 的弃用</h3>
+<div class="paragraph">
+<p>Spring Boot 2.2 中弃用的大多数类、方法和属性已在此版本中删除。<br>
+请确保在升级之前您没有调用已弃用的方法。</p>
+</div>
+<div class="sect3">
+<h4 id="configuration-properties">Configuration properties</h4>
+<div class="paragraph">
+<p>许多属性已被重命名或弃用。您可以使用 <code>spring-boot-properties-migrator</code> 模块来识别这些属性。<br>
+一旦作为依赖项添加到您的项目中，这不仅会在启动时分析您的应用程序环境并打印诊断信息，还会在运行时为您临时迁移属性。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-properties-migrator&lt;/artifactId&gt;
+	&lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>runtime("org.springframework.boot:spring-boot-properties-migrator")</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+完成迁移后，请确保从项目的依赖项中删除此模块。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-14-support">Java 14 support</h3>
+<div class="paragraph">
+<p>Spring Boot 2.3 添加了对 Java 14 的支持。也支持 Java 8 和 11。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="通过-cloud-native-buildpacks-构建-oci-镜像">通过 Cloud Native Buildpacks 构建 OCI 镜像</h3>
+<div class="paragraph">
+<p>支持通过使用 <a href="https://buildpacks.io">Cloud Native Buildpacks</a>的方式  {docs}/spring-boot-features.html#building-docker-images[构建docker镜像] 并已通过以下方式添加到 Maven 和 Gradle 插件中  {maven-docs}/#build-image[<code>spring-boot:build-image</code> goal] , {maven-docs}/#build-image[<code>bootBuildImage</code> task].
+<a href="https://paketo.io/">Paketo</a> 默认情况下使用 Java buildpack 来创建镜像.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="构建jar-层以包含在-docker-映像中">构建jar 层以包含在 Docker 映像中</h3>
+<div class="paragraph">
+<p>对构建内容分层的 jar 文件的支持已添加到 {maven-docs}/#repackage-layers[Maven] 和 {gradle-docs}/#packaging-layered-jars[Gradle] plugins.<br>
+分层根据 jar 内容的更改频率将它们分离。<br>
+这种分离允许构建更高效的 Docker 镜像。<br>
+未更改的现有 分层可以重复使用，并将已更改的分层放置在顶部。<br></p>
+</div>
+<div class="paragraph">
+<p>根据您的应用程序，您可能希望调整分层的创建方式并添加新分层。<br>
+这可以使用如何将 jar 分成层以及这些层的顺序的描述的配置来完成。</p>
+</div>
+<div class="paragraph">
+<p>创建 jar 分层时, 默认情况下， <code>spring-boot-jarmode-layertools</code> jar 将作为依赖项添加到您的 jar 中(这可以通过构建配置禁用).<br>
+使用类路径上的这个 jar，您可以在特殊模式下启动您的应用程序，该模式允许引导代码运行与您的应用程序完全不同的内容，例如，提取分层里的的内容。<br>
+要查看可用选项，请使用 <code>-Djarmode=layertools</code> 启动一个 fat jar，如下例所示：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ java -Djarmode=layertools -jar my-app.jar
+Usage:
+  java -Djarmode=layertools -jar my-app.jar
+
+Available commands:
+  list     List layers from the jar that can be extracted
+  extract  Extracts layers from the jar for image creation
+  help     Help about any command</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="分解-fat-jar-时可预测的类路径排序">分解 Fat jar 时可预测的类路径排序</h3>
+<div class="paragraph">
+<p>使用 Maven 和 Gradle 构建的 Fat jars 现在包含一个索引文件。<br>
+jar 分解时，这个索引文件是用来保证classpath 的顺序和直接执行jar 时一样的。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="支持配置文件的通配符位置">支持配置文件的通配符位置</h3>
+<div class="paragraph">
+<p>Spring Boot 现在在加载配置文件时支持通配符位置。<br>
+默认情况下，支持 jar 外部的 <code>config/*/</code> 通配符位置。<br>
+当有多个配置属性源时，这在 Kubernetes 等环境中很有用。 例如，如果你有单独的 mysql 和 redis 配置，如果你把它们放在 <code>config</code> 中，即 <code>config/mysql/application.properties</code> 和 <code>config/redis/application.properties</code>，它们可以被自动选择。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graceful-shutdown">优雅停止</h3>
+<div class="paragraph">
+<p>所有四个嵌入式 Web 服务器都支持优雅停止 (Jetty, Reactor Netty, Tomcat, and Undertow) 以及反应式和基于 Servlet 的 Web 应用程序.<br>
+启用时使用 <code>server.shutdown=graceful</code>, 关机时, Web 服务器将不再允许新请求并且将等待关机期间的请求完成.可以使用配置 <code>spring.lifecycle.timeout-per-shutdown-phase</code> 来配置这个等待时间.参阅  {docs}/spring-boot-features.html#boot-features-graceful-shutdown[优雅关机] 获取更多详情</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="liveness-readiness-探针">Liveness, Readiness 探针</h3>
+<div class="paragraph">
+<p>Spring Boot 现在内置了关于应用程序可用性的知识，跟踪它是否处于活动状态以及是否准备好处理流量。 health endpoint can be configured to expose the liveness (<code>/actuator/health/liveness</code>) and readiness (<code>/actuator/health/readiness</code>) of you application with the <code>management.health.probes.enabled=true</code> configuration property.
+在 Kubernetes 上运行时，这是自动完成的。</p>
+</div>
+<div class="paragraph">
+<p>要了解有关此功能的更多信息，请查看 <a href="https://spring.io/blog/2020/03/25/liveness-and-readiness-probes-with-spring-boot">liveness-and-readiness-probes-with-spring-boot</a>以及它链接到的参考文档.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-data-neumann-2">Spring Data Neumann</h3>
+<div class="paragraph">
+<p>Spring Boot 2.3 附带一个 Spring Data 的 major 版本。请参阅 <a href="https://spring.io/blog/2020/05/12/spring-data-neumann-goes-ga">Spring Data Neumann goes GA</a> 了解更多。</p>
+</div>
+<div class="sect3">
+<h4 id="r2dbc-support">R2DBC support</h4>
+<div class="paragraph">
+<p>当 r2dbc 在类路径上时，<code>ConnectionFactory</code> 自动配置为与 jdbc`DataSource` 类似的安排。<br>
+如果 Spring Data 在类路径上，存储库也会像往常一样自动配置。</p>
+</div>
+<div class="paragraph">
+<p>R2DBC 支持还为连接工厂添加了一个健康指标、<code>ConnectionPool</code> 的指标和一个测试切片`@DataR2dbcTest`。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="webflux-应用程序的可配置基本路径">WebFlux 应用程序的可配置基本路径</h3>
+<div class="paragraph">
+<p>现在可以配置 WebFlux 应用程序的所有 Web 处理程序的基本路径。使用 <code>spring.webflux.base-path</code> 属性来做到这一点。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="web-应用程序中的date-time转换">Web 应用程序中的date-time转换</h3>
+<div class="paragraph">
+<p>Web 应用程序中时间和日期时间值的转换现在可以通过 application properties 进行配置。<br>
+这补充了对格式化日期值的现有支持。<br>
+mvc 中 ,  properties 分别是 <code>spring.mvc.format.time</code>, <code>spring.mvc.format.date-time</code> .<br>
+WebFlux 中, properties 分别是 <code>spring.webflux.format.time</code> and <code>spring.webflux.format.date-time</code> .</p>
+</div>
+<div class="paragraph">
+<p>除了采取典型的格式化模式, 用于配置dates, times,  date-times格式的属性现在支持值`iso`.<br>
+设置后，将应用相应的ISO-8601格式。<br>
+以下属性支持 <code>iso</code> 值：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>spring.mvc.format.date</code></p>
+</li>
+<li>
+<p><code>spring.mvc.format.date-time</code></p>
+</li>
+<li>
+<p><code>spring.mvc.format.time</code></p>
+</li>
+<li>
+<p><code>spring.webflux.format.date</code></p>
+</li>
+<li>
+<p><code>spring.webflux.format.date-time</code></p>
+</li>
+<li>
+<p><code>spring.webflux.format.time</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="actuator-改进">Actuator 改进</h3>
+<div class="sect3">
+<h4 id="配置属性的端到端跟踪">配置属性的端到端跟踪</h4>
+<div class="paragraph">
+<p>截至 <a href="https://github.com/spring-projects/spring-boot/issues/17886">#17886</a>, <code>/actuator/configprops</code> endpoint 提供有关配置属性的端到端信息，使其行为与环境 endpoint保持一致 .<br>
+例如，添加 <code>server.server-header=Spring Boot</code> 在 <code>application.properties</code> 中,  endpoint 将向您展示以下内容:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>"serverHeader": {
+  "origin": "class path resource [application.properties]:2:22",
+  "value": "Spring Boot"
+},</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="metrics-endpoint-的名词将按字母排序">metrics endpoint 的名词将按字母排序</h4>
+<div class="paragraph">
+<p><code>actuator/metrics</code> 中可用的度量名称现在按字母顺序排列，这样更容易找到您要查找的内容。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="query-less-datasource-health-indicator">Query-less datasource health indicator</h4>
+<div class="paragraph">
+<p>在没有验证查询的情况下, <code>HealthIndicator</code> 数据源将处于 query-less mode, 使用 <code>java.sql.Connection#isValid</code> 验证其连接.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="为webmvc和webflux度量提供额外的tag">为webmvc和WebFlux度量提供额外的tag</h4>
+<div class="paragraph">
+<p>除了默认情况下为MVC和WebFlux提供的tag之外，还可以使用其他tag。<br>
+对于MVC，可以使用 <code>WebMvcTagsContributor</code> <code>@Bean</code>，对于WebFlux 使用 <code>WebFluxTagsContributor</code> @Bean`进行贡献。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="wavefronts-sender-自动配置">Wavefront&#8217;s Sender 自动配置</h4>
+<div class="paragraph">
+<p>Wavefront的自动配置已更新为定义一个 <code>WavefrontSender</code> bean。<br>
+这允许在单个连接上发布Wavefront的度量和轨迹。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="native-kafka-metrics">Native Kafka metrics</h4>
+<div class="paragraph">
+<p>Kafka度量是为自动配置的 <code>ConsumerFactory</code> 和 <code>ProducerFactory</code> 创建的消费者和生产者本地发布的。
+要为自定义工厂创建的组件生成度量，应添加侦听器，如以下示例所示：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">factory.addListener(new MicrometerConsumerListener&lt;&gt;(meterRegistry));</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+如果您启用JMX支持的唯一目的是收集Kafka度量，则不再需要这样做。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rsocket-对-spring-integration-的支持">RSocket 对 Spring Integration 的支持</h3>
+<div class="paragraph">
+<p>springboot现在为Spring Integration的RSocket支持提供了自动配置。</p>
+</div>
+<div class="paragraph">
+<p>如果 <code>spring-integration-rsocket</code> 为可用的, 开发人员可以使用 <code>"spring.rsocket.server.*"</code> properties 并且 让它使用 <code>IntegrationRSocketEndpoint</code> or <code>RSocketOutboundGateway</code> 组件去处理 RSocket 消息.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="绑定到-period">绑定到 <code>Period</code></h3>
+<div class="paragraph">
+<p>如果一个属性需要表达一段时间，你可以使用`java.time.Period` 属性来实现。<br>
+与 <code>Duration</code> 支持类似，支持一种简单的格式（比如使用10w表达10周）在元数据配置也支持这样做。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="web服务切片测试">Web服务切片测试</h3>
+<div class="paragraph">
+<p>添加了注释 <code>@WebServiceClientTest</code> 以支持Web服务的“切片”测试。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="依赖项升级">依赖项升级</h3>
+<div class="paragraph">
+<p>springboot2.3迁移到几个Spring项目的新版本:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Spring Data Neumann</p>
+</li>
+<li>
+<p>Spring HATEOAS 1.1</p>
+</li>
+<li>
+<p>Spring Integration 5.3</p>
+</li>
+<li>
+<p>Spring Kafka 2.5</p>
+</li>
+<li>
+<p>Spring Security 5.3</p>
+</li>
+<li>
+<p>Spring Session Dragonfruit</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相同。
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>许多第三方依赖项也已更新，其中一些更值得注意的是：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Artemis 2.12</p>
+</li>
+<li>
+<p>AssertJ 3.16</p>
+</li>
+<li>
+<p>Cassandra Driver 4.6</p>
+</li>
+<li>
+<p>Couchbase Client 3.0</p>
+</li>
+<li>
+<p>Elasticsearch 7.6</p>
+</li>
+<li>
+<p>Flyway 6.4</p>
+</li>
+<li>
+<p>Hibernate Validator 6.1</p>
+</li>
+<li>
+<p>Infinispan 10.1</p>
+</li>
+<li>
+<p>Jackson 2.11</p>
+</li>
+<li>
+<p>JUnit Jupiter 5.6</p>
+</li>
+<li>
+<p>Kafka 2.5</p>
+</li>
+<li>
+<p>Kotlin 1.3.72</p>
+</li>
+<li>
+<p>Lettuce 5.3</p>
+</li>
+<li>
+<p>Micrometer 1.5</p>
+</li>
+<li>
+<p>Mockito 3.3</p>
+</li>
+<li>
+<p>MongoDB 4.0</p>
+</li>
+<li>
+<p>QueryDSL 4.3</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="其他">其他</h3>
+<div class="paragraph">
+<p>除了上面列出的更改之外，还有许多小的调整和改进，包括：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在我们的JPA支持中更新了配置默认值，以改进测试体验, see <a href="https://github.com/spring-projects/spring-boot/issues/16230">#16230</a> , <a href="https://github.com/spring-projects/spring-boot/issues/16747">#16747</a>.</p>
+</li>
+<li>
+<p><code>spring-boot-autoconfigure-processor</code> 的输出现在是可重复的，这使得它在Gradle的构建缓存中工作得更好.</p>
+</li>
+<li>
+<p>Couchbase的类型键可以通过`spring.data.Couchbase.type-key配置`.</p>
+</li>
+<li>
+<p>OAuth2参数绑定现在可与 <code>@WebMvcTest</code> 一起使用`.</p>
+</li>
+<li>
+<p>Jetty的后备队列可以使用`server.Jetty.max-queue-capacity&#8217;配置`.</p>
+</li>
+<li>
+<p>Liquibase的tag支持可以使用`spring.Liquibase.tag配置`.现在可以通过 <code>spring.liquibase.clear-checksums</code> 属性清除当前变更日志中的所有校验。</p>
+</li>
+<li>
+<p>Gradle元数据现在已发布.</p>
+</li>
+<li>
+<p><code>DataSourceBuilder</code> 可以被配置为 <code>SimpleDriverDataSource</code>.</p>
+</li>
+<li>
+<p>`DataSource`metrics现在有了一个描述。</p>
+</li>
+<li>
+<p>可以使用 <code>spring.main.cloud-platform</code> 覆盖云平台的自动检测。</p>
+</li>
+<li>
+<p>当请求具有principal时，现在支持来自启动器的HTTP端点的响应缓存。</p>
+</li>
+<li>
+<p>Maven 对创建 fat jar 的支持现在遵从 <code>project.build.outputTimestamp</code> 属性，允许其输出可重现  <a href="https://maven.apache.org/guides/mini/guide-reproducible-builds.html">reproducible</a>.</p>
+</li>
+<li>
+<p>The Javadoc 的 Maven plugin is {root-docs}/maven-plugin/api/[now published].</p>
+</li>
+<li>
+<p>自定义接口, <code>RSocketMessageHandlerCustomizer</code>,用于自定义自动配置的`RSocketMessageHandler`,</p>
+</li>
+<li>
+<p>自定义接口, <code>DefaultCookieSerializerCustomizer</code>, 用于自定义自动配置的 <code>DefaultCookieSerializer</code>.</p>
+</li>
+<li>
+<p>自动配置默认servlet 现在可以通过设置 <code>server.servlet.register-default-servlet</code> 为 <code>false</code> 来禁用.</p>
+</li>
+<li>
+<p>新的条件, <code>@ConditionalOnWarDeployment</code> 已经添加
+它可用于检测应用程序何时已作为war部署到Servlet容器或应用程序服务器。</p>
+</li>
+<li>
+<p>properties migrator处理所有不推荐使用的属性，而不仅仅是那些具有错误级别的属性。</p>
+</li>
+<li>
+<p>当销毁war的ServletContext时，JDBC驱动程序被取消注册。</p>
+</li>
+<li>
+<p>Redis的sentinel密码可以使用 <code>spring.redis.sentinel.password</code> 进行配置。</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="springboot2-3中的弃用">SpringBoot2.3中的弃用</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>spring.http.<strong></code> 属性已移动到 <code>server.servlet.encoding.</strong></code>, <code>spring.mvc.<strong></code> and <code>spring.codec.</strong></code>, 参阅 <a href="https://github.com/spring-projects/spring-boot/issues/18827">#18827</a>.</p>
+</li>
+<li>
+<p><code>SpringApplication#refresh(ApplicationContext)</code> 已被弃用而取代他的是  <code>SpringApplication#refresh(ConfigurableApplicationContext)</code>.</p>
+</li>
+<li>
+<p><code>ON_TRACE_PARAM</code> 用于 <code>server.error.include-stacktrace</code> 属性已重命名为 <code>ON_PARAM</code>.</p>
+</li>
+<li>
+<p><code>org.springframework.boot.autoconfigure.elasticsearch.rest.RestClientBuilderCustomizer</code> 已被弃用而取代他的是 <code>org.springframework.boot.autoconfigure.elasticsearch.RestClientBuilderCustomizer</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="new-and-noteworthy">New and Noteworthy</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+参阅 <a href="Spring-Boot-2.3.0-Configuration-Changelog.html#v2.3-configuration-changelog">Configuration properties change between <code>2.3.6.RELEASE</code> and <code>2.4.0</code></a> 查看有关配置更改的完整概述。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0-SNAPSHOT<br>
+Last updated 2021-07-13 10:15:51 UTC
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Unresolved directive in v2.4.adoc - include::authors.adoc[]">
+<title>v2.4</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body id="v2.4" class="article toc2 toc-left">
+<div id="header">
+<h1>v2.4</h1>
+<div class="details">
+<span id="author" class="author">Unresolved directive in v2.4.adoc - include::authors.adoc[]</span><br>
+<span id="revnumber">version 1.0-SNAPSHOT,</span>
+<span id="revdate">Unresolved directive in v2.4.adoc - include</span>
+<br><span id="revremark">:attributes.adoc[]</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#环境">环境</a></li>
+<li><a href="#重大更新">重大更新</a>
+<ul class="sectlevel2">
+<li><a href="#版本控制方案更改">版本控制方案更改</a></li>
+<li><a href="#junit-5s-vintage-engine-从spring-boot-starter-test-中删除">JUnit 5&#8217;s Vintage Engine 从`spring-boot-starter-test` 中删除</a></li>
+<li><a href="#配置文件处理-application-properties-and-yaml-files">配置文件处理 (application properties and YAML files)</a></li>
+<li><a href="#config-data-imports">Config Data Imports</a></li>
+<li><a href="#嵌入式数据库检测">嵌入式数据库检测</a></li>
+<li><a href="#用户定义的-monogoclientsettings不再自定义">用户定义的 MonogoClientSettings不再自定义</a></li>
+<li><a href="#logback-配置-properties">Logback 配置 Properties</a></li>
+<li><a href="#默认servlet注册">默认Servlet注册</a></li>
+<li><a href="#默认情况下http跟踪不再包括cookie头">默认情况下，HTTP跟踪不再包括cookie头</a></li>
+<li><a href="#undertow-重定向path">Undertow 重定向Path</a></li>
+<li><a href="#neo4j">Neo4j</a></li>
+<li><a href="#hazelcast-4">Hazelcast 4</a></li>
+<li><a href="#elasticsearch-restclient">Elasticsearch RestClient</a></li>
+<li><a href="#r2dbc">R2DBC</a></li>
+<li><a href="#flyway">Flyway</a></li>
+<li><a href="#移除flatten-maven-plugin的插件管理">移除Flatten Maven Plugin的插件管理</a></li>
+<li><a href="#exec-maven-plugin-版本管理"><code>exec-maven-plugin</code> 版本管理</a></li>
+<li><a href="#spring-boot-gradle-插件">Spring Boot Gradle 插件</a></li>
+<li><a href="#集成测试中的-metrics-export">集成测试中的 Metrics export</a></li>
+<li><a href="#spring-boot-2-2-到-2-3的弃用策略">Spring Boot 2.2 到 2.3的弃用策略</a></li>
+<li><a href="#spring-framework-5-3">Spring Framework 5.3</a></li>
+<li><a href="#spring-data-2020-0">Spring Data 2020.0</a></li>
+<li><a href="#java-15-support">Java 15 Support</a></li>
+<li><a href="#custom-property-name-support">Custom property name support</a></li>
+<li><a href="#默认启用分层-jar">默认启用分层 jar</a></li>
+<li><a href="#导入额外应用程序配置">导入额外应用程序配置</a></li>
+<li><a href="#卷挂载配置目录树">卷挂载配置目录树</a></li>
+<li><a href="#导入没有文件扩展名的配置文件">导入没有文件扩展名的配置文件</a></li>
+<li><a href="#origin-chains">Origin Chains</a></li>
+<li><a href="#startup-endpoint">Startup Endpoint</a></li>
+<li><a href="#dockerbuildpack-支持">Docker/Buildpack 支持</a></li>
+<li><a href="#maven-buildpack-支持">Maven Buildpack 支持</a></li>
+<li><a href="#redis-cache-metrics">Redis Cache Metrics</a></li>
+<li><a href="#web-configuration-properties">Web Configuration Properties</a></li>
+<li><a href="#register-weblisteners-允许他们注册-servlet-和过滤器">Register @WebListeners-允许他们注册 servlet 和过滤器</a></li>
+<li><a href="#cassandra-的切片测试">Cassandra 的切片测试</a></li>
+<li><a href="#flyway-7">Flyway 7</a></li>
+<li><a href="#h2-控制台的-web-管理员密码的配置属性">H2 控制台的 web 管理员密码的配置属性</a></li>
+<li><a href="#cqlsession-based-health-indicators-for-apache-cassandra">CqlSession-Based Health Indicators for Apache Cassandra</a></li>
+<li><a href="#使用-prometheus-过滤抓取">使用 Prometheus 过滤抓取</a></li>
+<li><a href="#spring-security-saml-配置属性">Spring Security SAML 配置属性</a></li>
+<li><a href="#故障分析器">故障分析器</a></li>
+<li><a href="#jar-优化">Jar 优化</a></li>
+<li><a href="#其它">其它</a></li>
+<li><a href="#依赖项升级">依赖项升级</a></li>
+</ul>
+</li>
+<li><a href="#spring-boot-2-4中的弃用">Spring Boot 2.4中的弃用</a></li>
+<li><a href="#new-and-noteworthy">New and Noteworthy</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="环境">环境</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><span class="icon"><i class="fa fa-tags"></i></span> 6 (6.3 or later). 5.6.x is also supported but in a deprecated form</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-tags"></i></span>  Spring Framework 5.3.8 or above is also required</p>
+</li>
+<li>
+<p><span class="icon"><i class="fa fa-tags"></i></span> jdk8&#8230;&#8203;14</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="重大更新">重大更新</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="版本控制方案更改">版本控制方案更改</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+从2.4开始, Spring Boot 采用 <a href="https://spring.io/blog/2020/04/30/updates-to-spring-versions">新的Spring版本控制方案</a> - 这意味着您应该在 <code>build.gradle</code>/<code>pom.xml</code> 文件中 将 <code>2.3.5.RELEASE</code> 更新为 <code>2.4.0</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="junit-5s-vintage-engine-从spring-boot-starter-test-中删除">JUnit 5&#8217;s Vintage Engine 从`spring-boot-starter-test` 中删除</h3>
+<div class="paragraph">
+<p>如果您升级到springboot2.4并看到JUnit类的测试编译错误，例如`org.junit.Test`, 这可能是因为JUnit5的老式引擎已经从 <code>spring-boot-starter-test</code> 中移除.
+Vintage 引擎允许JUnit4编写的测试由JUnit5运行.<br>
+如果不想将测试迁移到JUnit 5并希望继续使用JUnit 4，请在Vintage引擎上添加一个依赖项，如以下Maven示例所示：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.junit.vintage&lt;/groupId&gt;
+    &lt;artifactId&gt;junit-vintage-engine&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+    &lt;exclusions&gt;
+        &lt;exclusion&gt;
+            &lt;groupId&gt;org.hamcrest&lt;/groupId&gt;
+            &lt;artifactId&gt;hamcrest-core&lt;/artifactId&gt;
+        &lt;/exclusion&gt;
+    &lt;/exclusions&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>如果您使用的是Gradle，则等效配置如以下示例所示：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">testImplementation("org.junit.vintage:junit-vintage-engine") {
+    exclude group: "org.hamcrest", module: "hamcrest-core"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="配置文件处理-application-properties-and-yaml-files">配置文件处理 (application properties and YAML files)</h3>
+<div class="paragraph">
+<p>SpringBoot2.4改变了处理 <code>application.properties</code> 和`application.yml` 文件的方式。<br>
+如果您只有一个简单的 <code>application.properties</code> 或 <code>application.yml</code> 文件，那么您的升级应该是无缝的。<br>
+但是，如果您有更复杂的设置（with profile specific properties, or profile activation properties），如果你想使用新特性，则可能需要做出 <a href="#v2.4-config-data-migration-guide">v2.4-config-data-migration-guide</a></p>
+</div>
+<div class="paragraph">
+<p>如果您只想使用与SpringBoot2.3兼容的逻辑，可以在 <code>application.properties</code> 或 <code>application.yml</code> 文件中将 <code>spring.config.use-legacy-processing”属性设置为 `true</code>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="config-data-imports">Config Data Imports</h3>
+<div class="paragraph">
+<p>Config 位置 通过 <code>spring.config.location</code> 和 <code>spring.config.import</code>(在此版本中引入) 来指定 .如果文件或文件夹不存在，将不再自动失败.<br>
+如果您想导入一个位置，但如果找不到它，您不介意跳过它，现在应该在它前面加上 <code>optional:</code>。</p>
+</div>
+<div class="paragraph">
+<p>For example, <code>spring.config.location=optional:/etc/config/application.properties`将 从 `/etc/config/</code> 位置导入一个 <code>application.properties</code> 文件，前提是它存在 ， 如果没有，就跳过它。</p>
+</div>
+<div class="paragraph">
+<p>如果要将所有位置视为可选位置，可以在 <code>SpringApplication.setDefaultProperties(&#8230;&#8203;)</code> 设置 <code>spring.config.on-not-found=ignore</code>  或者使用systemenvironment变量。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="嵌入式数据库检测">嵌入式数据库检测</h3>
+<div class="paragraph">
+<p>嵌入式数据库逻辑已被细化，以将数据库视为仅嵌入在内存中的数据库。</p>
+</div>
+<div class="paragraph">
+<p>如果在H2、HSQL和Derby中使用基于文件的持久性或服务器模式，则此更改会产生两种后果：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sa</code> 用户名不再设置.
+如果你依赖这种行为，你就需要设置 <code>spring.datasource.username=sa</code> 在您的配置中.</p>
+</li>
+<li>
+<p>这样的数据库将不再在启动时初始化，因为它们不再被认为是嵌入式的。 您可以像往常一样使用 <code>spring.datasource.initialization-mode</code> 设置.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="用户定义的-monogoclientsettings不再自定义">用户定义的 MonogoClientSettings不再自定义</h3>
+<div class="paragraph">
+<p>如果您正在提供自己的 <code>MongoClientSettings</code> bean，则自动配置不再对其进行自定义。<br>
+如果您依赖于这种行为，特别是结合嵌入式Mongo，请考虑将定制器应用到您自己的bean中，如下面的示例所示：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties properties, Environment environment) {
+   MongoClientSettings.Builder builder = MongoClientSettings.builder();
+   //...
+   new MongoPropertiesClientSettingsBuilderCustomizer(properties, environment).customize(builder);
+   return builder.build();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logback-配置-properties">Logback 配置 Properties</h3>
+<div class="paragraph">
+<p>已重命名特定于Logback的日志属性，以反映它们特定于Logback的事实。以前的名称已被弃用。</p>
+</div>
+<div class="paragraph">
+<p>以下Spring引导属性已更改:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>logging.pattern.rolling-file-name</code> &#8594;
+<code>logging.logback.rollingpolicy.file-name-pattern</code></p>
+</li>
+<li>
+<p><code>logging.file.clean-history-on-start</code> &#8594;
+<code>logging.logback.rollingpolicy.clean-history-on-start</code></p>
+</li>
+<li>
+<p><code>logging.file.max-size</code> &#8594;
+<code>logging.logback.rollingpolicy.max-file-size</code></p>
+</li>
+<li>
+<p><code>logging.file.total-size-cap</code> &#8594;
+<code>logging.logback.rollingpolicy.total-size-cap</code></p>
+</li>
+<li>
+<p><code>logging.file.max-history</code> &#8594;
+<code>logging.logback.rollingpolicy.max-history</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>以及它们映射到的系统环境属性:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ROLLING_FILE_NAME_PATTERN</code> &#8594;
+<code>LOGBACK_ROLLINGPOLICY_FILE_NAME_PATTERN</code></p>
+</li>
+<li>
+<p><code>LOG_FILE_CLEAN_HISTORY_ON_START</code> &#8594;
+<code>LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START</code></p>
+</li>
+<li>
+<p><code>LOG_FILE_MAX_SIZE</code> &#8594;
+<code>LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE</code></p>
+</li>
+<li>
+<p><code>LOG_FILE_TOTAL_SIZE_CAP</code> &#8594;
+<code>LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP</code></p>
+</li>
+<li>
+<p><code>LOG_FILE_MAX_HISTORY</code> &#8594;
+<code>LOGBACK_ROLLINGPOLICY_MAX_HISTORY</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="默认servlet注册">默认Servlet注册</h3>
+<div class="paragraph">
+<p>springboot2.4将不再注册servlet容器提供的 <code>DefaultServlet</code> 。 在大多数应用程序中，它没有被使用，因为spring mvc的 <code>DispatcherServlet</code> 是唯一需要的servlet。</p>
+</div>
+<div class="paragraph">
+<p>如果您发现仍然需要默认servlet，可以将 <code>server.servlet.register default servlet</code> 设置为 <code>true</code>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="默认情况下http跟踪不再包括cookie头">默认情况下，HTTP跟踪不再包括cookie头</h3>
+<div class="paragraph">
+<p>`默认情况下，HTTP跟踪中不再包括Cookie`请求头和`Set Cookie`响应头。<br></p>
+</div>
+<div class="paragraph">
+<p>要恢复SpringBoot2.3的行为，请将 <code>management.trace.http.include</code> 设置为 <code>cookies，errors，request headers，response headers</code> 。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undertow-重定向path">Undertow 重定向Path</h3>
+<div class="paragraph">
+<p>默认情况下，在转发请求时，Undertow保留原始请求URL。<br>
+此版本将覆盖Undertow默认值以符合Servlet规范。<br>
+通过将属性 <code>server.undertow.preserve-path-on-forward</code> 设置为 <code>true</code>，可以恢复以前的Undertow默认行为。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="neo4j">Neo4j</h3>
+<div class="paragraph">
+<p>这个版本带来了对Neo4j支持的重大改进。</p>
+</div>
+<div class="paragraph">
+<p>`spring.data.neo4j.*`中的一些属性已经被删除，对neo4j OGM的支持也被删除。</p>
+</div>
+<div class="paragraph">
+<p>Neo4j驱动程序的配置是通过 `spring.Neo4j.`名称空间完成的，尽管来自`data`名称空间的URI和基本身份验证仍然以不推荐的方式受到支持。</p>
+</div>
+<div class="paragraph">
+<p>更多关于这一变化的细节，以及Spring Data Neo4J 6带来了什么, <a href="https://docs.spring.io/spring-data/neo4j/docs/6.0.x/reference/html/">check the documentation</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="hazelcast-4">Hazelcast 4</h3>
+<div class="paragraph">
+<p>此版本升级到Hazelcast 4，同时保持与Hazelcast '3.2.x' 的兼容性。<br>
+如果您还没有准备好切换到Hazelcast 4，您可以在build使用`Hazelcast.version` 属性降级。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="elasticsearch-restclient">Elasticsearch RestClient</h3>
+<div class="paragraph">
+<p>low-level Elasticsearch <code>RestClient</code> bean 将不再由Spring Boot自动配置.<br>
+一个`RestHighLevelClient` bean 仍自动配置.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+大多数用户不需要使用低级客户端，也不应受到此更改的影响。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="r2dbc">R2DBC</h3>
+<div class="paragraph">
+<p>R2DBC的核心基础设施已经转移到Spring框架，并带有一个新的`Spring-R2DBC` 模块。<br>
+如果您正在使用此基础结构，请确保将不推荐使用的访问迁移到新的核心支持。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="flyway">Flyway</h3>
+<div class="paragraph">
+<p>Flyway 7 的升级包括对回调排序的  <a href="https://github.com/flyway/flyway/issues/2785">一些更改</a>。<br>
+对于依赖我们通过`@Order` 和`Ordered` 支持的注册订单的任何人来说，这将是一个重大变化。</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+如果您使用的是Flyway 5，请确保在升级到Spring Boot 2.4之前先升级到Flyway 6，因为Flyway只保留一个功能版本的架构升级。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="移除flatten-maven-plugin的插件管理">移除Flatten Maven Plugin的插件管理</h3>
+<div class="paragraph">
+<p>spring boot的构建不再使用flatte maven插件 (<code>flatten-maven-plugin</code>), 相应的插件管理已被移除.<br>
+如果您依赖于springboot的版本管理，那么您应该添加自己的插件管理。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exec-maven-plugin-版本管理"><code>exec-maven-plugin</code> 版本管理</h3>
+<div class="paragraph">
+<p><code>exec-maven-plugin</code> h版本管理已被移除.<br>
+如果您正在使用此插件，请确保在您自己的 <code>pluginManagement</code> 中指定一个版本。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-boot-gradle-插件">Spring Boot Gradle 插件</h3>
+<div class="paragraph">
+<p>Spring Boot Gradle 插件 <code>bootJar</code> 任务的 DSL 已更新，以便可以使用 <code>Property&lt;String&gt;</code> 配置 <code>mainClass</code>。<br></p>
+</div>
+<div class="paragraph">
+<p>如果当前使用 <code>mainClassName</code>，例如：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-gradle" data-lang="gradle">bootJar {
+	mainClassName 'com.example.ExampleApplication'
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>你应该更新为 <code>mainClass</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-gradle" data-lang="gradle">bootJar {
+	mainClass 'com.example.ExampleApplication'
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="集成测试中的-metrics-export">集成测试中的 Metrics export</h3>
+<div class="paragraph">
+<p><code>@SpringBootTest</code> 不再配置可用的监控系统，只提供内存中的 <code>MeterRegistry</code>。<br>
+如果您将指标作为集成测试的一部分导出，您可以将 <code>@AutoConfigureMetrics</code> 添加到您的测试中以恢复之前的行为。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-boot-2-2-到-2-3的弃用策略">Spring Boot 2.2 到 2.3的弃用策略</h3>
+<div class="paragraph">
+<p>为反映 Spring Bootrelease <a href="https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#release-compatibility">兼容性策略</a>，Spring Boot 2.2 中弃用的代码已在 Spring Boot 2.4 中删除。 Spring Boot 2.3 中弃用的代码仍然存在，并计划在 Spring Boot 2.5 中删除。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-framework-5-3">Spring Framework 5.3</h3>
+<div class="paragraph">
+<p>Spring Boot 2.4 使用 Spring Framework 5.3。<br>
+Spring Framework 5.3 <a href="https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-5.x">what&#8217;s new section</a> .</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-data-2020-0">Spring Data 2020.0</h3>
+<div class="paragraph">
+<p>Spring Boot 2.4 包含 Spring Data 发布系列的 2020.0 版（代号为 Ockham）。<br>
+参阅 <a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Ockham-%282020.0.0%29">Spring Data wiki</a> 。</p>
+</div>
+<div class="sect3">
+<h4 id="neo4j-2">Neo4j</h4>
+<div class="paragraph">
+<p>此版本支持反应式存储库，并依赖于 Neo4j 驱动程序的单独自动配置。 因此，现在可以在有或没有 Spring Data 的情况下使用 Neo4j。</p>
+</div>
+<div class="paragraph">
+<p>Neo4j 的健康检查使用驱动程序并且只要配置了 Neo4j 驱动程序就可用。</p>
+</div>
+<div class="paragraph">
+<p>如果你想在响应式访问中使用 <code>@Transactional</code>，你现在需要自己配置 <code>Neo4jReactiveTransactionManager</code> bean。</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean(ReactiveNeo4jRepositoryConfigurationExtension.DEFAULT_TRANSACTION_MANAGER_BEAN_NAME)
+public ReactiveTransactionManager reactiveTransactionManager(Driver driver,
+      ReactiveDatabaseSelectionProvider databaseNameProvider) {
+    return new ReactiveNeo4jTransactionManager(driver, databaseNameProvider);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="r2dbc-2">R2DBC</h4>
+<div class="paragraph">
+<p><code>R2dbcEntityTemplate</code> 可用于通过实体简化 Reactive R2DBC 的使用</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="java-15-support">Java 15 Support</h3>
+<div class="paragraph">
+<p>Spring Boot 2.4 现在完全支持（并针对）Java 15。支持的最低版本仍然是 Java 8。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="custom-property-name-support">Custom property name support</h3>
+<div class="paragraph">
+<p>当使用构造函数绑定时，属性的名称是从参数名称派生的。 如果您想使用 java 保留关键字，这可能是一个问题。对于这种情况，您现在可以使用 <code>@Name</code> 注释，例如：</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@ConfigurationProperties(prefix = "sample")
+@ConstructorBinding
+public class SampleConfigurationProperties {
+
+  private final String importValue;
+
+  public SampleConfigurationProperties(@Name("import") String importValue) {
+    this.importValue = importValue;
+  }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>上面的示例公开了一个 <code>sample.import</code> 属性。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="默认启用分层-jar">默认启用分层 jar</h3>
+<div class="paragraph">
+<p>此版本启用分层 jar 并默认包含 layertools。 这应该会提高使用开箱即用的构建包生成layer的效率，并让您在 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/reference/html/spring-boot-features.html#layering-docker-images">crafting custom <code>Dockerfile</code></a>  时受益于该功能。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="导入额外应用程序配置">导入额外应用程序配置</h3>
+<div class="paragraph">
+<p>只要你还没有将 <code>spring.config.use-legacy-processing</code> 设置为 <code>true</code>，你现在就可以直接从你的主 <code>application.properties</code> 或 <code>application.yml</code> 导入额外的属性和 yaml 文件。</p>
+</div>
+<div class="paragraph">
+<p>您可以使用 <code>spring.config.import</code> 属性来指定一个或多个应导入 Spring <code>Environment</code> 的附加配置文件。 参阅 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/reference/html/spring-boot-features.html#boot-features-external-config-files-importing">this section</a> .</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+我们已经发布了 <a href="https://spring.ioblog20200814config-file-processing-in-spring-boot-2-4">a short blog</a> 解释了我们进行这些更改的原因。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="卷挂载配置目录树">卷挂载配置目录树</h3>
+<div class="paragraph">
+<p><code>spring.config.import</code> 属性还可用于导入 Kubernetes 常用的配置树。配置树是提供键值对的另一种方式。每对都在自己的文件中声明，文件名构成属性键，文件内容提供值。</p>
+</div>
+<div class="paragraph">
+<p>完整的例子, 请阅读 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/reference/html/spring-boot-features.html#boot-features-external-config-files-configtree">updated reference documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>默认情况下，从配置树加载的属性会修剪尾随换行符。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="导入没有文件扩展名的配置文件">导入没有文件扩展名的配置文件</h3>
+<div class="paragraph">
+<p>某些云平台只允许您批量挂载没有文件扩展名的文件。如果您有这样的约束，现在可以通过向 Spring Boot 提供有关内容类型的提示来导入这些文件。例如，<code>spring.config.import=etcmyconfig[.yaml]</code> 会将 <code>etcmyconfig</code> 作为 YAML 加载。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="origin-chains">Origin Chains</h3>
+<div class="paragraph">
+<p><code>Origin</code> 接口已更新为新的 <code>getParent()</code> 方法。这使我们能够提供完整的来源链，可以准确显示项目的来源。</p>
+</div>
+<div class="paragraph">
+<p>例如，您可以在 <code>application.properties</code> 中使用 <code>spring.config.import</code> 来导入第二个文件。从第二个文件加载的属性的 <code>Origin</code> 将有一个指向原始导入声明的父级。</p>
+</div>
+<div class="paragraph">
+<p>您可以通过查看 <code>actuatorenv</code> 或 <code>actuatorconfigprops</code> 执行器端点的输出来自己尝试。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="startup-endpoint">Startup Endpoint</h3>
+<div class="paragraph">
+<p>现在可以使用一个新的“Startup” 执行器端点，显示有关您的应用程序启动的信息。端点可以帮助您识别启动时间比预期更长的 bean。</p>
+</div>
+<div class="paragraph">
+<p>这项工作建立在最近添加到 Spring Framwork 5.3 的应用程序启动跟踪功能的基础上。您可以阅读有关该功能的更多信息 <a href="https://docs.spring.io/spring-framework/docs/5.3.x/reference/html/core.html#context-functionality-startup">in the Spring Framework reference documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>新 actuator API 为 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/actuator-api/htmlsingle/#startup">documented here</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dockerbuildpack-支持">Docker/Buildpack 支持</h3>
+<div class="sect3">
+<h4 id="发布镜像">发布镜像</h4>
+<div class="paragraph">
+<p>Maven 插件 <code>spring-boot:build-image</code> 目标和 Gradle 插件 <code>bootBuildImage</code> 任务现在能够将生成的镜像发布到 Docker registry。 查看 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/htmlsingle/#build-image-example-publish">Maven</a> and <a href="https://docs.spring.io/spring-boot/docs/2.4.0/gradle-plugin/reference/htmlsingle/#build-image-example-publish">Gradle</a> 插件文档，了解有关配置插件以发布图像的更多详细信息。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="验证">验证</h4>
+<div class="paragraph">
+<p>使用 Spring Boot 的 buildpack 支持时，您现在可以为构建器或运行映像使用经过身份验证的私有 Docker registry。支持 username/password 和基于令牌的身份验证。</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/htmlsingle/#build-image-docker-registry">Maven</a> 和 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/htmlsingle/#build-image-docker-registry">Gradle</a> 文档已更新以显示新配置。</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="paketo-buildpack-默认值">Paketo Buildpack 默认值</h4>
+<div class="paragraph">
+<p>Maven 插件 <code>spring-boot:build-image</code> 目标和 Gradle 插件 <code>bootBuildImage</code> 任务默认使用的镜像构建器已经升级到最新的 Paketo 镜像。 Paketo 镜像Registry已从 Google Container Registry 更改为 Docker Hub，以提高可访问性。</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="maven-buildpack-支持">Maven Buildpack 支持</h3>
+<div class="paragraph">
+<p><code>spring-boot:build-image</code> Maven goal 现在将所有项目模块依赖项放在“application”层中。这意味着如果您的构建中有多个项目模块，它们现在都将在同一层中结束。</p>
+</div>
+<div class="paragraph">
+<p>XML schema 也已更新，以允许使用新的 <code>&lt;includeModuleDependencies&gt;</code> 和 <code>&lt;excludeModuleDependencies&gt;</code> 元素自定义层。</p>
+</div>
+<div class="paragraph">
+<p>参阅  <a href="https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/htmlsingle/#repackage-layers-configuration">updated Maven documentation</a> for details.</p>
+</div>
+<div class="sect3">
+<h4 id="gradle-buildpack-支持">Gradle Buildpack 支持</h4>
+<div class="paragraph">
+<p><code>bootBuildImage</code> Gradle 任务现在将 <em>all</em> 项目模块依赖项放在“application”层中。这意味着如果您的构建中有多个项目模块，它们现在都将在同一层中结束。</p>
+</div>
+<div class="paragraph">
+<p>自定义层时，您还可以在 DSL 中使用 <code>includeProjectDependencies()</code> 和 <code>excludeProjectDependencies()</code>。</p>
+</div>
+<div class="paragraph">
+<p>参阅 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/gradle-plugin/reference/htmlsingle#packaging-layered-jars">updated Gradle documentation</a> for details.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="redis-cache-metrics">Redis Cache Metrics</h3>
+<div class="paragraph">
+<p>如果您使用 Redis 缓存，您现在可以通过 Micrometer 公开缓存统计信息。记录的指标包括放置、获取和删除的数量以及未命中数。挂起请求的数量和锁定等待持续时间也被记录下来。</p>
+</div>
+<div class="paragraph">
+<p>要启用该功能，请将 <code>spring.cache.redis.enable-statistics</code> 设置为 <code>true</code>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="web-configuration-properties">Web Configuration Properties</h3>
+<div class="paragraph">
+<p>添加了属性以支持使用 Spring MVC 或 Spring WebFlux 配置 Web 区域设置和资源位置。</p>
+</div>
+<div class="paragraph">
+<p>新属性是：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>spring.web.locale</code></p>
+</li>
+<li>
+<p><code>spring.web.locale-resolver</code></p>
+</li>
+<li>
+<p><code>spring.web.resources.*</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>添加了一个新属性以支持使用 servlet 或反应式 Web 堆栈配置执行器管理endpoint：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>management.server.base-path</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>这些 Spring MVC 和 servlet 特定属性已被弃用，取而代之的是支持任一 Web 堆栈的新属性：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>spring.mvc.locale</code></p>
+</li>
+<li>
+<p><code>spring.mvc.locale-resolver</code></p>
+</li>
+<li>
+<p><code>spring.resources.*</code></p>
+</li>
+<li>
+<p><code>management.server.servlet.context-path</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="register-weblisteners-允许他们注册-servlet-和过滤器">Register @WebListeners-允许他们注册 servlet 和过滤器</h3>
+<div class="paragraph">
+<p>Servlet <code>@WebListener</code> 类现在以这样一种方式注册，它们可以自己注册 servlet 和过滤器。</p>
+</div>
+<div class="paragraph">
+<p>早期版本的 Spring Boot 使用对 <code>javax.servlet.Registration.Dynamic</code> 的调用来注册它们。 这意味着 Servlet 规范 (4.4) 的以下部分适用：</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>如果 ServletContext 传递给 ServletContextListener 的 contextInitialized 方法，其中 ServletContextListener 既未在 web.xml 或 web-fragment.xml 中声明，也未使用 @WebListener 进行注释，则必须为 ServletContext 中定义的所有方法抛出 UnsupportedOperationException 以编程配置 servlet、过滤器 和监听器。</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>从 Spring Boot 2.4 开始，我们不再使用动态注册，因此从 <code>ServletContextListener.contextInitialized</code> 方法调用 <code>event.getServletContext().addServlet(&#8230;&#8203;)</code> 和 <code>event.getServletContext.addFilter(&#8230;&#8203;)</code> 是安全的。 。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cassandra-的切片测试">Cassandra 的切片测试</h3>
+<div class="paragraph">
+<p>额外的测试切片可用于使用 <code>@DataCassandraTest</code> 测试依赖于 Cassandra 的组件。 像往常一样，默认情况下只配置 Cassandra 存储库和所需的基础设施。</p>
+</div>
+<div class="paragraph">
+<p>这是一个使用 Testcontainers 和 <code>@DynamicPropertSource</code> 的例子：</p>
+</div>
+<div class="exampleblock">
+<div class="title">Example 1. Testcontainers 和 @DynamicPropertSource</div>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@DataCassandraTest(properties = "spring.data.cassandra.local-datacenter=datacenter1")
+@Testcontainers(disabledWithoutDocker = true)
+class SampleDataCassandraTestIntegrationTests {
+
+	@Container
+	static final CassandraContainer&lt;?&gt; cassandra = new CassandraContainer&lt;&gt;().withStartupAttempts(5)
+			.withStartupTimeout(Duration.ofMinutes(2));
+
+	@DynamicPropertySource
+	static void cassandraProperties(DynamicPropertyRegistry registry) {
+		registry.add("spring.data.cassandra.contact-points",
+				() -&gt; cassandra.getHost() + ":" + cassandra.getFirstMappedPort());
+	}
+
+	...
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="flyway-7">Flyway 7</h3>
+<div class="paragraph">
+<p>此版本升级到 Flyway 7，带来了一些额外的属性。 对于开源版本，我们添加了以下 <code>spring.flyway</code> 属性：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>url</code></p>
+</li>
+<li>
+<p><code>user</code></p>
+</li>
+<li>
+<p><code>password</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>如果您使用的是“团队”版本，您还可以使用：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cherry-pick</code></p>
+</li>
+<li>
+<p><code>jdbc-properties</code></p>
+</li>
+<li>
+<p><code>oracle-kerberos-cache-file</code></p>
+</li>
+<li>
+<p><code>oracle-kerberos-config-file</code></p>
+</li>
+<li>
+<p><code>skip-executing-migrations</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="h2-控制台的-web-管理员密码的配置属性">H2 控制台的 web 管理员密码的配置属性</h3>
+<div class="paragraph">
+<p>引入了一个新的配置属性，<code>spring.h2.console.settings.web-admin-password</code>，用于配置 H2 控制台的 web 管理员密码。
+密码控制对控制台首选项和工具的访问。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cqlsession-based-health-indicators-for-apache-cassandra">CqlSession-Based Health Indicators for Apache Cassandra</h3>
+<div class="paragraph">
+<p>引入了新的基于 <code>CqlSession</code> 的健康指标，<code>CassandraDriverHealthIndicator</code> 和 <code>CassandraDriverReactiveHealthIndicator</code>。
+当 Cassandra 的 Java 驱动程序位于类路径上时，将自动配置这些指标之一。
+现有的基于 Spring Data Cassandra 的健康指标已被弃用。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="使用-prometheus-过滤抓取">使用 Prometheus 过滤抓取</h3>
+<div class="paragraph">
+<p>Actuator 的 Prometheus 端点 <code>/actuator/prometheus</code> 现在支持 <code>includedNames</code> 查询参数，可用于过滤响应中包含的样本。
+有关更多详细信息，请参阅 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/actuator-api/htmlsingle#prometheus-retrieving-names">Actuator API 文档</a>。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-security-saml-配置属性">Spring Security SAML 配置属性</h3>
+<div class="paragraph">
+<p>已添加属性以允许配置 SAML2 信赖方注册的解密凭据和断言消费者服务 (ACS)。
+属性如下：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.0/api/org/springframework/boot/autoconfigure/security/saml2/Saml2RelyingPartyProperties.Decryption.html"><code>spring.security.saml2.relyingparty.registration.decryption.*</code></a></p>
+</li>
+<li>
+<p><a href="https://docs.spring.io/spring-boot/docs/2.4.0/api/org/springframework/boot/autoconfigure/security/saml2/Saml2RelyingPartyProperties.Registration.Acs.html"><code>spring.security.saml2.relyingparty.registration.acs.*</code></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="故障分析器">故障分析器</h3>
+<div class="paragraph">
+<p>即使未创建“应用程序上下文”，现在也会考虑 FailureAnalyzer。
+这使他们还可以分析在“环境”处理期间抛出的任何异常。</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+除非创建了“ApplicationContext”，否则不会使用任何实现“BeanFactoryAware”或“EnvironmentAware”的分析器。
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jar-优化">Jar 优化</h3>
+<div class="paragraph">
+<p>当生成可运行的Spring Boot jar时，空的starter依赖项现在将被自动删除。由于大多数启动程序只提供可传递的依赖关系，所以将它们打包到最终jar中没有什么意义。</p>
+</div>
+<div class="paragraph">
+<p>Spring Boot 注释处理器也被删除，因为它们只在构建期间有用。
+它们是“spring-boot-autoconfigure-processor”和“spring-boot-configuration-processor”。</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+如果您有自己的不包含代码的启动器 POM，您可以在其 MANIFEST.MF 中添加一个 <code>Spring-Boot-Jar-Type</code> 条目，其值为“dependencies-starter”。
+如果要过滤掉注释处理器，可以添加值为“annotation-processor”的相同属性。
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you have your own starter POMs that contain no code, you can add a <code>Spring-Boot-Jar-Type</code> entry to its MANIFEST.MF with the value "dependencies-starter".
+If you want to filter out an annotation processor, you can add the same property with the value "annotation-processor".
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="其它">其它</h3>
+<div class="paragraph">
+<p>除了上面列出的更改之外，还有许多小的调整和改进，包括：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>运行应用程序的JVM版本现在在启动时被日志记录。</p>
+</li>
+<li>
+<p>尾部空格会自动从 <code>logging.config</code> 的值中删除。.</p>
+</li>
+<li>
+<p>R2DBC pool支持公开了其他配置属性。.</p>
+</li>
+<li>
+<p><code>LdapTemplate</code> 中的异常处理可以配置为忽略某些异常。</p>
+</li>
+<li>
+<p>ISO  date time offset 格式 支持MVC和Webflux.</p>
+</li>
+<li>
+<p>添加一个配置属性以选择新的“PathPatternParser”而不是“AntPathMatcher”来解析和匹配请求映射路径模式.</p>
+</li>
+<li>
+<p><code>@DurationUnit</code>, <code>@DataSizeUnit</code>, and <code>@PeriodUnit</code> 注解可以在使用`@ConstructorBinding`的构造方法中注解属性.</p>
+</li>
+<li>
+<p>自动配置的“RabbitConnectionFactory” 检查是CredentialsProvider”和“CredentialsRefreshService” 否存在“。.</p>
+</li>
+<li>
+<p>A health group 可以仅仅使用排除项来定义.</p>
+</li>
+<li>
+<p>可以使用 <code>management.health.db.ignore-routing-data-sources</code> 在健康检查中忽略`AbstractRoutingDataSource`。</p>
+</li>
+<li>
+<p>可以配置SAML依赖方的localEntityIdTemplate</p>
+</li>
+<li>
+<p>HTTP跟踪是纳秒精度的度量.</p>
+</li>
+<li>
+<p>当缺少 Liquibase 更新日志时，专用的 <code>FailureAnalyzer</code> 会提供有意义的消息</p>
+</li>
+<li>
+<p>Netty的请求解码器可以使用 <code>server.netty.*</code> 属性.</p>
+</li>
+<li>
+<p>Liquibase Maven Plugin 的插件管理，与 Spring Boot 版本管理的 Liquibase 版本一致。</p>
+</li>
+<li>
+<p>Prometheus PushGateway 的 Basic authentication 支持 .</p>
+</li>
+<li>
+<p>当Jedis和Lettuce都可以使用时，可以允许通过 <code>spring.redis.client-type</code> 选择Jedis.</p>
+</li>
+<li>
+<p>允许通过 <code>spring.redis.lettuce.cluster.refresh.dynamic-sources</code> 禁用Redis群集动态源刷新使用 .</p>
+</li>
+<li>
+<p>参考文档现在包括所有配置示例的 <code>Properties</code> 和 <code>YAML</code></p>
+</li>
+<li>
+<p>现在可以使用 <code>spring.rsocket.fragment-size</code> 属性自定义 RSocketServer 的片段大小.</p>
+</li>
+<li>
+<p>现在可以使用属性 <code>logging.charset.console</code> 和 <code>logging.charset.file</code> 配置 Logback 和 Log4j 日志记录使用的字符集。</p>
+</li>
+<li>
+<p>Gradle’s <a href="https://docs.gradle.org/current/userguide/configuration_cache.html">configuration cache</a>在使用Gradle 6.7或更高版本构建Spring引导应用程序时支持。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="依赖项升级">依赖项升级</h3>
+<div class="paragraph">
+<p>Spring Boot 2.4迁移到几个Spring项目的新版本：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Spring AMQP 2.3 (<a href="https://docs.spring.io/spring-amqp/reference/html/#whats-new">what&#8217;s new</a>)</p>
+</li>
+<li>
+<p>Spring Batch 4.3 (<a href="https://docs.spring.io/spring-batch/docs/current/reference/html/whatsnew.html#whatsNew">what&#8217;s new</a>)</p>
+</li>
+<li>
+<p>Spring Data 2020.0 (<a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Ockham-%282020.0.0%29">changelog</a>)</p>
+</li>
+<li>
+<p>Spring Framework 5.3 (<a href="https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-5.x">what&#8217;s new</a> | <a href="https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-5.x#upgrading-to-version-53">upgrading</a>)</p>
+</li>
+<li>
+<p>Spring Integration 5.4 (<a href="https://docs.spring.io/spring-integration/docs/current/reference/html/whats-new.html#whats-new">what&#8217;s new</a>)</p>
+</li>
+<li>
+<p>Spring HATEOAS 1.2 (<a href="https://docs.spring.io/spring-hateoas/docs/1.2.0/reference/html/#migrate-to-1.0">migration guide</a>)</p>
+</li>
+<li>
+<p>Spring Kafka 2.6 (<a href="https://docs.spring.io/spring-kafka/reference/html/#spring-kafka-intro-new">what&#8217;s new</a>)</p>
+</li>
+<li>
+<p>Spring Retry 1.3</p>
+</li>
+<li>
+<p>Spring Security 5.4 (<a href="https://docs.spring.io/spring-security/site/docs/5.4.0/reference/html5/#new">what&#8217;s new</a>)</p>
+</li>
+<li>
+<p>Spring Session 2020.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>许多第三方依赖项也已更新，其中一些更值得注意的是：</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Artemis 2.13</p>
+</li>
+<li>
+<p>AssertJ 3.18</p>
+</li>
+<li>
+<p><a href="https://docs.datastax.com/en/developer/java-driver/4.9/">Cassandra Driver 4.7</a></p>
+</li>
+<li>
+<p>Elasticsearch 7.9</p>
+</li>
+<li>
+<p>Flyway 7</p>
+</li>
+<li>
+<p>Jersey 2.31</p>
+</li>
+<li>
+<p>JUnit 5.7</p>
+</li>
+<li>
+<p>Liquibase 3.10</p>
+</li>
+<li>
+<p>Lettuce 6.0 (<a href="https://github.com/lettuce-io/lettuce-core/releases/tag/6.0.0.RELEASE">release notes</a>)</p>
+</li>
+<li>
+<p>Micrometer 1.6 (<a href="https://github.com/micrometer-metrics/micrometer/releases/tag/v1.6.0">release notes</a>)</p>
+</li>
+<li>
+<p>Mockito 3.4</p>
+</li>
+<li>
+<p>MongoDB 4.1</p>
+</li>
+<li>
+<p>Oracle Database 19.7</p>
+</li>
+<li>
+<p>Reactor 2020.0 (<a href="https://github.com/reactor/reactor/releases/tag/2020.0.0">release notes</a>)</p>
+</li>
+<li>
+<p>RSocket 1.1</p>
+</li>
+<li>
+<p>Undertow 2.2</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="spring-boot-2-4中的弃用">Spring Boot 2.4中的弃用</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>ConfigFileApplicationListener</code> 已经被弃用,取而代之的是`ConfigDataEnvironmentPostProcessor`.</p>
+</li>
+<li>
+<p>与 <code>contextClass</code> 相关的 <code>SpringApplicationBuilder</code> 和 <code>SpringApplication</code> 方法已被弃用，取而代之的是使用 <code>contextFactory</code> 的替代方法。</p>
+</li>
+<li>
+<p><code>CloudFoundryVcapEnvironmentPostProcessor</code> 的一些方法已被弃用以与 <code>EnvironmentPostProcessor</code> 更新一起使用(这些应该会影响大多数用户).</p>
+</li>
+<li>
+<p><code>BuildLog</code> 构建包支持类已弃用一些方法，并用提供更多详细信息的替代方法替换它们</p>
+</li>
+<li>
+<p><code>LoggingSystemProperties</code> 中的 Logback 常量已被弃用，取而代之的是 <code>LogbackLoggingSystemProperties</code>.</p>
+</li>
+<li>
+<p><code>UndertowServletWebServerFactory</code> 中的`isEagerInitFilters`/<code>setEagerInitFilters</code> 已经被 <code>isEagerFilterInit</code>/<code>setEagerFilterInit</code> 取代.</p>
+</li>
+<li>
+<p><code>ApplicationEnvironmentPreparedEvent</code>, <code>ApplicationStartingEvent</code> and <code>SpringApplicationRunListener</code> 的一些方法 已经被启用以支持 <code>BootstrapContext</code>.</p>
+</li>
+<li>
+<p>buildpack支持的“BuildLog”已更新，以支持更多数据 (大多数用户不会直接使用这个类).</p>
+</li>
+<li>
+<p>一些springmvc和servlet特定的属性已经被弃用 (请参阅下面的Web配置属性部分).</p>
+</li>
+<li>
+<p>使用Spring data Cassandra的健康指标已经被弃用，取而代之的是使用原始驱动程序的健康指标.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="new-and-noteworthy">New and Noteworthy</h2>
+<div class="sectionbody">
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+参阅 <a href="Spring-Boot-2.4.0-Configuration-Changelog.html#v2.4-configuration-changelog">Configuration properties change between <code>2.2.7.RELEASE</code> and <code>2.3.0.RELEASE</code></a> 查看有关配置更改的完整概述。
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0-SNAPSHOT<br>
+Last updated 2021-07-13 10:15:51 UTC
+</div>
+</div>
+</body>
+</html>
