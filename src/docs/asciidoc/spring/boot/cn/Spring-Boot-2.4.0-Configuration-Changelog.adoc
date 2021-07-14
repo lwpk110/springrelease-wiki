@@ -1,4 +1,4 @@
-[[v2.4-configuration-changelog]]]
+[[_v2.4-configuration-changelog]]
 Configuration properties change between `2.3.6.RELEASE` and `2.4.0`
 
 == Deprecated in `2.4.0`

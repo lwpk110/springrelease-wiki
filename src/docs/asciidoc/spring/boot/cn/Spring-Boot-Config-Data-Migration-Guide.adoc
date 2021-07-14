@@ -1,4 +1,4 @@
-[[v2.4-config-data-migration-guide]]
+[[_v2.4-config-data-migration-guide]]
 = v2.4-config-data-migration-guide
 :guide: https://docs.spring.io/spring-boot/docs/2.4.0-SNAPSHOT/reference/html
 :actuator-api: https://docs.spring.io/spring-boot/docs/2.0.9.RELEASE/actuator-api/html

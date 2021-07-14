@@ -1,5 +1,5 @@
-[[v2.4]]
-= v2.4
+[[_2.4]]
+= Spring Boot 2.4 Release Notes
 include::authors.adoc[]
 include::attributes.adoc[]
 :root-docs: https://docs.spring.io/spring-boot/docs/2.4.0
@@ -11,9 +11,9 @@ include::attributes.adoc[]
 
 == 环境
 
-- icon:tags[] 6 (6.3 or later). 5.6.x is also supported but in a deprecated form
+- icon:tags[]  gradle 6 (6.3 or later). 5.6.x is also supported but in a deprecated form
 - icon:tags[]  Spring Framework 5.3.8 or above is also required
-- icon:tags[] jdk8...14
+- icon:tags[]  jdk8...14
 
 == 重大更新
 
@@ -55,7 +55,7 @@ testImplementation("org.junit.vintage:junit-vintage-engine") {
 
 SpringBoot2.4改变了处理 `application.properties` 和`application.yml` 文件的方式。 +
 如果您只有一个简单的 `application.properties` 或 `application.yml` 文件，那么您的升级应该是无缝的。 +
-但是，如果您有更复杂的设置（with profile specific properties, or profile activation properties），如果你想使用新特性，则可能需要做出 <<v2.4-config-data-migration-guide, v2.4-config-data-migration-guide>>
+但是，如果您有更复杂的设置（with profile specific properties, or profile activation properties），如果你想使用新特性，则可能需要做出 <<Spring-Boot-Config-Data-Migration-Guide.adoc#_v2.4-config-data-migration-guide, v2.4-config-data-migration-guide>>
 
 如果您只想使用与SpringBoot2.3兼容的逻辑，可以在 `application.properties` 或 `application.yml` 文件中将 `spring.config.use-legacy-processing”属性设置为 `true`。
 
@@ -561,4 +561,4 @@ Spring Boot 2.4迁移到几个Spring项目的新版本：
 
 == New and Noteworthy
 
-TIP: 参阅 <<Spring-Boot-2.4.0-Configuration-Changelog#v2.4-configuration-changelog, Configuration properties change between `2.2.7.RELEASE` and `2.3.0.RELEASE`>> 查看有关配置更改的完整概述。
+TIP: 参阅 <<Spring-Boot-2.4.0-Configuration-Changelog#_v2.4-configuration-changelog, Configuration properties change between `2.2.7.RELEASE` and `2.3.0.RELEASE`>> 查看有关配置更改的完整概述。

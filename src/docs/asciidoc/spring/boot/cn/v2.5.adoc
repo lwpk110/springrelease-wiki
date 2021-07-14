@@ -1,4 +1,4 @@
-[[v2.5]]
+[[_2.5]]
 = Spring Boot 2.5 Release Notes
 include::authors.adoc[]
 include::attributes.adoc[]
@@ -11,7 +11,7 @@ include::attributes.adoc[]
 
 == 环境
 
-- icon:tags[] 6.8.x, 6.9.x, and 7.x
+- icon:tags[] gradle 6.8.x, 6.9.x, and 7.x
 - icon:tags[] Spring Framework 5.3.8 or above is also required
 - icon:tags[] jdk8...16
 
@@ -371,4 +371,4 @@ SpringBoot2.5迁移到几个Spring项目的新版本：
 
 == New and Noteworthy
 
-TIP: 参阅 <<Spring-Boot-2.5-Configuration-Changelog#v2.5-configuration-changelog, Configuration properties change between `2.2.7.RELEASE` and `2.3.0.RELEASE`>> 查看有关配置更改的完整概述。
+TIP: 参阅 <<Spring-Boot-2.5-Configuration-Changelog#_v2.5-configuration-changelog, Configuration properties change between `2.2.7.RELEASE` and `2.3.0.RELEASE`>> 查看有关配置更改的完整概述。

@@ -1,4 +1,4 @@
-[[v2.0-configuration-changelog]]
+[[_v2.0-configuration-changelog]]
 = 2.0-configuration-changelog
 
 Configuration properties change between `1.5.10.RELEASE` and `2.0.0.RELEASE`

@@ -1,4 +1,4 @@
-[[v2.1-configuration-changelog]]
+[[_v2.1-configuration-changelog]]
 = 2.1-configuration-changelog
 
 Configuration properties change between `2.0.6.BUILD-SNAPSHOT` and `2.1.0.BUILD-SNAPSHOT`

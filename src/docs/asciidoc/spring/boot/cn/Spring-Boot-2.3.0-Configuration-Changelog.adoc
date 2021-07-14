@@ -1,4 +1,4 @@
-[[v2.3-configuration-changelog]]]
+[[_v2.3-configuration-changelog]]
 Configuration properties change between `2.2.7.RELEASE` and `2.3.0.RELEASE`
 
 .Deprecated keys in `2.3.0.RELEASE`

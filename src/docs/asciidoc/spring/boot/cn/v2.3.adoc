@@ -1,5 +1,5 @@
-[[v2.3]]
-= v2.3
+[[_2.3]]
+= Spring Boot 2.3 Release Notes
 include::authors.adoc[]
 v{spring-boot-version}
 include::attributes.adoc[]
@@ -434,4 +434,4 @@ NOTE: spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相
 
 == New and Noteworthy
 
-TIP: 参阅 <<Spring-Boot-2.3.0-Configuration-Changelog#v2.3-configuration-changelog, Configuration properties change between `2.3.6.RELEASE` and `2.4.0`>> 查看有关配置更改的完整概述。
+TIP: 参阅 <<Spring-Boot-2.3.0-Configuration-Changelog#_v2.3-configuration-changelog, Configuration properties change between `2.3.6.RELEASE` and `2.4.0`>> 查看有关配置更改的完整概述。

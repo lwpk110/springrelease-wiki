@@ -1,22 +1,20 @@
-
-
-[[v2.0]]
-= 重大变更
+[[_2.0]]
+= Spring Boot 2.0 Release Notes
 include::authors.adoc[]
 v{spring-boot-version}
 include::attributes.adoc[]
-
+:icons: font
 :actuator-api-docs: https://docs.spring.io/spring-boot/docs/2.0.x/actuator-api/html/
 :docs: https://docs.spring.io/spring-boot/docs/2.0.x/reference/htmlsingle/
 
 == 环境
 
 - jdk
-* [*] jdk8, jdk9
-* [ ] jdk8-
+* [*]  icon:tags[] jdk8, jdk9
+* [ ]  icon:tags[]jdk8-
 
 - gradle
-* [x] gradle 4.x
+* [x] icon:tags[] gradle 4.x
 
 == 第三方库
 Spring Boot 2.0 开始使用 `Spring Framework 5` 。阅读 `Spring Framework 5.0` 参阅 https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-5.x[spring5新特性],以及 https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-5.x[spring5迁移指南]。
@@ -221,7 +219,7 @@ Thymeleaf starter 现在包含 `thymeleaf-extras-java8time`，它提供对 `java
 
 == Spring boot 2.0 configuration changelog
 
-TIP: Check <<Spring-Boot-2.0-Configuration-Changelog#v2.0-configuration-changelog, 2.0-configuration-changelog>> for a complete overview of the changes in configuration.
+TIP: Check <<Spring-Boot-2.0-Configuration-Changelog#_v2.0-configuration-changelog, 2.0-configuration-changelog>> for a complete overview of the changes in configuration.
 
 == Animated ASCII Art
 Spring Boot 2.0 现在支持动画 GIF banner.
