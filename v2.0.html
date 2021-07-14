@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="Unresolved directive in v2.0.adoc - include::authors.adoc[]">
-<title>重大变更</title>
+<meta name="author" content="steven lu">
+<title>Spring Boot 2.0 Release Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,78 +438,71 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body id="v2.0" class="article toc2 toc-left">
+<body id="_2.0" class="book toc2 toc-left">
 <div id="header">
-<h1>重大变更</h1>
+<h1>Spring Boot 2.0 Release Notes</h1>
 <div class="details">
-<span id="author" class="author">Unresolved directive in v2.0.adoc - include::authors.adoc[]</span><br>
-<span id="revnumber">version 1.0-SNAPSHOT</span>
+<span id="author" class="author">steven lu</span><br>
+<span id="revnumber"> 1.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">目录</div>
 <ul class="sectlevel1">
-<li><a href="#环境">环境</a></li>
-<li><a href="#第三方库">第三方库</a>
+<li><a href="#环境">1. 环境</a></li>
+<li><a href="#第三方库">2. 第三方库</a>
 <ul class="sectlevel2">
-<li><a href="#重要的第三方库更新">重要的第三方库更新</a></li>
-<li><a href="#新特性">新特性</a></li>
+<li><a href="#重要的第三方库更新">2.1. 重要的第三方库更新</a></li>
+<li><a href="#新特性">2.2. 新特性</a></li>
 </ul>
 </li>
-<li><a href="#外部自动配置">外部自动配置</a>
+<li><a href="#外部自动配置">3. 外部自动配置</a>
 <ul class="sectlevel2">
-<li><a href="#converting-durations">converting durations</a></li>
-<li><a href="#分隔字符串转换-delimiter">分隔字符串转换 @Delimiter</a></li>
+<li><a href="#converting-durations">3.1. converting durations</a></li>
+<li><a href="#分隔字符串转换-delimiter">3.2. 分隔字符串转换 @Delimiter</a></li>
 </ul>
 </li>
-<li><a href="#actuator-改进">Actuator 改进</a>
+<li><a href="#actuator-改进">4. Actuator 改进</a>
 <ul class="sectlevel2">
-<li><a href="#actuator-json">Actuator JSON</a></li>
-<li><a href="#jersey-and-webflux-support">Jersey and WebFlux Support</a></li>
-<li><a href="#hypermedia-links">Hypermedia links</a></li>
-<li><a href="#actuator-endpoints">Actuator @Endpoints</a></li>
-<li><a href="#micrometer">Micrometer</a></li>
+<li><a href="#actuator-json">4.1. Actuator JSON</a></li>
+<li><a href="#jersey-and-webflux-support">4.2. Jersey and WebFlux Support</a></li>
+<li><a href="#hypermedia-links">4.3. Hypermedia links</a></li>
+<li><a href="#actuator-endpoints">4.4. Actuator @Endpoints</a></li>
+<li><a href="#micrometer">4.5. Micrometer</a></li>
 </ul>
 </li>
-<li><a href="#数据层">数据层</a>
+<li><a href="#数据层">5. 数据层</a>
 <ul class="sectlevel2">
-<li><a href="#hikaricp">HikariCP</a></li>
-<li><a href="#initialization">Initialization</a></li>
-<li><a href="#jooq">JOOQ</a></li>
-<li><a href="#jdbctemplate">JdbcTemplate</a></li>
-<li><a href="#spring-data-web-configuration">Spring Data Web Configuration</a></li>
-<li><a href="#influx-db">Influx DB</a></li>
-<li><a href="#flywayliquibase-灵活配置">Flyway/Liquibase 灵活配置</a></li>
-<li><a href="#hibernate">Hibernate</a></li>
-<li><a href="#mongodb-client-customization">MongoDB Client Customization</a></li>
-<li><a href="#redis">Redis</a></li>
+<li><a href="#hikaricp">5.1. HikariCP</a></li>
+<li><a href="#initialization">5.2. Initialization</a></li>
+<li><a href="#jooq">5.3. JOOQ</a></li>
+<li><a href="#jdbctemplate">5.4. JdbcTemplate</a></li>
+<li><a href="#spring-data-web-configuration">5.5. Spring Data Web Configuration</a></li>
+<li><a href="#influx-db">5.6. Influx DB</a></li>
+<li><a href="#flywayliquibase-灵活配置">5.7. Flyway/Liquibase 灵活配置</a></li>
+<li><a href="#hibernate">5.8. Hibernate</a></li>
+<li><a href="#mongodb-client-customization">5.9. MongoDB Client Customization</a></li>
+<li><a href="#redis">5.10. Redis</a></li>
 </ul>
 </li>
-<li><a href="#web">Web</a>
+<li><a href="#web">6. Web</a>
 <ul class="sectlevel2">
-<li><a href="#context-path-logging">Context Path Logging</a></li>
-<li><a href="#web-filter-initialization">Web Filter Initialization</a></li>
-<li><a href="#thymeleaf">Thymeleaf</a></li>
-<li><a href="#json-support">JSON Support</a></li>
+<li><a href="#context-path-logging">6.1. Context Path Logging</a></li>
+<li><a href="#web-filter-initialization">6.2. Web Filter Initialization</a></li>
+<li><a href="#thymeleaf">6.3. Thymeleaf</a></li>
+<li><a href="#json-support">6.4. JSON Support</a></li>
 </ul>
 </li>
-<li><a href="#quartz">Quartz</a></li>
-<li><a href="#testing">Testing</a></li>
-<li><a href="#其它乱七八糟的">其它乱七八糟的</a></li>
-<li><a href="#spring-boot-2-0-configuration-changelog">Spring boot 2.0 configuration changelog</a></li>
-<li><a href="#animated-ascii-art">Animated ASCII Art</a></li>
+<li><a href="#quartz">7. Quartz</a></li>
+<li><a href="#testing">8. Testing</a></li>
+<li><a href="#其它乱七八糟的">9. 其它乱七八糟的</a></li>
+<li><a href="#spring-boot-2-0-configuration-changelog">10. Spring boot 2.0 configuration changelog</a></li>
+<li><a href="#animated-ascii-art">11. Animated ASCII Art</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in v2.0.adoc - include::attributes.adoc[]</p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="环境">环境</h2>
+<h2 id="环境"><a class="anchor" href="#环境"></a>1. 环境</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -518,10 +511,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-check-square-o"></i> jdk8, jdk9</p>
+<p><i class="fa fa-check-square-o"></i>  <span class="icon"><i class="fa fa-tags"></i></span> jdk8, jdk9</p>
 </li>
 <li>
-<p><i class="fa fa-square-o"></i> jdk8-</p>
+<p><i class="fa fa-square-o"></i>  <span class="icon"><i class="fa fa-tags"></i></span>jdk8-</p>
 </li>
 </ul>
 </div>
@@ -531,7 +524,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist checklist">
 <ul class="checklist">
 <li>
-<p><i class="fa fa-check-square-o"></i> gradle 4.x</p>
+<p><i class="fa fa-check-square-o"></i> <span class="icon"><i class="fa fa-tags"></i></span> gradle 4.x</p>
 </li>
 </ul>
 </div>
@@ -541,13 +534,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="第三方库">第三方库</h2>
+<h2 id="第三方库"><a class="anchor" href="#第三方库"></a>2. 第三方库</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Spring Boot 2.0 开始使用 <code>Spring Framework 5</code> 。阅读 <code>Spring Framework 5.0</code> 参阅 <a href="https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-5.x">spring5新特性</a>,以及 <a href="https://github.com/spring-projects/spring-framework/wiki/Upgrading-to-Spring-Framework-5.x">spring5迁移指南</a>。</p>
 </div>
 <div class="sect2">
-<h3 id="重要的第三方库更新">重要的第三方库更新</h3>
+<h3 id="重要的第三方库更新"><a class="anchor" href="#重要的第三方库更新"></a>2.1. 重要的第三方库更新</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -566,7 +559,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="新特性">新特性</h3>
+<h3 id="新特性"><a class="anchor" href="#新特性"></a>2.2. 新特性</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -597,7 +590,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="外部自动配置">外部自动配置</h2>
+<h2 id="外部自动配置"><a class="anchor" href="#外部自动配置"></a>3. 外部自动配置</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>用于将 <code>Environment</code> 属性绑定到 <code>@ConfigurationProperties</code> 的机制已在 Spring Boot 2.0 中彻底改革。收紧了管理宽松绑定的规则，并修复了 <code>Spring Boot 1.x</code> 中的许多不一致之处。</p>
@@ -638,7 +631,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="converting-durations">converting durations</h3>
+<h3 id="converting-durations"><a class="anchor" href="#converting-durations"></a>3.1. converting durations</h3>
 <div class="paragraph">
 <p><code>Duration converter`允许以 `ISO-8601</code> 形式或简单字符串（例如， <code>10m</code> 标识 10 分钟）指定`durations`。 现在 已有属性已全部使用 <code>Duration</code>。 例如，会话超时可以在 <code>application.properties</code> 中配置为 180 秒，如下所示：</p>
 </div>
@@ -661,7 +654,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="分隔字符串转换-delimiter">分隔字符串转换 @Delimiter</h3>
+<h3 id="分隔字符串转换-delimiter"><a class="anchor" href="#分隔字符串转换-delimiter"></a>3.2. 分隔字符串转换 @Delimiter</h3>
 <div class="paragraph">
 <p>分隔字符串转换允许您将简单的字符串绑定到集合或数组，而不必以逗号分隔。</p>
 </div>
@@ -672,31 +665,31 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="actuator-改进">Actuator 改进</h2>
+<h2 id="actuator-改进"><a class="anchor" href="#actuator-改进"></a>4. Actuator 改进</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Spring Boot 2.0 对 <code>actuator endpoints</code> 进行了许多改进和改进。所有 HTTP 执行器端点现在都暴露在 <code>/actuator</code> 路径下，并且结果 <code>JSON payload</code> 已得到改进。 默认情况下，现在也不公开这么多端点。如果您要升级现有的 Spring Boot 1.5 应用程序，特别注意 <code>management.endpoints.web.exposure.include</code> 属性。</p>
 </div>
 <div class="sect2">
-<h3 id="actuator-json">Actuator JSON</h3>
+<h3 id="actuator-json"><a class="anchor" href="#actuator-json"></a>4.1. Actuator JSON</h3>
 <div class="paragraph">
 <p><a href="https://docs.spring.io/spring-boot/docs/2.0.x/actuator-api/html/">Spring Boot Actuator Web API Documentation</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jersey-and-webflux-support">Jersey and WebFlux Support</h3>
+<h3 id="jersey-and-webflux-support"><a class="anchor" href="#jersey-and-webflux-support"></a>4.2. Jersey and WebFlux Support</h3>
 <div class="paragraph">
 <p>除了 Spring MVC 和 JMX 支持之外，您现在在开发部署 Jersey 或 WebFlux 应用程序后可以放访问 actuator endpoints。 Jersey 支持通过自定义 Jersey <code>Resource</code> 提供，WebFlux 使用自定义 <code>HandlerMapping</code>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="hypermedia-links">Hypermedia links</h3>
+<h3 id="hypermedia-links"><a class="anchor" href="#hypermedia-links"></a>4.3. Hypermedia links</h3>
 <div class="paragraph">
 <p><code>actuator</code> 端点现在提供 HAL 格式的响应，提供指向所有活动 endpoints 的链接（即使您的类路径上没有 Spring HATEOAS）。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="actuator-endpoints">Actuator @Endpoints</h3>
+<h3 id="actuator-endpoints"><a class="anchor" href="#actuator-endpoints"></a>4.4. Actuator @Endpoints</h3>
 <div class="paragraph">
 <p><code>@Endpoint</code> 注释可以与 <code>@ReadOperation</code>、<code>@WriteOperation</code> 和 <code>@DeleteOperation</code> 结合使用，以与技术无关的方式开发 endpoints。</p>
 </div>
@@ -705,7 +698,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="micrometer">Micrometer</h3>
+<h3 id="micrometer"><a class="anchor" href="#micrometer"></a>4.5. Micrometer</h3>
 <div class="paragraph">
 <p>Spring Boot 2.0 不再附带自己的 metrics APIs。
 作为代替，使用 <a href="https://micrometer.io/">micrometer.io</a> 为所有应用提供监控支持.</p>
@@ -726,16 +719,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="数据层">数据层</h2>
+<h2 id="数据层"><a class="anchor" href="#数据层"></a>5. 数据层</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="hikaricp">HikariCP</h3>
+<h3 id="hikaricp"><a class="anchor" href="#hikaricp"></a>5.1. HikariCP</h3>
 <div class="paragraph">
 <p>Spring Boot 2.0 中默认的数据库池技术已经从 Tomcat Pool 切换到 HikariCP。我们发现 Hakari 提供了卓越的性能。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="initialization">Initialization</h3>
+<h3 id="initialization"><a class="anchor" href="#initialization"></a>5.2. Initialization</h3>
 <div class="paragraph">
 <p>Spring Boot 2.0 对数据库初始化逻辑进行了合理化处理。 Spring Batch、Spring Integration、Spring Session 和 Quartz 的初始化现在仅在使用和嵌入数据库时默认发生。<br>
 <code>enabled</code> 属性已被替换为更具表现力的枚举。例如，如果您想始终执行 Spring Batch 初始化，则可以设置 <code>spring.batch.initialize-schema=always</code>。</p>
@@ -745,19 +738,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="jooq">JOOQ</h3>
+<h3 id="jooq"><a class="anchor" href="#jooq"></a>5.3. JOOQ</h3>
 <div class="paragraph">
 <p>Spring Boot 2.0 现在根据数据源自动检测 jOOQ 方言（类似于为 JPA 方言所做的）。还引入了新的 <code>@JooqTest</code> 注释，以简化只需要使用 jOOQ 的测试。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jdbctemplate">JdbcTemplate</h3>
+<h3 id="jdbctemplate"><a class="anchor" href="#jdbctemplate"></a>5.4. JdbcTemplate</h3>
 <div class="paragraph">
 <p>Spring Boot 自动配置的 <code>JdbcTemplate</code> 现在可以通过 <code>spring.jdbc.template</code> 属性进行自定义。此外，自动配置的“NamedParameterJdbcTemplate”在幕后重用了“JdbcTemplate”。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-data-web-configuration">Spring Data Web Configuration</h3>
+<h3 id="spring-data-web-configuration"><a class="anchor" href="#spring-data-web-configuration"></a>5.5. Spring Data Web Configuration</h3>
 <div class="paragraph">
 <p>Spring Boot 公开了一个新的 <code>spring.data.web</code> 配置命名空间，允许轻松配置分页和排序。</p>
 </div>
@@ -782,20 +775,20 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="influx-db">Influx DB</h3>
+<h3 id="influx-db"><a class="anchor" href="#influx-db"></a>5.6. Influx DB</h3>
 <div class="paragraph">
 <p>Spring Boot 新增 开源时间序列数据库 InfluxDB的自动配置。要启用 InfluxDB 支持，您需要设置一个 <code>spring.influx.url</code> 属性，并在 classpath 中包含 <code>influxdb-java</code>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="flywayliquibase-灵活配置">Flyway/Liquibase 灵活配置</h3>
+<h3 id="flywayliquibase-灵活配置"><a class="anchor" href="#flywayliquibase-灵活配置"></a>5.7. Flyway/Liquibase 灵活配置</h3>
 <div class="paragraph">
 <p>如果只提供自定义的 <code>url</code> 或 <code>user</code> 属性，Flyway 和 Liquibase 的自动配置现在会使用这些配置而不是忽略它们。
 这允许您创建一个自定义的“DataSource”，以便在使用所需的信息时进行迁移。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="hibernate">Hibernate</h3>
+<h3 id="hibernate"><a class="anchor" href="#hibernate"></a>5.8. Hibernate</h3>
 <div class="paragraph">
 <p>现在支持自定义 Hibernate 命名策略。对于高级场景，您现在可以定义 <code>ImplicitNamingStrategy</code> 或 <code>PhysicalNamingStrategy</code> 以在上下文中用作常规 bean。</p>
 </div>
@@ -804,13 +797,13 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="mongodb-client-customization">MongoDB Client Customization</h3>
+<h3 id="mongodb-client-customization"><a class="anchor" href="#mongodb-client-customization"></a>5.9. MongoDB Client Customization</h3>
 <div class="paragraph">
 <p>使用reactive driver时，现在可以通过定义类型为 <code>MongoClientSettingsBuilderCustomizer</code> 的 bean 将高级自定义应用于 Spring Boot 自动配置的 Mongo 客户端。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redis">Redis</h3>
+<h3 id="redis"><a class="anchor" href="#redis"></a>5.10. Redis</h3>
 <div class="paragraph">
 <p>现在可以使用 <code>spring.cache.redis.</code> 属性配置 Redis 的缓存默认值。</p>
 </div>
@@ -818,13 +811,13 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="web">Web</h2>
+<h2 id="web"><a class="anchor" href="#web"></a>6. Web</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>除了上面提到的 WebFlux 和 WebFlux.fn 支持之外，还进行了以下改进以帮助开发 Web 应用程序。</p>
 </div>
 <div class="sect2">
-<h3 id="context-path-logging">Context Path Logging</h3>
+<h3 id="context-path-logging"><a class="anchor" href="#context-path-logging"></a>6.1. Context Path Logging</h3>
 <div class="paragraph">
 <p>使用嵌入式容器时，上下文路径会在应用程序启动时与 HTTP 端口一起打印日志。<br>
 例如， 嵌入式 Tomcat 现在看起来像这样：</p>
@@ -836,19 +829,19 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="web-filter-initialization">Web Filter Initialization</h3>
+<h3 id="web-filter-initialization"><a class="anchor" href="#web-filter-initialization"></a>6.2. Web Filter Initialization</h3>
 <div class="paragraph">
 <p>Web filters 现在在所有支持的容器上快速地初始化.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="thymeleaf">Thymeleaf</h3>
+<h3 id="thymeleaf"><a class="anchor" href="#thymeleaf"></a>6.3. Thymeleaf</h3>
 <div class="paragraph">
 <p>Thymeleaf starter 现在包含 <code>thymeleaf-extras-java8time</code>，它提供对 <code>javax.time</code> 类型的支持。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="json-support">JSON Support</h3>
+<h3 id="json-support"><a class="anchor" href="#json-support"></a>6.4. JSON Support</h3>
 <div class="paragraph">
 <p>一个新的 <code>spring-boot-starter-json</code> 启动器收集必要的位来读取和写入 JSON。它不仅提供了 <code>jackson-databind</code>，还提供了使用 Java8 时有用的模块：<code>jackson-datatype-jdk8</code>、<code>jackson-datatype-jsr310</code> 和 <code>jackson-module-parameter-names</code>。<br>
 这个新的 starter 现在用于之前定义了 <code>jackson-databind</code> 的地方。<br>
@@ -858,7 +851,7 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="quartz">Quartz</h2>
+<h2 id="quartz"><a class="anchor" href="#quartz"></a>7. Quartz</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>增加对 Quartz Scheduler 的自动装配置支持， <a href="https://www.quartz-scheduler.org/">Quartz Scheduler</a>.<br>
@@ -873,7 +866,7 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing">Testing</h2>
+<h2 id="testing"><a class="anchor" href="#testing"></a>8. Testing</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>对 Spring Boot 2.0 中提供的测试支持进行了一些添加和调整：</p>
@@ -899,7 +892,7 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="其它乱七八糟的">其它乱七八糟的</h2>
+<h2 id="其它乱七八糟的"><a class="anchor" href="#其它乱七八糟的"></a>9. 其它乱七八糟的</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>除了上面列出的更改外，还有许多小的调整和改进，包括：</p>
@@ -935,7 +928,7 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="spring-boot-2-0-configuration-changelog">Spring boot 2.0 configuration changelog</h2>
+<h2 id="spring-boot-2-0-configuration-changelog"><a class="anchor" href="#spring-boot-2-0-configuration-changelog"></a>10. Spring boot 2.0 configuration changelog</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -944,7 +937,7 @@ spring.data.web.sort.sort-parameter=orderBy</code></pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Check <a href="Spring-Boot-2.0-Configuration-Changelog.html#v2.0-configuration-changelog">2.0-configuration-changelog</a> for a complete overview of the changes in configuration.
+Check <a href="Spring-Boot-2.0-Configuration-Changelog.html#_v2.0-configuration-changelog">2.0-configuration-changelog</a> for a complete overview of the changes in configuration.
 </td>
 </tr>
 </table>
@@ -952,7 +945,7 @@ Check <a href="Spring-Boot-2.0-Configuration-Changelog.html#v2.0-configuration-c
 </div>
 </div>
 <div class="sect1">
-<h2 id="animated-ascii-art">Animated ASCII Art</h2>
+<h2 id="animated-ascii-art"><a class="anchor" href="#animated-ascii-art"></a>11. Animated ASCII Art</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Spring Boot 2.0 现在支持动画 GIF banner.
@@ -960,7 +953,7 @@ demo  <a href="https://github.com/snicoll-demos/demo-animated-banner">gif demo</
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/images/animated-ascii-art.gif" alt="ASCII Art">
+<img src="images/animated-ascii-art.gif" alt="ASCII Art">
 </div>
 </div>
 </div>
@@ -968,8 +961,8 @@ demo  <a href="https://github.com/snicoll-demos/demo-animated-banner">gif demo</
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0-SNAPSHOT<br>
-Last updated 2021-07-14 01:35:51 UTC
+ 1.0-SNAPSHOT<br>
+Last updated 2021-07-14 07:02:12 UTC
 </div>
 </div>
 </body>

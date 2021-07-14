@@ -435,30 +435,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body id="v2.4-config-data-migration-guide" class="article toc2 toc-left">
+<body id="_v2.4-config-data-migration-guide" class="article">
 <div id="header">
 <h1>v2.4-config-data-migration-guide</h1>
 <div class="details">
 <span id="revnumber">version 1.0-SNAPSHOT</span>
-</div>
-<div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
-<ul class="sectlevel1">
-<li><a href="#overview">Overview</a></li>
-<li><a href="#legacy-mode">Legacy Mode</a></li>
-<li><a href="#simple-scenarios">Simple Scenarios</a></li>
-<li><a href="#multi-document-yaml-ordering">Multi-document YAML Ordering</a></li>
-<li><a href="#profile-specific-external-configuration">Profile Specific External Configuration</a></li>
-<li><a href="#profile-specific-documents">Profile Specific Documents</a></li>
-<li><a href="#profile-activation">Profile Activation</a>
-<ul class="sectlevel2">
-<li><a href="#profile-groups">Profile Groups</a></li>
-</ul>
-</li>
-<li><a href="#migration-example">Migration Example</a></li>
-</ul>
 </div>
 </div>
 <div id="content">
@@ -470,7 +452,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="overview">Overview</h2>
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Spring Boot 2.4 has provided an overhaul of the way that <code>application.properties</code> and <code>application.yml</code> files are processed.
@@ -484,7 +466,7 @@ This means that you may need to change a few things when upgrading from Spring B
 </div>
 </div>
 <div class="sect1">
-<h2 id="legacy-mode">Legacy Mode</h2>
+<h2 id="_legacy_mode">Legacy Mode</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you&#8217;re not yet ready to migrate your application to use the new config data processing logic, you&#8217;ll need to switch back to the legacy mode.
@@ -507,7 +489,7 @@ The easiest way is usually to to add it to the <code>application.properties</cod
 </div>
 </div>
 <div class="sect1">
-<h2 id="simple-scenarios">Simple Scenarios</h2>
+<h2 id="_simple_scenarios">Simple Scenarios</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>For many applications, you won&#8217;t need to make any changes to your existing properties files.
@@ -519,7 +501,7 @@ Specifically, if you only have a single <code>application.properties</code> or <
 </div>
 </div>
 <div class="sect1">
-<h2 id="multi-document-yaml-ordering">Multi-document YAML Ordering</h2>
+<h2 id="_multi_document_yaml_ordering">Multi-document YAML Ordering</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you use multi-document YAML files (files with <code>---</code> separators) then you need to be aware that property sources are now added in the order that documents are declared.
@@ -532,7 +514,7 @@ This means that you may need to reorder the documents inside your YAML.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="profile-specific-external-configuration">Profile Specific External Configuration</h2>
+<h2 id="_profile_specific_external_configuration">Profile Specific External Configuration</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you use configuration outside of your jar, and you make use of profile-specific configuration files, you should check that your properties are loaded as expected.
@@ -546,7 +528,7 @@ You can also check the <a href="https://docs.spring.io/spring-boot/docs/2.4.0-SN
 </div>
 </div>
 <div class="sect1">
-<h2 id="profile-specific-documents">Profile Specific Documents</h2>
+<h2 id="_profile_specific_documents">Profile Specific Documents</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you use the <code>spring.profiles</code> property, for example in multi-document YAML files, you should migrate to <code>spring.config.activate.on-profile</code>.
@@ -578,7 +560,7 @@ secret: "production-password"</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="profile-activation">Profile Activation</h2>
+<h2 id="_profile_activation">Profile Activation</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The <code>spring.profiles.active</code> property should still be used to active specific profiles.
@@ -621,7 +603,7 @@ spring:
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<div class="title">Note</div>
 </td>
 <td class="content">
 The reason we have introduced this restriction is so that <code>on-profile</code> conditions are only evaluated once.
@@ -631,7 +613,7 @@ Without this limitation, it would be possible for a <code>spring.config.activate
 </table>
 </div>
 <div class="sect2">
-<h3 id="profile-groups">Profile Groups</h3>
+<h3 id="_profile_groups">Profile Groups</h3>
 <div class="paragraph">
 <p>With Spring Boot 2.3 and earlier, users would often combine <code>spring.profiles</code> with <code>spring.profiles.include</code> to expand active profiles.</p>
 </div>
@@ -693,7 +675,7 @@ For example, the configuration above would be written as follows:</p>
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<div class="title">Note</div>
 </td>
 <td class="content">
 The <code>spring.profile.group</code> property cannot be used in profile-specific documents.
@@ -706,7 +688,7 @@ You can&#8217;t use it in a document that also has a <code>spring.config.activat
 </div>
 </div>
 <div class="sect1">
-<h2 id="migration-example">Migration Example</h2>
+<h2 id="_migration_example">Migration Example</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Let&#8217;s walk through an example migration for a Spring Boot 2.3 application.
@@ -829,7 +811,7 @@ The production instance can set the profile in the usual way (for example with a
 <div id="footer">
 <div id="footer-text">
 Version 1.0-SNAPSHOT<br>
-Last updated 2021-07-14 01:35:51 UTC
+Last updated 2021-07-14 07:02:12 UTC
 </div>
 </div>
 </body>

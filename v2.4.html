@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="Unresolved directive in v2.4.adoc - include::authors.adoc[]">
-<title>v2.4</title>
+<meta name="author" content="steven lu">
+<title>Spring Boot 2.4 Release Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,97 +438,110 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body id="v2.4" class="article toc2 toc-left">
+<body id="_2.4" class="book toc2 toc-left">
 <div id="header">
-<h1>v2.4</h1>
+<h1>Spring Boot 2.4 Release Notes</h1>
 <div class="details">
-<span id="author" class="author">Unresolved directive in v2.4.adoc - include::authors.adoc[]</span><br>
-<span id="revnumber">version 1.0-SNAPSHOT,</span>
-<span id="revdate">Unresolved directive in v2.4.adoc - include</span>
-<br><span id="revremark">:attributes.adoc[]</span>
+<span id="author" class="author">steven lu</span><br>
+<span id="revnumber"> 1.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">目录</div>
 <ul class="sectlevel1">
-<li><a href="#环境">环境</a></li>
-<li><a href="#重大更新">重大更新</a>
+<li><a href="#环境">1. 环境</a></li>
+<li><a href="#重大更新">2. 重大更新</a>
 <ul class="sectlevel2">
-<li><a href="#版本控制方案更改">版本控制方案更改</a></li>
-<li><a href="#junit-5s-vintage-engine-从spring-boot-starter-test-中删除">JUnit 5&#8217;s Vintage Engine 从`spring-boot-starter-test` 中删除</a></li>
-<li><a href="#配置文件处理-application-properties-and-yaml-files">配置文件处理 (application properties and YAML files)</a></li>
-<li><a href="#config-data-imports">Config Data Imports</a></li>
-<li><a href="#嵌入式数据库检测">嵌入式数据库检测</a></li>
-<li><a href="#用户定义的-monogoclientsettings不再自定义">用户定义的 MonogoClientSettings不再自定义</a></li>
-<li><a href="#logback-配置-properties">Logback 配置 Properties</a></li>
-<li><a href="#默认servlet注册">默认Servlet注册</a></li>
-<li><a href="#默认情况下http跟踪不再包括cookie头">默认情况下，HTTP跟踪不再包括cookie头</a></li>
-<li><a href="#undertow-重定向path">Undertow 重定向Path</a></li>
-<li><a href="#neo4j">Neo4j</a></li>
-<li><a href="#hazelcast-4">Hazelcast 4</a></li>
-<li><a href="#elasticsearch-restclient">Elasticsearch RestClient</a></li>
-<li><a href="#r2dbc">R2DBC</a></li>
-<li><a href="#flyway">Flyway</a></li>
-<li><a href="#移除flatten-maven-plugin的插件管理">移除Flatten Maven Plugin的插件管理</a></li>
-<li><a href="#exec-maven-plugin-版本管理"><code>exec-maven-plugin</code> 版本管理</a></li>
-<li><a href="#spring-boot-gradle-插件">Spring Boot Gradle 插件</a></li>
-<li><a href="#集成测试中的-metrics-export">集成测试中的 Metrics export</a></li>
-<li><a href="#spring-boot-2-2-到-2-3的弃用策略">Spring Boot 2.2 到 2.3的弃用策略</a></li>
-<li><a href="#spring-framework-5-3">Spring Framework 5.3</a></li>
-<li><a href="#spring-data-2020-0">Spring Data 2020.0</a></li>
-<li><a href="#java-15-support">Java 15 Support</a></li>
-<li><a href="#custom-property-name-support">Custom property name support</a></li>
-<li><a href="#默认启用分层-jar">默认启用分层 jar</a></li>
-<li><a href="#导入额外应用程序配置">导入额外应用程序配置</a></li>
-<li><a href="#卷挂载配置目录树">卷挂载配置目录树</a></li>
-<li><a href="#导入没有文件扩展名的配置文件">导入没有文件扩展名的配置文件</a></li>
-<li><a href="#origin-chains">Origin Chains</a></li>
-<li><a href="#startup-endpoint">Startup Endpoint</a></li>
-<li><a href="#dockerbuildpack-支持">Docker/Buildpack 支持</a></li>
-<li><a href="#maven-buildpack-支持">Maven Buildpack 支持</a></li>
-<li><a href="#redis-cache-metrics">Redis Cache Metrics</a></li>
-<li><a href="#web-configuration-properties">Web Configuration Properties</a></li>
-<li><a href="#register-weblisteners-允许他们注册-servlet-和过滤器">Register @WebListeners-允许他们注册 servlet 和过滤器</a></li>
-<li><a href="#cassandra-的切片测试">Cassandra 的切片测试</a></li>
-<li><a href="#flyway-7">Flyway 7</a></li>
-<li><a href="#h2-控制台的-web-管理员密码的配置属性">H2 控制台的 web 管理员密码的配置属性</a></li>
-<li><a href="#cqlsession-based-health-indicators-for-apache-cassandra">CqlSession-Based Health Indicators for Apache Cassandra</a></li>
-<li><a href="#使用-prometheus-过滤抓取">使用 Prometheus 过滤抓取</a></li>
-<li><a href="#spring-security-saml-配置属性">Spring Security SAML 配置属性</a></li>
-<li><a href="#故障分析器">故障分析器</a></li>
-<li><a href="#jar-优化">Jar 优化</a></li>
-<li><a href="#其它">其它</a></li>
-<li><a href="#依赖项升级">依赖项升级</a></li>
+<li><a href="#版本控制方案更改">2.1. 版本控制方案更改</a></li>
+<li><a href="#junit-5s-vintage-engine-从spring-boot-starter-test-中删除">2.2. JUnit 5&#8217;s Vintage Engine 从`spring-boot-starter-test` 中删除</a></li>
+<li><a href="#配置文件处理-application-properties-and-yaml-files">2.3. 配置文件处理 (application properties and YAML files)</a></li>
+<li><a href="#config-data-imports">2.4. Config Data Imports</a></li>
+<li><a href="#嵌入式数据库检测">2.5. 嵌入式数据库检测</a></li>
+<li><a href="#用户定义的-monogoclientsettings不再自定义">2.6. 用户定义的 MonogoClientSettings不再自定义</a></li>
+<li><a href="#logback-配置-properties">2.7. Logback 配置 Properties</a></li>
+<li><a href="#默认servlet注册">2.8. 默认Servlet注册</a></li>
+<li><a href="#默认情况下http跟踪不再包括cookie头">2.9. 默认情况下，HTTP跟踪不再包括cookie头</a></li>
+<li><a href="#undertow-重定向path">2.10. Undertow 重定向Path</a></li>
+<li><a href="#neo4j">2.11. Neo4j</a></li>
+<li><a href="#hazelcast-4">2.12. Hazelcast 4</a></li>
+<li><a href="#elasticsearch-restclient">2.13. Elasticsearch RestClient</a></li>
+<li><a href="#r2dbc">2.14. R2DBC</a></li>
+<li><a href="#flyway">2.15. Flyway</a></li>
+<li><a href="#移除flatten-maven-plugin的插件管理">2.16. 移除Flatten Maven Plugin的插件管理</a></li>
+<li><a href="#exec-maven-plugin-版本管理">2.17. <code>exec-maven-plugin</code> 版本管理</a></li>
+<li><a href="#spring-boot-gradle-插件">2.18. Spring Boot Gradle 插件</a></li>
+<li><a href="#集成测试中的-metrics-export">2.19. 集成测试中的 Metrics export</a></li>
+<li><a href="#spring-boot-2-2-到-2-3的弃用策略">2.20. Spring Boot 2.2 到 2.3的弃用策略</a></li>
+<li><a href="#spring-framework-5-3">2.21. Spring Framework 5.3</a></li>
+<li><a href="#spring-data-2020-0">2.22. Spring Data 2020.0</a>
+<ul class="sectlevel3">
+<li><a href="#neo4j-2">2.22.1. Neo4j</a></li>
+<li><a href="#r2dbc-2">2.22.2. R2DBC</a></li>
 </ul>
 </li>
-<li><a href="#spring-boot-2-4中的弃用">Spring Boot 2.4中的弃用</a></li>
-<li><a href="#new-and-noteworthy">New and Noteworthy</a></li>
+<li><a href="#java-15-support">2.23. Java 15 Support</a></li>
+<li><a href="#custom-property-name-support">2.24. Custom property name support</a></li>
+<li><a href="#默认启用分层-jar">2.25. 默认启用分层 jar</a></li>
+<li><a href="#导入额外应用程序配置">2.26. 导入额外应用程序配置</a></li>
+<li><a href="#卷挂载配置目录树">2.27. 卷挂载配置目录树</a></li>
+<li><a href="#导入没有文件扩展名的配置文件">2.28. 导入没有文件扩展名的配置文件</a></li>
+<li><a href="#origin-chains">2.29. Origin Chains</a></li>
+<li><a href="#startup-endpoint">2.30. Startup Endpoint</a></li>
+<li><a href="#dockerbuildpack-支持">2.31. Docker/Buildpack 支持</a>
+<ul class="sectlevel3">
+<li><a href="#发布镜像">2.31.1. 发布镜像</a></li>
+<li><a href="#验证">2.31.2. 验证</a></li>
+<li><a href="#paketo-buildpack-默认值">2.31.3. Paketo Buildpack 默认值</a></li>
+</ul>
+</li>
+<li><a href="#maven-buildpack-支持">2.32. Maven Buildpack 支持</a>
+<ul class="sectlevel3">
+<li><a href="#gradle-buildpack-支持">2.32.1. Gradle Buildpack 支持</a></li>
+</ul>
+</li>
+<li><a href="#redis-cache-metrics">2.33. Redis Cache Metrics</a></li>
+<li><a href="#web-configuration-properties">2.34. Web Configuration Properties</a></li>
+<li><a href="#register-weblisteners-允许他们注册-servlet-和过滤器">2.35. Register @WebListeners-允许他们注册 servlet 和过滤器</a></li>
+<li><a href="#cassandra-的切片测试">2.36. Cassandra 的切片测试</a></li>
+<li><a href="#flyway-7">2.37. Flyway 7</a></li>
+<li><a href="#h2-控制台的-web-管理员密码的配置属性">2.38. H2 控制台的 web 管理员密码的配置属性</a></li>
+<li><a href="#cqlsession-based-health-indicators-for-apache-cassandra">2.39. CqlSession-Based Health Indicators for Apache Cassandra</a></li>
+<li><a href="#使用-prometheus-过滤抓取">2.40. 使用 Prometheus 过滤抓取</a></li>
+<li><a href="#spring-security-saml-配置属性">2.41. Spring Security SAML 配置属性</a></li>
+<li><a href="#故障分析器">2.42. 故障分析器</a></li>
+<li><a href="#jar-优化">2.43. Jar 优化</a></li>
+<li><a href="#其它">2.44. 其它</a></li>
+<li><a href="#依赖项升级">2.45. 依赖项升级</a></li>
+</ul>
+</li>
+<li><a href="#spring-boot-2-4中的弃用">3. Spring Boot 2.4中的弃用</a></li>
+<li><a href="#new-and-noteworthy">4. New and Noteworthy</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="环境">环境</h2>
+<h2 id="环境"><a class="anchor" href="#环境"></a>1. 环境</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><span class="icon"><i class="fa fa-tags"></i></span> 6 (6.3 or later). 5.6.x is also supported but in a deprecated form</p>
+<p><span class="icon"><i class="fa fa-tags"></i></span>  gradle 6 (6.3 or later). 5.6.x is also supported but in a deprecated form</p>
 </li>
 <li>
 <p><span class="icon"><i class="fa fa-tags"></i></span>  Spring Framework 5.3.8 or above is also required</p>
 </li>
 <li>
-<p><span class="icon"><i class="fa fa-tags"></i></span> jdk8&#8230;&#8203;14</p>
+<p><span class="icon"><i class="fa fa-tags"></i></span>  jdk8&#8230;&#8203;14</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="重大更新">重大更新</h2>
+<h2 id="重大更新"><a class="anchor" href="#重大更新"></a>2. 重大更新</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="版本控制方案更改">版本控制方案更改</h3>
+<h3 id="版本控制方案更改"><a class="anchor" href="#版本控制方案更改"></a>2.1. 版本控制方案更改</h3>
 <div class="admonitionblock important">
 <table>
 <tr>
@@ -543,7 +556,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="junit-5s-vintage-engine-从spring-boot-starter-test-中删除">JUnit 5&#8217;s Vintage Engine 从`spring-boot-starter-test` 中删除</h3>
+<h3 id="junit-5s-vintage-engine-从spring-boot-starter-test-中删除"><a class="anchor" href="#junit-5s-vintage-engine-从spring-boot-starter-test-中删除"></a>2.2. JUnit 5&#8217;s Vintage Engine 从`spring-boot-starter-test` 中删除</h3>
 <div class="paragraph">
 <p>如果您升级到springboot2.4并看到JUnit类的测试编译错误，例如`org.junit.Test`, 这可能是因为JUnit5的老式引擎已经从 <code>spring-boot-starter-test</code> 中移除.
 Vintage 引擎允许JUnit4编写的测试由JUnit5运行.<br>
@@ -576,18 +589,18 @@ Vintage 引擎允许JUnit4编写的测试由JUnit5运行.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="配置文件处理-application-properties-and-yaml-files">配置文件处理 (application properties and YAML files)</h3>
+<h3 id="配置文件处理-application-properties-and-yaml-files"><a class="anchor" href="#配置文件处理-application-properties-and-yaml-files"></a>2.3. 配置文件处理 (application properties and YAML files)</h3>
 <div class="paragraph">
 <p>SpringBoot2.4改变了处理 <code>application.properties</code> 和`application.yml` 文件的方式。<br>
 如果您只有一个简单的 <code>application.properties</code> 或 <code>application.yml</code> 文件，那么您的升级应该是无缝的。<br>
-但是，如果您有更复杂的设置（with profile specific properties, or profile activation properties），如果你想使用新特性，则可能需要做出 <a href="#v2.4-config-data-migration-guide">v2.4-config-data-migration-guide</a></p>
+但是，如果您有更复杂的设置（with profile specific properties, or profile activation properties），如果你想使用新特性，则可能需要做出 <a href="Spring-Boot-Config-Data-Migration-Guide.html#_v2.4-config-data-migration-guide">v2.4-config-data-migration-guide</a></p>
 </div>
 <div class="paragraph">
 <p>如果您只想使用与SpringBoot2.3兼容的逻辑，可以在 <code>application.properties</code> 或 <code>application.yml</code> 文件中将 <code>spring.config.use-legacy-processing”属性设置为 `true</code>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="config-data-imports">Config Data Imports</h3>
+<h3 id="config-data-imports"><a class="anchor" href="#config-data-imports"></a>2.4. Config Data Imports</h3>
 <div class="paragraph">
 <p>Config 位置 通过 <code>spring.config.location</code> 和 <code>spring.config.import</code>(在此版本中引入) 来指定 .如果文件或文件夹不存在，将不再自动失败.<br>
 如果您想导入一个位置，但如果找不到它，您不介意跳过它，现在应该在它前面加上 <code>optional:</code>。</p>
@@ -600,7 +613,7 @@ Vintage 引擎允许JUnit4编写的测试由JUnit5运行.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="嵌入式数据库检测">嵌入式数据库检测</h3>
+<h3 id="嵌入式数据库检测"><a class="anchor" href="#嵌入式数据库检测"></a>2.5. 嵌入式数据库检测</h3>
 <div class="paragraph">
 <p>嵌入式数据库逻辑已被细化，以将数据库视为仅嵌入在内存中的数据库。</p>
 </div>
@@ -620,7 +633,7 @@ Vintage 引擎允许JUnit4编写的测试由JUnit5运行.<br>
 </div>
 </div>
 <div class="sect2">
-<h3 id="用户定义的-monogoclientsettings不再自定义">用户定义的 MonogoClientSettings不再自定义</h3>
+<h3 id="用户定义的-monogoclientsettings不再自定义"><a class="anchor" href="#用户定义的-monogoclientsettings不再自定义"></a>2.6. 用户定义的 MonogoClientSettings不再自定义</h3>
 <div class="paragraph">
 <p>如果您正在提供自己的 <code>MongoClientSettings</code> bean，则自动配置不再对其进行自定义。<br>
 如果您依赖于这种行为，特别是结合嵌入式Mongo，请考虑将定制器应用到您自己的bean中，如下面的示例所示：</p>
@@ -638,7 +651,7 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="logback-配置-properties">Logback 配置 Properties</h3>
+<h3 id="logback-配置-properties"><a class="anchor" href="#logback-配置-properties"></a>2.7. Logback 配置 Properties</h3>
 <div class="paragraph">
 <p>已重命名特定于Logback的日志属性，以反映它们特定于Logback的事实。以前的名称已被弃用。</p>
 </div>
@@ -698,7 +711,7 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="默认servlet注册">默认Servlet注册</h3>
+<h3 id="默认servlet注册"><a class="anchor" href="#默认servlet注册"></a>2.8. 默认Servlet注册</h3>
 <div class="paragraph">
 <p>springboot2.4将不再注册servlet容器提供的 <code>DefaultServlet</code> 。 在大多数应用程序中，它没有被使用，因为spring mvc的 <code>DispatcherServlet</code> 是唯一需要的servlet。</p>
 </div>
@@ -707,7 +720,7 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="默认情况下http跟踪不再包括cookie头">默认情况下，HTTP跟踪不再包括cookie头</h3>
+<h3 id="默认情况下http跟踪不再包括cookie头"><a class="anchor" href="#默认情况下http跟踪不再包括cookie头"></a>2.9. 默认情况下，HTTP跟踪不再包括cookie头</h3>
 <div class="paragraph">
 <p>`默认情况下，HTTP跟踪中不再包括Cookie`请求头和`Set Cookie`响应头。<br></p>
 </div>
@@ -716,7 +729,7 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="undertow-重定向path">Undertow 重定向Path</h3>
+<h3 id="undertow-重定向path"><a class="anchor" href="#undertow-重定向path"></a>2.10. Undertow 重定向Path</h3>
 <div class="paragraph">
 <p>默认情况下，在转发请求时，Undertow保留原始请求URL。<br>
 此版本将覆盖Undertow默认值以符合Servlet规范。<br>
@@ -724,7 +737,7 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="neo4j">Neo4j</h3>
+<h3 id="neo4j"><a class="anchor" href="#neo4j"></a>2.11. Neo4j</h3>
 <div class="paragraph">
 <p>这个版本带来了对Neo4j支持的重大改进。</p>
 </div>
@@ -739,14 +752,14 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="hazelcast-4">Hazelcast 4</h3>
+<h3 id="hazelcast-4"><a class="anchor" href="#hazelcast-4"></a>2.12. Hazelcast 4</h3>
 <div class="paragraph">
 <p>此版本升级到Hazelcast 4，同时保持与Hazelcast '3.2.x' 的兼容性。<br>
 如果您还没有准备好切换到Hazelcast 4，您可以在build使用`Hazelcast.version` 属性降级。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="elasticsearch-restclient">Elasticsearch RestClient</h3>
+<h3 id="elasticsearch-restclient"><a class="anchor" href="#elasticsearch-restclient"></a>2.13. Elasticsearch RestClient</h3>
 <div class="paragraph">
 <p>low-level Elasticsearch <code>RestClient</code> bean 将不再由Spring Boot自动配置.<br>
 一个`RestHighLevelClient` bean 仍自动配置.</p>
@@ -765,14 +778,14 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="r2dbc">R2DBC</h3>
+<h3 id="r2dbc"><a class="anchor" href="#r2dbc"></a>2.14. R2DBC</h3>
 <div class="paragraph">
 <p>R2DBC的核心基础设施已经转移到Spring框架，并带有一个新的`Spring-R2DBC` 模块。<br>
 如果您正在使用此基础结构，请确保将不推荐使用的访问迁移到新的核心支持。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="flyway">Flyway</h3>
+<h3 id="flyway"><a class="anchor" href="#flyway"></a>2.15. Flyway</h3>
 <div class="paragraph">
 <p>Flyway 7 的升级包括对回调排序的  <a href="https://github.com/flyway/flyway/issues/2785">一些更改</a>。<br>
 对于依赖我们通过`@Order` 和`Ordered` 支持的注册订单的任何人来说，这将是一个重大变化。</p>
@@ -791,21 +804,21 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 </div>
 </div>
 <div class="sect2">
-<h3 id="移除flatten-maven-plugin的插件管理">移除Flatten Maven Plugin的插件管理</h3>
+<h3 id="移除flatten-maven-plugin的插件管理"><a class="anchor" href="#移除flatten-maven-plugin的插件管理"></a>2.16. 移除Flatten Maven Plugin的插件管理</h3>
 <div class="paragraph">
 <p>spring boot的构建不再使用flatte maven插件 (<code>flatten-maven-plugin</code>), 相应的插件管理已被移除.<br>
 如果您依赖于springboot的版本管理，那么您应该添加自己的插件管理。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exec-maven-plugin-版本管理"><code>exec-maven-plugin</code> 版本管理</h3>
+<h3 id="exec-maven-plugin-版本管理"><a class="anchor" href="#exec-maven-plugin-版本管理"></a>2.17. <code>exec-maven-plugin</code> 版本管理</h3>
 <div class="paragraph">
 <p><code>exec-maven-plugin</code> h版本管理已被移除.<br>
 如果您正在使用此插件，请确保在您自己的 <code>pluginManagement</code> 中指定一个版本。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-boot-gradle-插件">Spring Boot Gradle 插件</h3>
+<h3 id="spring-boot-gradle-插件"><a class="anchor" href="#spring-boot-gradle-插件"></a>2.18. Spring Boot Gradle 插件</h3>
 <div class="paragraph">
 <p>Spring Boot Gradle 插件 <code>bootJar</code> 任务的 DSL 已更新，以便可以使用 <code>Property&lt;String&gt;</code> 配置 <code>mainClass</code>。<br></p>
 </div>
@@ -815,7 +828,7 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-gradle" data-lang="gradle">bootJar {
-	mainClassName 'com.example.ExampleApplication'
+    mainClassName 'com.example.ExampleApplication'
 }</code></pre>
 </div>
 </div>
@@ -825,39 +838,39 @@ public MongoClientSettings userDefinedMonogoClientSettings(MongoProperties prope
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-gradle" data-lang="gradle">bootJar {
-	mainClass 'com.example.ExampleApplication'
+    mainClass 'com.example.ExampleApplication'
 }</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="集成测试中的-metrics-export">集成测试中的 Metrics export</h3>
+<h3 id="集成测试中的-metrics-export"><a class="anchor" href="#集成测试中的-metrics-export"></a>2.19. 集成测试中的 Metrics export</h3>
 <div class="paragraph">
 <p><code>@SpringBootTest</code> 不再配置可用的监控系统，只提供内存中的 <code>MeterRegistry</code>。<br>
 如果您将指标作为集成测试的一部分导出，您可以将 <code>@AutoConfigureMetrics</code> 添加到您的测试中以恢复之前的行为。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-boot-2-2-到-2-3的弃用策略">Spring Boot 2.2 到 2.3的弃用策略</h3>
+<h3 id="spring-boot-2-2-到-2-3的弃用策略"><a class="anchor" href="#spring-boot-2-2-到-2-3的弃用策略"></a>2.20. Spring Boot 2.2 到 2.3的弃用策略</h3>
 <div class="paragraph">
 <p>为反映 Spring Bootrelease <a href="https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#release-compatibility">兼容性策略</a>，Spring Boot 2.2 中弃用的代码已在 Spring Boot 2.4 中删除。 Spring Boot 2.3 中弃用的代码仍然存在，并计划在 Spring Boot 2.5 中删除。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-framework-5-3">Spring Framework 5.3</h3>
+<h3 id="spring-framework-5-3"><a class="anchor" href="#spring-framework-5-3"></a>2.21. Spring Framework 5.3</h3>
 <div class="paragraph">
 <p>Spring Boot 2.4 使用 Spring Framework 5.3。<br>
 Spring Framework 5.3 <a href="https://github.com/spring-projects/spring-framework/wiki/What%27s-New-in-Spring-Framework-5.x">what&#8217;s new section</a> .</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-data-2020-0">Spring Data 2020.0</h3>
+<h3 id="spring-data-2020-0"><a class="anchor" href="#spring-data-2020-0"></a>2.22. Spring Data 2020.0</h3>
 <div class="paragraph">
 <p>Spring Boot 2.4 包含 Spring Data 发布系列的 2020.0 版（代号为 Ockham）。<br>
 参阅 <a href="https://github.com/spring-projects/spring-data-commons/wiki/Release-Train-Ockham-%282020.0.0%29">Spring Data wiki</a> 。</p>
 </div>
 <div class="sect3">
-<h4 id="neo4j-2">Neo4j</h4>
+<h4 id="neo4j-2"><a class="anchor" href="#neo4j-2"></a>2.22.1. Neo4j</h4>
 <div class="paragraph">
 <p>此版本支持反应式存储库，并依赖于 Neo4j 驱动程序的单独自动配置。 因此，现在可以在有或没有 Spring Data 的情况下使用 Neo4j。</p>
 </div>
@@ -878,20 +891,20 @@ public ReactiveTransactionManager reactiveTransactionManager(Driver driver,
 </div>
 </div>
 <div class="sect3">
-<h4 id="r2dbc-2">R2DBC</h4>
+<h4 id="r2dbc-2"><a class="anchor" href="#r2dbc-2"></a>2.22.2. R2DBC</h4>
 <div class="paragraph">
 <p><code>R2dbcEntityTemplate</code> 可用于通过实体简化 Reactive R2DBC 的使用</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-15-support">Java 15 Support</h3>
+<h3 id="java-15-support"><a class="anchor" href="#java-15-support"></a>2.23. Java 15 Support</h3>
 <div class="paragraph">
 <p>Spring Boot 2.4 现在完全支持（并针对）Java 15。支持的最低版本仍然是 Java 8。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="custom-property-name-support">Custom property name support</h3>
+<h3 id="custom-property-name-support"><a class="anchor" href="#custom-property-name-support"></a>2.24. Custom property name support</h3>
 <div class="paragraph">
 <p>当使用构造函数绑定时，属性的名称是从参数名称派生的。 如果您想使用 java 保留关键字，这可能是一个问题。对于这种情况，您现在可以使用 <code>@Name</code> 注释，例如：</p>
 </div>
@@ -915,13 +928,13 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="默认启用分层-jar">默认启用分层 jar</h3>
+<h3 id="默认启用分层-jar"><a class="anchor" href="#默认启用分层-jar"></a>2.25. 默认启用分层 jar</h3>
 <div class="paragraph">
 <p>此版本启用分层 jar 并默认包含 layertools。 这应该会提高使用开箱即用的构建包生成layer的效率，并让您在 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/reference/html/spring-boot-features.html#layering-docker-images">crafting custom <code>Dockerfile</code></a>  时受益于该功能。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="导入额外应用程序配置">导入额外应用程序配置</h3>
+<h3 id="导入额外应用程序配置"><a class="anchor" href="#导入额外应用程序配置"></a>2.26. 导入额外应用程序配置</h3>
 <div class="paragraph">
 <p>只要你还没有将 <code>spring.config.use-legacy-processing</code> 设置为 <code>true</code>，你现在就可以直接从你的主 <code>application.properties</code> 或 <code>application.yml</code> 导入额外的属性和 yaml 文件。</p>
 </div>
@@ -942,7 +955,7 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="卷挂载配置目录树">卷挂载配置目录树</h3>
+<h3 id="卷挂载配置目录树"><a class="anchor" href="#卷挂载配置目录树"></a>2.27. 卷挂载配置目录树</h3>
 <div class="paragraph">
 <p><code>spring.config.import</code> 属性还可用于导入 Kubernetes 常用的配置树。配置树是提供键值对的另一种方式。每对都在自己的文件中声明，文件名构成属性键，文件内容提供值。</p>
 </div>
@@ -954,13 +967,13 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="导入没有文件扩展名的配置文件">导入没有文件扩展名的配置文件</h3>
+<h3 id="导入没有文件扩展名的配置文件"><a class="anchor" href="#导入没有文件扩展名的配置文件"></a>2.28. 导入没有文件扩展名的配置文件</h3>
 <div class="paragraph">
 <p>某些云平台只允许您批量挂载没有文件扩展名的文件。如果您有这样的约束，现在可以通过向 Spring Boot 提供有关内容类型的提示来导入这些文件。例如，<code>spring.config.import=etcmyconfig[.yaml]</code> 会将 <code>etcmyconfig</code> 作为 YAML 加载。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="origin-chains">Origin Chains</h3>
+<h3 id="origin-chains"><a class="anchor" href="#origin-chains"></a>2.29. Origin Chains</h3>
 <div class="paragraph">
 <p><code>Origin</code> 接口已更新为新的 <code>getParent()</code> 方法。这使我们能够提供完整的来源链，可以准确显示项目的来源。</p>
 </div>
@@ -972,7 +985,7 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="startup-endpoint">Startup Endpoint</h3>
+<h3 id="startup-endpoint"><a class="anchor" href="#startup-endpoint"></a>2.30. Startup Endpoint</h3>
 <div class="paragraph">
 <p>现在可以使用一个新的“Startup” 执行器端点，显示有关您的应用程序启动的信息。端点可以帮助您识别启动时间比预期更长的 bean。</p>
 </div>
@@ -984,15 +997,15 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="dockerbuildpack-支持">Docker/Buildpack 支持</h3>
+<h3 id="dockerbuildpack-支持"><a class="anchor" href="#dockerbuildpack-支持"></a>2.31. Docker/Buildpack 支持</h3>
 <div class="sect3">
-<h4 id="发布镜像">发布镜像</h4>
+<h4 id="发布镜像"><a class="anchor" href="#发布镜像"></a>2.31.1. 发布镜像</h4>
 <div class="paragraph">
 <p>Maven 插件 <code>spring-boot:build-image</code> 目标和 Gradle 插件 <code>bootBuildImage</code> 任务现在能够将生成的镜像发布到 Docker registry。 查看 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/htmlsingle/#build-image-example-publish">Maven</a> and <a href="https://docs.spring.io/spring-boot/docs/2.4.0/gradle-plugin/reference/htmlsingle/#build-image-example-publish">Gradle</a> 插件文档，了解有关配置插件以发布图像的更多详细信息。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="验证">验证</h4>
+<h4 id="验证"><a class="anchor" href="#验证"></a>2.31.2. 验证</h4>
 <div class="paragraph">
 <p>使用 Spring Boot 的 buildpack 支持时，您现在可以为构建器或运行映像使用经过身份验证的私有 Docker registry。支持 username/password 和基于令牌的身份验证。</p>
 </div>
@@ -1001,14 +1014,14 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect3">
-<h4 id="paketo-buildpack-默认值">Paketo Buildpack 默认值</h4>
+<h4 id="paketo-buildpack-默认值"><a class="anchor" href="#paketo-buildpack-默认值"></a>2.31.3. Paketo Buildpack 默认值</h4>
 <div class="paragraph">
 <p>Maven 插件 <code>spring-boot:build-image</code> 目标和 Gradle 插件 <code>bootBuildImage</code> 任务默认使用的镜像构建器已经升级到最新的 Paketo 镜像。 Paketo 镜像Registry已从 Google Container Registry 更改为 Docker Hub，以提高可访问性。</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="maven-buildpack-支持">Maven Buildpack 支持</h3>
+<h3 id="maven-buildpack-支持"><a class="anchor" href="#maven-buildpack-支持"></a>2.32. Maven Buildpack 支持</h3>
 <div class="paragraph">
 <p><code>spring-boot:build-image</code> Maven goal 现在将所有项目模块依赖项放在“application”层中。这意味着如果您的构建中有多个项目模块，它们现在都将在同一层中结束。</p>
 </div>
@@ -1019,7 +1032,7 @@ public class SampleConfigurationProperties {
 <p>参阅  <a href="https://docs.spring.io/spring-boot/docs/2.4.0/maven-plugin/reference/htmlsingle/#repackage-layers-configuration">updated Maven documentation</a> for details.</p>
 </div>
 <div class="sect3">
-<h4 id="gradle-buildpack-支持">Gradle Buildpack 支持</h4>
+<h4 id="gradle-buildpack-支持"><a class="anchor" href="#gradle-buildpack-支持"></a>2.32.1. Gradle Buildpack 支持</h4>
 <div class="paragraph">
 <p><code>bootBuildImage</code> Gradle 任务现在将 <em>all</em> 项目模块依赖项放在“application”层中。这意味着如果您的构建中有多个项目模块，它们现在都将在同一层中结束。</p>
 </div>
@@ -1032,7 +1045,7 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="redis-cache-metrics">Redis Cache Metrics</h3>
+<h3 id="redis-cache-metrics"><a class="anchor" href="#redis-cache-metrics"></a>2.33. Redis Cache Metrics</h3>
 <div class="paragraph">
 <p>如果您使用 Redis 缓存，您现在可以通过 Micrometer 公开缓存统计信息。记录的指标包括放置、获取和删除的数量以及未命中数。挂起请求的数量和锁定等待持续时间也被记录下来。</p>
 </div>
@@ -1041,7 +1054,7 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="web-configuration-properties">Web Configuration Properties</h3>
+<h3 id="web-configuration-properties"><a class="anchor" href="#web-configuration-properties"></a>2.34. Web Configuration Properties</h3>
 <div class="paragraph">
 <p>添加了属性以支持使用 Spring MVC 或 Spring WebFlux 配置 Web 区域设置和资源位置。</p>
 </div>
@@ -1092,7 +1105,7 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="register-weblisteners-允许他们注册-servlet-和过滤器">Register @WebListeners-允许他们注册 servlet 和过滤器</h3>
+<h3 id="register-weblisteners-允许他们注册-servlet-和过滤器"><a class="anchor" href="#register-weblisteners-允许他们注册-servlet-和过滤器"></a>2.35. Register @WebListeners-允许他们注册 servlet 和过滤器</h3>
 <div class="paragraph">
 <p>Servlet <code>@WebListener</code> 类现在以这样一种方式注册，它们可以自己注册 servlet 和过滤器。</p>
 </div>
@@ -1111,7 +1124,7 @@ public class SampleConfigurationProperties {
 </div>
 </div>
 <div class="sect2">
-<h3 id="cassandra-的切片测试">Cassandra 的切片测试</h3>
+<h3 id="cassandra-的切片测试"><a class="anchor" href="#cassandra-的切片测试"></a>2.36. Cassandra 的切片测试</h3>
 <div class="paragraph">
 <p>额外的测试切片可用于使用 <code>@DataCassandraTest</code> 测试依赖于 Cassandra 的组件。 像往常一样，默认情况下只配置 Cassandra 存储库和所需的基础设施。</p>
 </div>
@@ -1127,17 +1140,17 @@ public class SampleConfigurationProperties {
 @Testcontainers(disabledWithoutDocker = true)
 class SampleDataCassandraTestIntegrationTests {
 
-	@Container
-	static final CassandraContainer&lt;?&gt; cassandra = new CassandraContainer&lt;&gt;().withStartupAttempts(5)
-			.withStartupTimeout(Duration.ofMinutes(2));
+    @Container
+    static final CassandraContainer&lt;?&gt; cassandra = new CassandraContainer&lt;&gt;().withStartupAttempts(5)
+            .withStartupTimeout(Duration.ofMinutes(2));
 
-	@DynamicPropertySource
-	static void cassandraProperties(DynamicPropertyRegistry registry) {
-		registry.add("spring.data.cassandra.contact-points",
-				() -&gt; cassandra.getHost() + ":" + cassandra.getFirstMappedPort());
-	}
+    @DynamicPropertySource
+    static void cassandraProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.data.cassandra.contact-points",
+                () -&gt; cassandra.getHost() + ":" + cassandra.getFirstMappedPort());
+    }
 
-	...
+    ...
 
 }</code></pre>
 </div>
@@ -1146,7 +1159,7 @@ class SampleDataCassandraTestIntegrationTests {
 </div>
 </div>
 <div class="sect2">
-<h3 id="flyway-7">Flyway 7</h3>
+<h3 id="flyway-7"><a class="anchor" href="#flyway-7"></a>2.37. Flyway 7</h3>
 <div class="paragraph">
 <p>此版本升级到 Flyway 7，带来了一些额外的属性。 对于开源版本，我们添加了以下 <code>spring.flyway</code> 属性：</p>
 </div>
@@ -1187,14 +1200,14 @@ class SampleDataCassandraTestIntegrationTests {
 </div>
 </div>
 <div class="sect2">
-<h3 id="h2-控制台的-web-管理员密码的配置属性">H2 控制台的 web 管理员密码的配置属性</h3>
+<h3 id="h2-控制台的-web-管理员密码的配置属性"><a class="anchor" href="#h2-控制台的-web-管理员密码的配置属性"></a>2.38. H2 控制台的 web 管理员密码的配置属性</h3>
 <div class="paragraph">
 <p>引入了一个新的配置属性，<code>spring.h2.console.settings.web-admin-password</code>，用于配置 H2 控制台的 web 管理员密码。
 密码控制对控制台首选项和工具的访问。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="cqlsession-based-health-indicators-for-apache-cassandra">CqlSession-Based Health Indicators for Apache Cassandra</h3>
+<h3 id="cqlsession-based-health-indicators-for-apache-cassandra"><a class="anchor" href="#cqlsession-based-health-indicators-for-apache-cassandra"></a>2.39. CqlSession-Based Health Indicators for Apache Cassandra</h3>
 <div class="paragraph">
 <p>引入了新的基于 <code>CqlSession</code> 的健康指标，<code>CassandraDriverHealthIndicator</code> 和 <code>CassandraDriverReactiveHealthIndicator</code>。
 当 Cassandra 的 Java 驱动程序位于类路径上时，将自动配置这些指标之一。
@@ -1202,14 +1215,14 @@ class SampleDataCassandraTestIntegrationTests {
 </div>
 </div>
 <div class="sect2">
-<h3 id="使用-prometheus-过滤抓取">使用 Prometheus 过滤抓取</h3>
+<h3 id="使用-prometheus-过滤抓取"><a class="anchor" href="#使用-prometheus-过滤抓取"></a>2.40. 使用 Prometheus 过滤抓取</h3>
 <div class="paragraph">
 <p>Actuator 的 Prometheus 端点 <code>/actuator/prometheus</code> 现在支持 <code>includedNames</code> 查询参数，可用于过滤响应中包含的样本。
 有关更多详细信息，请参阅 <a href="https://docs.spring.io/spring-boot/docs/2.4.0/actuator-api/htmlsingle#prometheus-retrieving-names">Actuator API 文档</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-security-saml-配置属性">Spring Security SAML 配置属性</h3>
+<h3 id="spring-security-saml-配置属性"><a class="anchor" href="#spring-security-saml-配置属性"></a>2.41. Spring Security SAML 配置属性</h3>
 <div class="paragraph">
 <p>已添加属性以允许配置 SAML2 信赖方注册的解密凭据和断言消费者服务 (ACS)。
 属性如下：</p>
@@ -1226,7 +1239,7 @@ class SampleDataCassandraTestIntegrationTests {
 </div>
 </div>
 <div class="sect2">
-<h3 id="故障分析器">故障分析器</h3>
+<h3 id="故障分析器"><a class="anchor" href="#故障分析器"></a>2.42. 故障分析器</h3>
 <div class="paragraph">
 <p>即使未创建“应用程序上下文”，现在也会考虑 FailureAnalyzer。
 这使他们还可以分析在“环境”处理期间抛出的任何异常。</p>
@@ -1245,7 +1258,7 @@ class SampleDataCassandraTestIntegrationTests {
 </div>
 </div>
 <div class="sect2">
-<h3 id="jar-优化">Jar 优化</h3>
+<h3 id="jar-优化"><a class="anchor" href="#jar-优化"></a>2.43. Jar 优化</h3>
 <div class="paragraph">
 <p>当生成可运行的Spring Boot jar时，空的starter依赖项现在将被自动删除。由于大多数启动程序只提供可传递的依赖关系，所以将它们打包到最终jar中没有什么意义。</p>
 </div>
@@ -1281,7 +1294,7 @@ If you want to filter out an annotation processor, you can add the same property
 </div>
 </div>
 <div class="sect2">
-<h3 id="其它">其它</h3>
+<h3 id="其它"><a class="anchor" href="#其它"></a>2.44. 其它</h3>
 <div class="paragraph">
 <p>除了上面列出的更改之外，还有许多小的调整和改进，包括：</p>
 </div>
@@ -1357,7 +1370,7 @@ If you want to filter out an annotation processor, you can add the same property
 </div>
 </div>
 <div class="sect2">
-<h3 id="依赖项升级">依赖项升级</h3>
+<h3 id="依赖项升级"><a class="anchor" href="#依赖项升级"></a>2.45. 依赖项升级</h3>
 <div class="paragraph">
 <p>Spring Boot 2.4迁移到几个Spring项目的新版本：</p>
 </div>
@@ -1454,7 +1467,7 @@ If you want to filter out an annotation processor, you can add the same property
 </div>
 </div>
 <div class="sect1">
-<h2 id="spring-boot-2-4中的弃用">Spring Boot 2.4中的弃用</h2>
+<h2 id="spring-boot-2-4中的弃用"><a class="anchor" href="#spring-boot-2-4中的弃用"></a>3. Spring Boot 2.4中的弃用</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1493,7 +1506,7 @@ If you want to filter out an annotation processor, you can add the same property
 </div>
 </div>
 <div class="sect1">
-<h2 id="new-and-noteworthy">New and Noteworthy</h2>
+<h2 id="new-and-noteworthy"><a class="anchor" href="#new-and-noteworthy"></a>4. New and Noteworthy</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -1502,7 +1515,7 @@ If you want to filter out an annotation processor, you can add the same property
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-参阅 <a href="Spring-Boot-2.4.0-Configuration-Changelog.html#v2.4-configuration-changelog">Configuration properties change between <code>2.2.7.RELEASE</code> and <code>2.3.0.RELEASE</code></a> 查看有关配置更改的完整概述。
+参阅 <a href="Spring-Boot-2.4.0-Configuration-Changelog.html#_v2.4-configuration-changelog">Configuration properties change between <code>2.2.7.RELEASE</code> and <code>2.3.0.RELEASE</code></a> 查看有关配置更改的完整概述。
 </td>
 </tr>
 </table>
@@ -1512,8 +1525,8 @@ If you want to filter out an annotation processor, you can add the same property
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0-SNAPSHOT<br>
-Last updated 2021-07-14 01:35:51 UTC
+ 1.0-SNAPSHOT<br>
+Last updated 2021-07-14 07:02:12 UTC
 </div>
 </div>
 </body>

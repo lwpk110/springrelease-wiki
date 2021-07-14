@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="Unresolved directive in v2.5.adoc - include::authors.adoc[]">
+<meta name="author" content="steven lu">
 <title>Spring Boot 2.5 Release Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -438,74 +438,85 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body id="v2.5" class="article toc2 toc-left">
+<body id="_2.5" class="book toc2 toc-left">
 <div id="header">
 <h1>Spring Boot 2.5 Release Notes</h1>
 <div class="details">
-<span id="author" class="author">Unresolved directive in v2.5.adoc - include::authors.adoc[]</span><br>
-<span id="revnumber">version 1.0-SNAPSHOT,</span>
-<span id="revdate">Unresolved directive in v2.5.adoc - include</span>
-<br><span id="revremark">:attributes.adoc[]</span>
+<span id="author" class="author">steven lu</span><br>
+<span id="revnumber"> 1.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">目录</div>
 <ul class="sectlevel1">
-<li><a href="#环境">环境</a>
+<li><a href="#环境">1. 环境</a>
 <ul class="sectlevel2">
-<li><a href="#servlet-containers">Servlet Containers</a></li>
+<li><a href="#servlet-containers">1.1. Servlet Containers</a></li>
 </ul>
 </li>
-<li><a href="#重大更新">重大更新</a>
+<li><a href="#重大更新">2. 重大更新</a>
 <ul class="sectlevel2">
-<li><a href="#sql脚本数据源初始化">SQL脚本数据源初始化</a></li>
-<li><a href="#flyway-and-liquibase-jdbc-urls">Flyway and Liquibase JDBC URLs</a></li>
-<li><a href="#spring-data-solr">Spring Data Solr</a></li>
-<li><a href="#secure-info-endpoint">Secure Info Endpoint</a></li>
-<li><a href="#默认表达式语言-el-实现">默认表达式语言 (EL) 实现</a></li>
-<li><a href="#默认错误视图中的消息">默认错误视图中的消息</a></li>
-<li><a href="#日志关闭钩子">日志关闭钩子</a></li>
-<li><a href="#gradle-default-jar-and-war-tasks">Gradle Default jar and war Tasks</a></li>
-<li><a href="#cassandra-throttling-属性">Cassandra Throttling 属性</a></li>
-<li><a href="#jooqs-defaultconfiguration-自定义">jOOQ&#8217;s <code>DefaultConfiguration</code> 自定义</a></li>
-<li><a href="#groovy-3">Groovy 3</a></li>
-<li><a href="#gradle-版本最低要求变更">gradle 版本最低要求变更</a></li>
-<li><a href="#hibernate-validator-6-2">Hibernate Validator 6.2</a></li>
-<li><a href="#spring-boot-2-3-和-2-4-的弃用">Spring Boot 2.3 和 2.4 的弃用</a></li>
-<li><a href="#环境变量前缀">环境变量前缀</a></li>
-<li><a href="#基于-tcp-的-http2-h2c">基于 TCP 的 HTTP2 (h2c)</a></li>
-<li><a href="#generic-datasource-初始化">Generic DataSource 初始化</a></li>
-<li><a href="#r2dbc-database-初始化">R2DBC Database 初始化</a></li>
-<li><a href="#liquibase-datasource">Liquibase DataSource</a></li>
-<li><a href="#layered-wars">Layered WARs</a></li>
-<li><a href="#docker-镜像构建支持">Docker 镜像构建支持</a></li>
-<li><a href="#prometheus-openmetrics">Prometheus OpenMetrics</a></li>
-<li><a href="#spring-data-repositories-指标">Spring Data Repositories 指标</a></li>
-<li><a href="#webflux-timed-指标">WebFlux  @Timed 指标</a></li>
-<li><a href="#mongodb-指标">MongoDB 指标</a></li>
-<li><a href="#quartz-actuator-endpoint">Quartz Actuator Endpoint</a></li>
-<li><a href="#get-对-actuatorstartup-的请求"><code>GET</code> 对 <code>actuator/startup</code> 的请求</a></li>
-<li><a href="#datasource健康抽象路由">DataSource健康抽象路由</a></li>
-<li><a href="#java-16-支持">Java 16 支持</a></li>
-<li><a href="#gradle-7-支持">Gradle 7 支持</a></li>
-<li><a href="#jetty-10-support">Jetty 10 Support</a></li>
-<li><a href="#documentation-updates">Documentation Updates</a></li>
-<li><a href="#其它">其它</a></li>
-<li><a href="#依赖更新">依赖更新</a></li>
+<li><a href="#sql脚本数据源初始化">2.1. SQL脚本数据源初始化</a>
+<ul class="sectlevel3">
+<li><a href="#schema-sql-and-data-sql">2.1.1. <code>schema.sql</code> and <code>data.sql</code></a></li>
+<li><a href="#互相隔离的credentials">2.1.2. 互相隔离的Credentials</a></li>
+<li><a href="#hibernate-and-data-sql">2.1.3. Hibernate and data.sql</a></li>
+<li><a href="#initialization-ordering">2.1.4. Initialization ordering</a></li>
 </ul>
 </li>
-<li><a href="#springboot2-5中值得注意的不推荐使用deprecations">SpringBoot2.5中值得注意的不推荐使用（deprecations）</a></li>
-<li><a href="#new-and-noteworthy">New and Noteworthy</a></li>
+<li><a href="#flyway-and-liquibase-jdbc-urls">2.2. Flyway and Liquibase JDBC URLs</a></li>
+<li><a href="#spring-data-solr">2.3. Spring Data Solr</a></li>
+<li><a href="#secure-info-endpoint">2.4. Secure Info Endpoint</a></li>
+<li><a href="#默认表达式语言-el-实现">2.5. 默认表达式语言 (EL) 实现</a></li>
+<li><a href="#默认错误视图中的消息">2.6. 默认错误视图中的消息</a></li>
+<li><a href="#日志关闭钩子">2.7. 日志关闭钩子</a></li>
+<li><a href="#gradle-default-jar-and-war-tasks">2.8. Gradle Default jar and war Tasks</a></li>
+<li><a href="#cassandra-throttling-属性">2.9. Cassandra Throttling 属性</a></li>
+<li><a href="#jooqs-defaultconfiguration-自定义">2.10. jOOQ&#8217;s <code>DefaultConfiguration</code> 自定义</a></li>
+<li><a href="#groovy-3">2.11. Groovy 3</a></li>
+<li><a href="#gradle-版本最低要求变更">2.12. gradle 版本最低要求变更</a></li>
+<li><a href="#hibernate-validator-6-2">2.13. Hibernate Validator 6.2</a></li>
+<li><a href="#spring-boot-2-3-和-2-4-的弃用">2.14. Spring Boot 2.3 和 2.4 的弃用</a></li>
+<li><a href="#环境变量前缀">2.15. 环境变量前缀</a></li>
+<li><a href="#基于-tcp-的-http2-h2c">2.16. 基于 TCP 的 HTTP2 (h2c)</a></li>
+<li><a href="#generic-datasource-初始化">2.17. Generic DataSource 初始化</a></li>
+<li><a href="#r2dbc-database-初始化">2.18. R2DBC Database 初始化</a></li>
+<li><a href="#liquibase-datasource">2.19. Liquibase DataSource</a></li>
+<li><a href="#layered-wars">2.20. Layered WARs</a></li>
+<li><a href="#docker-镜像构建支持">2.21. Docker 镜像构建支持</a>
+<ul class="sectlevel3">
+<li><a href="#自定义-buildpacks">2.21.1. 自定义 Buildpacks</a></li>
+<li><a href="#bindings">2.21.2. Bindings</a></li>
+<li><a href="#war-支持">2.21.3. War 支持</a></li>
+</ul>
+</li>
+<li><a href="#prometheus-openmetrics">2.22. Prometheus OpenMetrics</a></li>
+<li><a href="#spring-data-repositories-指标">2.23. Spring Data Repositories 指标</a></li>
+<li><a href="#webflux-timed-指标">2.24. WebFlux  @Timed 指标</a></li>
+<li><a href="#mongodb-指标">2.25. MongoDB 指标</a></li>
+<li><a href="#quartz-actuator-endpoint">2.26. Quartz Actuator Endpoint</a></li>
+<li><a href="#get-对-actuatorstartup-的请求">2.27. <code>GET</code> 对 <code>actuator/startup</code> 的请求</a></li>
+<li><a href="#datasource健康抽象路由">2.28. DataSource健康抽象路由</a></li>
+<li><a href="#java-16-支持">2.29. Java 16 支持</a></li>
+<li><a href="#gradle-7-支持">2.30. Gradle 7 支持</a></li>
+<li><a href="#jetty-10-support">2.31. Jetty 10 Support</a></li>
+<li><a href="#documentation-updates">2.32. Documentation Updates</a></li>
+<li><a href="#其它">2.33. 其它</a></li>
+<li><a href="#依赖更新">2.34. 依赖更新</a></li>
+</ul>
+</li>
+<li><a href="#springboot2-5中值得注意的不推荐使用deprecations">3. SpringBoot2.5中值得注意的不推荐使用（deprecations）</a></li>
+<li><a href="#new-and-noteworthy">4. New and Noteworthy</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="环境">环境</h2>
+<h2 id="环境"><a class="anchor" href="#环境"></a>1. 环境</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><span class="icon"><i class="fa fa-tags"></i></span> 6.8.x, 6.9.x, and 7.x</p>
+<p><span class="icon"><i class="fa fa-tags"></i></span> gradle 6.8.x, 6.9.x, and 7.x</p>
 </li>
 <li>
 <p><span class="icon"><i class="fa fa-tags"></i></span> Spring Framework 5.3.8 or above is also required</p>
@@ -516,7 +527,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="sect2">
-<h3 id="servlet-containers">Servlet Containers</h3>
+<h3 id="servlet-containers"><a class="anchor" href="#servlet-containers"></a>1.1. Servlet Containers</h3>
 <div class="paragraph">
 <p>Spring Boot支持以下嵌入式servlet容器：</p>
 </div>
@@ -570,17 +581,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="重大更新">重大更新</h2>
+<h2 id="重大更新"><a class="anchor" href="#重大更新"></a>2. 重大更新</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="sql脚本数据源初始化">SQL脚本数据源初始化</h3>
+<h3 id="sql脚本数据源初始化"><a class="anchor" href="#sql脚本数据源初始化"></a>2.1. SQL脚本数据源初始化</h3>
 <div class="paragraph">
 <p>Spring Boot 2.5 中重新设计了用于支持 <code>schema.sql</code> 和 <code>data.sql</code> 脚本的底层方法。
 与 <code>DataSource</code> 初始化相关的 <code>spring.datasource.*</code> 属性已被弃用，取而代之的是新的 <code>spring.sql.init.*</code> 属性。
 这些属性还可用于初始化通过 R2DBC 访问的 SQL 数据库。</p>
 </div>
 <div class="sect3">
-<h4 id="schema-sql-and-data-sql"><code>schema.sql</code> and <code>data.sql</code></h4>
+<h4 id="schema-sql-and-data-sql"><a class="anchor" href="#schema-sql-and-data-sql"></a>2.1.1. <code>schema.sql</code> and <code>data.sql</code></h4>
 <div class="paragraph">
 <p>对于 Spring Boot 2.5.1 及更高版本，新的 SQL 初始化属性支持检测 JDBC 和 R2DBC 的嵌入式数据源。
 默认情况下，SQL 数据库初始化仅在使用嵌入式内存数据库时执行。
@@ -589,7 +600,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="互相隔离的credentials">互相隔离的Credentials</h4>
+<h4 id="互相隔离的credentials"><a class="anchor" href="#互相隔离的credentials"></a>2.1.2. 互相隔离的Credentials</h4>
 <div class="paragraph">
 <p>新的基于脚本的 SQL 数据库初始化不支持对架构 (DDL) 和数据 (DML) 更改使用单独的凭据。
 这降低了复杂性并使其功能与 Flyway 和 Liquibase 保持一致。
@@ -597,7 +608,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="hibernate-and-data-sql">Hibernate and data.sql</h4>
+<h4 id="hibernate-and-data-sql"><a class="anchor" href="#hibernate-and-data-sql"></a>2.1.3. Hibernate and data.sql</h4>
 <div class="paragraph">
 <p>默认情况下，<code>data.sql</code> 脚本现在在 Hibernate 初始化之前运行。
 这使基于脚本的基本初始化行为与 Flyway 和 Liquibase 的行为保持一致。
@@ -606,7 +617,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="initialization-ordering">Initialization ordering</h4>
+<h4 id="initialization-ordering"><a class="anchor" href="#initialization-ordering"></a>2.1.4. Initialization ordering</h4>
 <div class="paragraph">
 <p><a href="https://docs.spring.io/spring-boot/docs/2.5.0/reference/html//howto.html#howto.data-initialization.dependencies.depends-on-initialization-detection">certain well-known types</a> bean, 例如 <code>JdbcTemplate</code>, 将被排序，以便在数据库初始化后初始化它们。
 如果你有一个直接使用 <code>DataSource</code> 的 bean，用 <code>@DependsOnDatabaseInitialization</code> 注释它的类或 <code>@Bean</code> 方法，以确保它在数据库初始化后也被初始化。</p>
@@ -614,20 +625,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="flyway-and-liquibase-jdbc-urls">Flyway and Liquibase JDBC URLs</h3>
+<h3 id="flyway-and-liquibase-jdbc-urls"><a class="anchor" href="#flyway-and-liquibase-jdbc-urls"></a>2.2. Flyway and Liquibase JDBC URLs</h3>
 <div class="paragraph">
 <p>如果你当前定义了一个 <code>spring.flyway.url</code> 或 <code>spring.liquibase.url</code>，你可能需要提供额外的 <code>username</code> 和 <code>password</code> 属性。
 在 Spring Boot 的早期版本中，这些设置是从 <code>spring.datasource</code> 属性派生的，但这对于提供自己的 DataSource bean 的人来说是有问题的。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-data-solr">Spring Data Solr</h3>
+<h3 id="spring-data-solr"><a class="anchor" href="#spring-data-solr"></a>2.3. Spring Data Solr</h3>
 <div class="paragraph">
 <p>在 2021.0.0 从 Spring Data 中删除之后，此版本中删除了 Spring Data Solr 的自动配置。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="secure-info-endpoint">Secure Info Endpoint</h3>
+<h3 id="secure-info-endpoint"><a class="anchor" href="#secure-info-endpoint"></a>2.4. Secure Info Endpoint</h3>
 <div class="paragraph">
 <p><code>/info</code> actuator endpoint默认情况下不再通过网络公开。
 此外，如果 Spring Security 在类路径上并且您的应用程序没有自定义安全配置，则端点默认需要经过身份验证的访问。</p>
@@ -637,13 +648,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="默认表达式语言-el-实现">默认表达式语言 (EL) 实现</h3>
+<h3 id="默认表达式语言-el-实现"><a class="anchor" href="#默认表达式语言-el-实现"></a>2.5. 默认表达式语言 (EL) 实现</h3>
 <div class="paragraph">
 <p>Spring Boot 的 web 和验证启动器中包含的 EL 实现已更改. Tomcat 的实现（<code>org.apache.tomcat.embed.tomcat-embed-el</code>）现在用于代替 Glassfish 的参考实现（<code>org.glassfish:jakrta.el</code>）.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="默认错误视图中的消息">默认错误视图中的消息</h3>
+<h3 id="默认错误视图中的消息"><a class="anchor" href="#默认错误视图中的消息"></a>2.6. 默认错误视图中的消息</h3>
 <div class="paragraph">
 <p>默认错误视图中的 <code>message</code> 属性现在被删除，而不是在未显示时为空白。
 如果您解析错误响应 JSON，您可能需要处理丢失的项。</p>
@@ -662,7 +673,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="日志关闭钩子">日志关闭钩子</h3>
+<h3 id="日志关闭钩子"><a class="anchor" href="#日志关闭钩子"></a>2.7. 日志关闭钩子</h3>
 <div class="paragraph">
 <p>我们现在默认为基于 jar 的应用程序注册一个日志关闭挂钩，以确保在 JVM 退出时释放日志资源。
 如果您的应用程序部署为 war，则不会注册关闭挂钩，因为 servlet 容器通常处理日志记录问题。</p>
@@ -673,7 +684,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="gradle-default-jar-and-war-tasks">Gradle Default jar and war Tasks</h3>
+<h3 id="gradle-default-jar-and-war-tasks"><a class="anchor" href="#gradle-default-jar-and-war-tasks"></a>2.8. Gradle Default jar and war Tasks</h3>
 <div class="paragraph">
 <p>Spring Boot Gradle Plugin 不再自动禁用标准 Gradle <code>jar</code> 和 <code>war</code> 任务。
 取而代之的，使用 <code>classifier</code> 来替代这些任务.</p>
@@ -683,45 +694,45 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="cassandra-throttling-属性">Cassandra Throttling 属性</h3>
+<h3 id="cassandra-throttling-属性"><a class="anchor" href="#cassandra-throttling-属性"></a>2.9. Cassandra Throttling 属性</h3>
 <div class="paragraph">
 <p>Spring Boot 不再为 spring.data.cassandra.request.throttler 属性提供默认值。
 如果你依赖 <code>max-queue-size</code>、<code>max-concurrent-requests</code>、<code>max-requests-per-second</code> 或 <code>drain-interval</code>，你应该设置对你的应用程序有意义的值。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jooqs-defaultconfiguration-自定义">jOOQ&#8217;s <code>DefaultConfiguration</code> 自定义</h3>
+<h3 id="jooqs-defaultconfiguration-自定义"><a class="anchor" href="#jooqs-defaultconfiguration-自定义"></a>2.10. jOOQ&#8217;s <code>DefaultConfiguration</code> 自定义</h3>
 <div class="paragraph">
 <p>为了简化 jOOQ 的 <code>DefaultConfiguration</code> 的自定义，现在可以定义一个实现 <code>DefaultConfigurationCustomizer</code> 的 bean。这个定制器回调应该用于定义一个或多个 <code>Provider</code> bean，现在已经弃用了对它的支持。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="groovy-3">Groovy 3</h3>
+<h3 id="groovy-3"><a class="anchor" href="#groovy-3"></a>2.11. Groovy 3</h3>
 <div class="paragraph">
 <p>Groovy 的默认版本已升级到 3.x。如果您在使用 Groovy 和 Spock，您还应该升级到最新的 Groovy 3.0 兼容版本的 Spock 2.0。或者，使用 <code>groovy.version</code> 降级回 Groovy 2.5。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="gradle-版本最低要求变更">gradle 版本最低要求变更</h3>
+<h3 id="gradle-版本最低要求变更"><a class="anchor" href="#gradle-版本最低要求变更"></a>2.12. gradle 版本最低要求变更</h3>
 <div class="paragraph">
 <p>使用 Gradle 构建的项目现在需要 Gradle 6.8 或更高版本。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="hibernate-validator-6-2">Hibernate Validator 6.2</h3>
+<h3 id="hibernate-validator-6-2"><a class="anchor" href="#hibernate-validator-6-2"></a>2.13. Hibernate Validator 6.2</h3>
 <div class="paragraph">
 <p>Hibernate Validate 的默认版本已升级到 6.2.x。 Hibernate Validator 6.2 更改了表达式语言用于插入约束消息的方式. 参阅 <a href="https://in.relation.to/2021/01/06/hibernate-validator-700-62-final-released/">this blog post from the Hibernate Validator team</a> 获取详情.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-boot-2-3-和-2-4-的弃用">Spring Boot 2.3 和 2.4 的弃用</h3>
+<h3 id="spring-boot-2-3-和-2-4-的弃用"><a class="anchor" href="#spring-boot-2-3-和-2-4-的弃用"></a>2.14. Spring Boot 2.3 和 2.4 的弃用</h3>
 <div class="paragraph">
 <p>参阅 <a href="https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#release-compatibility">release compatibility policy</a>, Spring Boot 2.3 中弃用的代码已在 Spring Boot 2.5 中删除。
 Spring Boot 2.4 中弃用的代码仍然存在，并计划在 Spring Boot 2.6 中删除。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="环境变量前缀">环境变量前缀</h3>
+<h3 id="环境变量前缀"><a class="anchor" href="#环境变量前缀"></a>2.15. 环境变量前缀</h3>
 <div class="paragraph">
 <p>现在可以为系统环境变量指定前缀，以便您可以在同一环境中运行多个不同的 Spring Boot 应用程序。
 使用 <code>SpringApplication.setEnvironmentPrefix(&#8230;&#8203;)</code> 设置绑定属性时要使用的前缀。</p>
@@ -742,7 +753,7 @@ For example, to change the server port you can set <code>MYAPP_SERVER_PORT</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="基于-tcp-的-http2-h2c">基于 TCP 的 HTTP2 (h2c)</h3>
+<h3 id="基于-tcp-的-http2-h2c"><a class="anchor" href="#基于-tcp-的-http2-h2c"></a>2.16. 基于 TCP 的 HTTP2 (h2c)</h3>
 <div class="paragraph">
 <p>所有四个嵌入式 Web 容器现在都支持 HTTP2 over TCP (h2c)，无需任何手动定制。要启用 h2c，请将 <code>server.http2.enabled</code> 设置为 <code>true</code>，并将 <code>server.ssl.enabled</code> 设置为 <code>false</code>（其默认值）。</p>
 </div>
@@ -751,7 +762,7 @@ For example, to change the server port you can set <code>MYAPP_SERVER_PORT</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="generic-datasource-初始化">Generic DataSource 初始化</h3>
+<h3 id="generic-datasource-初始化"><a class="anchor" href="#generic-datasource-初始化"></a>2.17. Generic DataSource 初始化</h3>
 <div class="paragraph">
 <p>如果您编写初始化数据源的代码，现在可以使用新的通用机制。
 这种机制现在也在内部用于为 Flyway、Liquibase 和基于脚本的初始化设置正确的 bean 依赖项。</p>
@@ -763,7 +774,7 @@ For example, to change the server port you can set <code>MYAPP_SERVER_PORT</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="r2dbc-database-初始化">R2DBC Database 初始化</h3>
+<h3 id="r2dbc-database-初始化"><a class="anchor" href="#r2dbc-database-初始化"></a>2.18. R2DBC Database 初始化</h3>
 <div class="paragraph">
 <p>添加了对通过 R2DBC 访问的 SQL 数据库的基于脚本的初始化的支持。
 默认情况下，名为`schema.sql` 和`data.sql` 的类路径上的脚本将自动应用于数据库。
@@ -772,14 +783,14 @@ For example, to change the server port you can set <code>MYAPP_SERVER_PORT</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="liquibase-datasource">Liquibase DataSource</h3>
+<h3 id="liquibase-datasource"><a class="anchor" href="#liquibase-datasource"></a>2.19. Liquibase DataSource</h3>
 <div class="paragraph">
 <p>如果你定义了一个自定义的 DataSource 用于 Liquibase，我们现在使用 <code>SimpleDriverDataSource</code>.
 我们之前使用了一个池化数据源，这对于数据库初始化来说是不必要且效率低下的。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="layered-wars">Layered WARs</h3>
+<h3 id="layered-wars"><a class="anchor" href="#layered-wars"></a>2.20. Layered WARs</h3>
 <div class="paragraph">
 <p>Spring Boot Maven 和 Gradle 插件现在允许您创建分层 WAR 以与 Docker 镜像一起使用。
 分层 WAR 的工作方式与早期版本的 Spring Boot 中提供的分层 JAR 支持类似。
@@ -787,9 +798,9 @@ For example, to change the server port you can set <code>MYAPP_SERVER_PORT</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="docker-镜像构建支持">Docker 镜像构建支持</h3>
+<h3 id="docker-镜像构建支持"><a class="anchor" href="#docker-镜像构建支持"></a>2.21. Docker 镜像构建支持</h3>
 <div class="sect3">
-<h4 id="自定义-buildpacks">自定义 Buildpacks</h4>
+<h4 id="自定义-buildpacks"><a class="anchor" href="#自定义-buildpacks"></a>2.21.1. 自定义 Buildpacks</h4>
 <div class="paragraph">
 <p>您可以将 <code>buildpacks</code> 属性设置目录、tar.gz 文件、特定构建器引用或 Docker 映像。</p>
 </div>
@@ -798,7 +809,7 @@ For example, to change the server port you can set <code>MYAPP_SERVER_PORT</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="bindings">Bindings</h4>
+<h4 id="bindings"><a class="anchor" href="#bindings"></a>2.21.2. Bindings</h4>
 <div class="paragraph">
 <p>Maven 和 Gradle 插件现在都支持可以传递给 buildpack 构建器的 volume bindings 。</p>
 </div>
@@ -811,7 +822,7 @@ See the updated  reference documentation for more details.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="war-支持">War 支持</h4>
+<h4 id="war-支持"><a class="anchor" href="#war-支持"></a>2.21.3. War 支持</h4>
 <div class="paragraph">
 <p>Maven和Gradle插件现在都可以将可执行的war文件打包成Docker镜像。
 如果你想为你的war创建一个 Docker 镜像，应该使用现有的 <code>mvn spring-boot:image</code> 或 <code>./gradlew bootBuildImage</code> 命令。</p>
@@ -819,7 +830,7 @@ See the updated  reference documentation for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="prometheus-openmetrics">Prometheus OpenMetrics</h3>
+<h3 id="prometheus-openmetrics"><a class="anchor" href="#prometheus-openmetrics"></a>2.22. Prometheus OpenMetrics</h3>
 <div class="paragraph">
 <p><code>/actuator/prometheus</code> 执行器端点现在可以提供 “标准Prometheus” 和 “”OpenMetrics响应”。
 返回的响应将取决于随 HTTP 请求提供的接受标头。</p>
@@ -829,7 +840,7 @@ See the updated  reference documentation for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-data-repositories-指标">Spring Data Repositories 指标</h3>
+<h3 id="spring-data-repositories-指标"><a class="anchor" href="#spring-data-repositories-指标"></a>2.23. Spring Data Repositories 指标</h3>
 <div class="paragraph">
 <p>Actuator 可以为 Spring Data repositories 生成 Micrometer metrics .</p>
 </div>
@@ -839,21 +850,21 @@ See the updated  reference documentation for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="webflux-timed-指标">WebFlux  @Timed 指标</h3>
+<h3 id="webflux-timed-指标"><a class="anchor" href="#webflux-timed-指标"></a>2.24. WebFlux  @Timed 指标</h3>
 <div class="paragraph">
 <p>将其功能与 Spring MVC 的功能保持一致，<code>@Timed</code> 现在可用于手动启用由 WebFlux 控制器和功能处理程序处理的请求的计时。
 要使用手动计时，请将 <code>management.metrics.web.server.request.autotime.enabled</code> 设置为 <code>false</code>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="mongodb-指标">MongoDB 指标</h3>
+<h3 id="mongodb-指标"><a class="anchor" href="#mongodb-指标"></a>2.25. MongoDB 指标</h3>
 <div class="paragraph">
 <p>使用 Actuator 时，Mongo 连接池的指标和客户端发送的命令现在会自动生成。
 要了解有关 MongoDB 指标的更多信息，请参阅 <a href="https://docs.spring.io/spring-boot/docs/2.5.0/reference/html/actuator.html#actuator.metrics.supported.mongodb">参考文档的相关部分</a>。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="quartz-actuator-endpoint">Quartz Actuator Endpoint</h3>
+<h3 id="quartz-actuator-endpoint"><a class="anchor" href="#quartz-actuator-endpoint"></a>2.26. Quartz Actuator Endpoint</h3>
 <div class="paragraph">
 <p>一个 <code>/quartz</code> 端点已添加到 Actuator。
 它提供了有关 Quartz 作业和触发器的详细信息。
@@ -861,14 +872,14 @@ See the updated  reference documentation for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="get-对-actuatorstartup-的请求"><code>GET</code> 对 <code>actuator/startup</code> 的请求</h3>
+<h3 id="get-对-actuatorstartup-的请求"><a class="anchor" href="#get-对-actuatorstartup-的请求"></a>2.27. <code>GET</code> 对 <code>actuator/startup</code> 的请求</h3>
 <div class="paragraph">
 <p>执行器的 <code>startup</code> 端点现在支持 <code>GET</code> 请求。
 与 <code>POST</code> 请求不同，对端点的 <code>GET</code> 请求不会耗尽事件缓冲区，事件将继续保存在内存中。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="datasource健康抽象路由">DataSource健康抽象路由</h3>
+<h3 id="datasource健康抽象路由"><a class="anchor" href="#datasource健康抽象路由"></a>2.28. DataSource健康抽象路由</h3>
 <div class="paragraph">
 <p>Actuator 的运行状况端点现在显示“AbstractRoutingDataSource”的目标的运行状况。
 每个目标`DataSource` 都使用其路由键命名。
@@ -876,20 +887,20 @@ See the updated  reference documentation for more details.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-16-支持">Java 16 支持</h3>
+<h3 id="java-16-支持"><a class="anchor" href="#java-16-支持"></a>2.29. Java 16 支持</h3>
 <div class="paragraph">
 <p>此版本提供支持并针对 Java 16 进行了测试。ava 16.
 Spring Boot 2.5 仍然与 Java 8 兼容。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="gradle-7-支持">Gradle 7 支持</h3>
+<h3 id="gradle-7-支持"><a class="anchor" href="#gradle-7-支持"></a>2.30. Gradle 7 支持</h3>
 <div class="paragraph">
 <p>Spring Boot Gradle 插件支持 Gradle 7.0.x 并对其进行了测试。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jetty-10-support">Jetty 10 Support</h3>
+<h3 id="jetty-10-support"><a class="anchor" href="#jetty-10-support"></a>2.31. Jetty 10 Support</h3>
 <div class="paragraph">
 <p>Spring Boot 2.5 现在可以使用 Jetty 10 作为嵌入式 Web 服务器。
 Jetty 10 尚不支持 WebSocket。
@@ -901,7 +912,7 @@ Jetty 10 尚不支持 WebSocket。
 </div>
 </div>
 <div class="sect2">
-<h3 id="documentation-updates">Documentation Updates</h3>
+<h3 id="documentation-updates"><a class="anchor" href="#documentation-updates"></a>2.32. Documentation Updates</h3>
 <div class="paragraph">
 <p>该项目发布的 HTML 文档具有更新的外观和一些新功能。
 您现在可以通过将鼠标悬停在示例上并单击“复制”图标，轻松地将代码片段复制到剪贴板。
@@ -912,7 +923,7 @@ Jetty 10 尚不支持 WebSocket。
 </div>
 </div>
 <div class="sect2">
-<h3 id="其它">其它</h3>
+<h3 id="其它"><a class="anchor" href="#其它"></a>2.33. 其它</h3>
 <div class="paragraph">
 <p>除了上面列出的更改之外，还有许多小的调整和改进，包括：</p>
 </div>
@@ -988,7 +999,7 @@ Jetty 10 尚不支持 WebSocket。
 </div>
 </div>
 <div class="sect2">
-<h3 id="依赖更新">依赖更新</h3>
+<h3 id="依赖更新"><a class="anchor" href="#依赖更新"></a>2.34. 依赖更新</h3>
 <div class="paragraph">
 <p>SpringBoot2.5迁移到几个Spring项目的新版本：</p>
 </div>
@@ -1067,7 +1078,7 @@ Jetty 10 尚不支持 WebSocket。
 </div>
 </div>
 <div class="sect1">
-<h2 id="springboot2-5中值得注意的不推荐使用deprecations">SpringBoot2.5中值得注意的不推荐使用（deprecations）</h2>
+<h2 id="springboot2-5中值得注意的不推荐使用deprecations"><a class="anchor" href="#springboot2-5中值得注意的不推荐使用deprecations"></a>3. SpringBoot2.5中值得注意的不推荐使用（deprecations）</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>在SpringBoot2.5中有以下几个值得注意的deprecations：</p>
@@ -1089,7 +1100,7 @@ Jetty 10 尚不支持 WebSocket。
 </div>
 </div>
 <div class="sect1">
-<h2 id="new-and-noteworthy">New and Noteworthy</h2>
+<h2 id="new-and-noteworthy"><a class="anchor" href="#new-and-noteworthy"></a>4. New and Noteworthy</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -1098,7 +1109,7 @@ Jetty 10 尚不支持 WebSocket。
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-参阅 <a href="Spring-Boot-2.5-Configuration-Changelog.html#v2.5-configuration-changelog">Configuration properties change between <code>2.2.7.RELEASE</code> and <code>2.3.0.RELEASE</code></a> 查看有关配置更改的完整概述。
+参阅 <a href="Spring-Boot-2.5-Configuration-Changelog.html#_v2.5-configuration-changelog">Configuration properties change between <code>2.2.7.RELEASE</code> and <code>2.3.0.RELEASE</code></a> 查看有关配置更改的完整概述。
 </td>
 </tr>
 </table>
@@ -1108,8 +1119,8 @@ Jetty 10 尚不支持 WebSocket。
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0-SNAPSHOT<br>
-Last updated 2021-07-14 01:35:51 UTC
+ 1.0-SNAPSHOT<br>
+Last updated 2021-07-14 07:02:12 UTC
 </div>
 </div>
 </body>

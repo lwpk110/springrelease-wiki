@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="Unresolved directive in v2.3.adoc - include::authors.adoc[]">
-<title>v2.3</title>
+<meta name="author" content="steven lu">
+<title>Spring Boot 2.3 Release Notes</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,71 +438,86 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body id="v2.3" class="article toc2 toc-left">
+<body id="_2.3" class="book toc2 toc-left">
 <div id="header">
-<h1>v2.3</h1>
+<h1>Spring Boot 2.3 Release Notes</h1>
 <div class="details">
-<span id="author" class="author">Unresolved directive in v2.3.adoc - include::authors.adoc[]</span><br>
-<span id="revnumber">version 1.0-SNAPSHOT</span>
+<span id="author" class="author">steven lu</span><br>
+<span id="revnumber"> 1.0-SNAPSHOT</span>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle">Table of Contents</div>
+<div id="toctitle">目录</div>
 <ul class="sectlevel1">
-<li><a href="#环境">环境</a></li>
-<li><a href="#重大变更">重大变更</a>
+<li><a href="#环境">1. 环境</a></li>
+<li><a href="#重大变更">2. 重大变更</a>
 <ul class="sectlevel2">
-<li><a href="#validation-starter-不再包含在web-starters-中">Validation Starter 不再包含在web starters 中</a></li>
-<li><a href="#spring-data-neumann">Spring Data <code>Neumann</code></a></li>
-<li><a href="#micrometer">Micrometer</a></li>
-<li><a href="#jackson">Jackson</a></li>
-<li><a href="#spring-cloud-connectors-starter-被移除">Spring Cloud Connectors starter 被移除</a></li>
-<li><a href="#内置-servlet-web-server-线程配置">内置 Servlet web server 线程配置</a></li>
-<li><a href="#对默认错误页内容的更改">对默认错误页内容的更改</a></li>
-<li><a href="#磁盘空间运行状况指示器">磁盘空间运行状况指示器</a></li>
-<li><a href="#developmentonly-gradle-configuration-的自动创建"><code>developmentOnly</code> Gradle configuration 的自动创建</a></li>
-<li><a href="#移除maven-site-plugin-management">移除Maven Site Plugin management</a></li>
-<li><a href="#移除-maven-exec-plugin-自定义配置">移除 Maven Exec Plugin 自定义配置</a></li>
-<li><a href="#applicationcontextrunner-默认禁用-bean-overriding">ApplicationContextRunner 默认禁用 bean overriding</a></li>
-<li><a href="#激活多个配置文件-activeprofiles">激活多个配置文件 <code>@ActiveProfiles</code></a></li>
-<li><a href="#webserverinitializedevent-and-contextrefreshedevent">WebServerInitializedEvent and ContextRefreshedEvent</a></li>
-<li><a href="#spring-boot-2-2-的弃用">Spring Boot 2.2 的弃用</a></li>
-<li><a href="#java-14-support">Java 14 support</a></li>
-<li><a href="#通过-cloud-native-buildpacks-构建-oci-镜像">通过 Cloud Native Buildpacks 构建 OCI 镜像</a></li>
-<li><a href="#构建jar-层以包含在-docker-映像中">构建jar 层以包含在 Docker 映像中</a></li>
-<li><a href="#分解-fat-jar-时可预测的类路径排序">分解 Fat jar 时可预测的类路径排序</a></li>
-<li><a href="#支持配置文件的通配符位置">支持配置文件的通配符位置</a></li>
-<li><a href="#graceful-shutdown">优雅停止</a></li>
-<li><a href="#liveness-readiness-探针">Liveness, Readiness 探针</a></li>
-<li><a href="#spring-data-neumann-2">Spring Data Neumann</a></li>
-<li><a href="#webflux-应用程序的可配置基本路径">WebFlux 应用程序的可配置基本路径</a></li>
-<li><a href="#web-应用程序中的date-time转换">Web 应用程序中的date-time转换</a></li>
-<li><a href="#actuator-改进">Actuator 改进</a></li>
-<li><a href="#rsocket-对-spring-integration-的支持">RSocket 对 Spring Integration 的支持</a></li>
-<li><a href="#绑定到-period">绑定到 <code>Period</code></a></li>
-<li><a href="#web服务切片测试">Web服务切片测试</a></li>
-<li><a href="#依赖项升级">依赖项升级</a></li>
-<li><a href="#其他">其他</a></li>
+<li><a href="#validation-starter-不再包含在web-starters-中">2.1. Validation Starter 不再包含在web starters 中</a></li>
+<li><a href="#spring-data-neumann">2.2. Spring Data <code>Neumann</code></a>
+<ul class="sectlevel3">
+<li><a href="#cassandra">2.2.1. Cassandra</a></li>
+<li><a href="#couchbase">2.2.2. Couchbase</a></li>
+<li><a href="#elasticsearch">2.2.3. Elasticsearch</a></li>
+<li><a href="#mongodb">2.2.4. MongoDB</a></li>
+<li><a href="#neo4j">2.2.5. Neo4j</a></li>
+<li><a href="#jdbc">2.2.6. JDBC</a></li>
 </ul>
 </li>
-<li><a href="#springboot2-3中的弃用">SpringBoot2.3中的弃用</a></li>
-<li><a href="#new-and-noteworthy">New and Noteworthy</a></li>
+<li><a href="#micrometer">2.3. Micrometer</a></li>
+<li><a href="#jackson">2.4. Jackson</a></li>
+<li><a href="#spring-cloud-connectors-starter-被移除">2.5. Spring Cloud Connectors starter 被移除</a></li>
+<li><a href="#内置-servlet-web-server-线程配置">2.6. 内置 Servlet web server 线程配置</a></li>
+<li><a href="#对默认错误页内容的更改">2.7. 对默认错误页内容的更改</a></li>
+<li><a href="#磁盘空间运行状况指示器">2.8. 磁盘空间运行状况指示器</a></li>
+<li><a href="#developmentonly-gradle-configuration-的自动创建">2.9. <code>developmentOnly</code> Gradle configuration 的自动创建</a></li>
+<li><a href="#移除maven-site-plugin-management">2.10. 移除Maven Site Plugin management</a></li>
+<li><a href="#移除-maven-exec-plugin-自定义配置">2.11. 移除 Maven Exec Plugin 自定义配置</a></li>
+<li><a href="#applicationcontextrunner-默认禁用-bean-overriding">2.12. ApplicationContextRunner 默认禁用 bean overriding</a></li>
+<li><a href="#激活多个配置文件-activeprofiles">2.13. 激活多个配置文件 <code>@ActiveProfiles</code></a></li>
+<li><a href="#webserverinitializedevent-and-contextrefreshedevent">2.14. WebServerInitializedEvent and ContextRefreshedEvent</a></li>
+<li><a href="#spring-boot-2-2-的弃用">2.15. Spring Boot 2.2 的弃用</a>
+<ul class="sectlevel3">
+<li><a href="#configuration-properties">2.15.1. Configuration properties</a></li>
+</ul>
+</li>
+<li><a href="#java-14-support">2.16. Java 14 support</a></li>
+<li><a href="#通过-cloud-native-buildpacks-构建-oci-镜像">2.17. 通过 Cloud Native Buildpacks 构建 OCI 镜像</a></li>
+<li><a href="#构建jar-层以包含在-docker-映像中">2.18. 构建jar 层以包含在 Docker 映像中</a></li>
+<li><a href="#分解-fat-jar-时可预测的类路径排序">2.19. 分解 Fat jar 时可预测的类路径排序</a></li>
+<li><a href="#支持配置文件的通配符位置">2.20. 支持配置文件的通配符位置</a></li>
+<li><a href="#graceful-shutdown">2.21. 优雅停止</a></li>
+<li><a href="#liveness-readiness-探针">2.22. Liveness, Readiness 探针</a></li>
+<li><a href="#spring-data-neumann-2">2.23. Spring Data Neumann</a>
+<ul class="sectlevel3">
+<li><a href="#r2dbc-support">2.23.1. R2DBC support</a></li>
+</ul>
+</li>
+<li><a href="#webflux-应用程序的可配置基本路径">2.24. WebFlux 应用程序的可配置基本路径</a></li>
+<li><a href="#web-应用程序中的date-time转换">2.25. Web 应用程序中的date-time转换</a></li>
+<li><a href="#actuator-改进">2.26. Actuator 改进</a>
+<ul class="sectlevel3">
+<li><a href="#配置属性的端到端跟踪">2.26.1. 配置属性的端到端跟踪</a></li>
+<li><a href="#metrics-endpoint-的名词将按字母排序">2.26.2. metrics endpoint 的名词将按字母排序</a></li>
+<li><a href="#query-less-datasource-health-indicator">2.26.3. Query-less datasource health indicator</a></li>
+<li><a href="#为webmvc和webflux度量提供额外的tag">2.26.4. 为webmvc和WebFlux度量提供额外的tag</a></li>
+<li><a href="#wavefronts-sender-自动配置">2.26.5. Wavefront&#8217;s Sender 自动配置</a></li>
+<li><a href="#native-kafka-metrics">2.26.6. Native Kafka metrics</a></li>
+</ul>
+</li>
+<li><a href="#rsocket-对-spring-integration-的支持">2.27. RSocket 对 Spring Integration 的支持</a></li>
+<li><a href="#绑定到-period">2.28. 绑定到 <code>Period</code></a></li>
+<li><a href="#web服务切片测试">2.29. Web服务切片测试</a></li>
+<li><a href="#依赖项升级">2.30. 依赖项升级</a></li>
+<li><a href="#其他">2.31. 其他</a></li>
+</ul>
+</li>
+<li><a href="#springboot2-3中的弃用">3. SpringBoot2.3中的弃用</a></li>
+<li><a href="#new-and-noteworthy">4. New and Noteworthy</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>Unresolved directive in v2.3.adoc - include::attributes.adoc[]
-:root-docs: <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE" class="bare">https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE</a>
-:docs: {root-docs}/reference/html
-:gradle-docs: {root-docs}/gradle-plugin/reference/html
-:maven-docs: {root-docs}/maven-plugin/reference/html</p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="环境">环境</h2>
+<h2 id="环境"><a class="anchor" href="#环境"></a>1. 环境</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -520,10 +535,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect1">
-<h2 id="重大变更">重大变更</h2>
+<h2 id="重大变更"><a class="anchor" href="#重大变更"></a>2. 重大变更</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="validation-starter-不再包含在web-starters-中">Validation Starter 不再包含在web starters 中</h3>
+<h3 id="validation-starter-不再包含在web-starters-中"><a class="anchor" href="#validation-starter-不再包含在web-starters-中"></a>2.1. Validation Starter 不再包含在web starters 中</h3>
 <div class="paragraph">
 <p>参阅issue:  <a href="https://github.com/spring-projects/spring-boot/issues/19550">#19550</a>, 默认情况下，Web和WebFlux启动器不再依赖于验证启动器.<br>
 如果应用程序正在使用验证功能, 例如你发现 <code>javax.validation.*</code> 导入未被解析, 你需要自己加一个启动器.</p>
@@ -552,13 +567,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-data-neumann">Spring Data <code>Neumann</code></h3>
+<h3 id="spring-data-neumann"><a class="anchor" href="#spring-data-neumann"></a>2.2. Spring Data <code>Neumann</code></h3>
 <div class="paragraph">
 <p>springboot2.3附带了Spring data的主要版本.<br>
 如果您正在使用Cassandra、Couchbase、Elasticsearch、MongoDB或JDBC，则需要格小心。</p>
 </div>
 <div class="sect3">
-<h4 id="cassandra">Cassandra</h4>
+<h4 id="cassandra"><a class="anchor" href="#cassandra"></a>2.2.1. Cassandra</h4>
 <div class="paragraph">
 <p>这个版本切换到cassandrav4，它带来了许多向后不兼容的变化。<br>
 如果您依赖 <code>ClusterBuilderCustomizer</code> 自定义 <code>Cluster</code> ，则此概念在v4中已不存在，并已被两个更具体的自定义程序所取代：</p>
@@ -579,7 +594,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="couchbase">Couchbase</h4>
+<h4 id="couchbase"><a class="anchor" href="#couchbase"></a>2.2.2. Couchbase</h4>
 <div class="paragraph">
 <p>此版本切换到Couchbase sdkv3，它带来了许多向后不兼容的更改.</p>
 </div>
@@ -607,7 +622,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="elasticsearch">Elasticsearch</h4>
+<h4 id="elasticsearch"><a class="anchor" href="#elasticsearch"></a>2.2.3. Elasticsearch</h4>
 <div class="paragraph">
 <p>不推荐使用的 Native Elasticsearch transport 已被删除，因为Elasticsearch和Spring data 它们在其下一版本中都不支持它。</p>
 </div>
@@ -619,7 +634,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="mongodb">MongoDB</h4>
+<h4 id="mongodb"><a class="anchor" href="#mongodb"></a>2.2.4. MongoDB</h4>
 <div class="paragraph">
 <p>这个版本切换到mongodb4，并适配 reactive 和 imperative drivers。<br></p>
 </div>
@@ -638,7 +653,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="neo4j">Neo4j</h4>
+<h4 id="neo4j"><a class="anchor" href="#neo4j"></a>2.2.5. Neo4j</h4>
 <div class="paragraph">
 <p>The open session in view interceptor for Neo4j is now disabled by default.
 If you need to enable it again, use the standard <code>spring.data.neo4j.open-in-view</code> property.</p>
@@ -659,7 +674,7 @@ If you need to enable it again, use the standard <code>spring.data.neo4j.open-in
 </div>
 </div>
 <div class="sect3">
-<h4 id="jdbc">JDBC</h4>
+<h4 id="jdbc"><a class="anchor" href="#jdbc"></a>2.2.6. JDBC</h4>
 <div class="paragraph">
 <p>Among its <a href="https://docs.spring.io/spring-data/jdbc/docs/2.0.0.RELEASE/reference/html/#new-features.2-0-0">new features</a>, Spring Data JDBC 2.0 now quotes identifiers by default.
 This behaviour can be disabled by calling <code>setForceQuote(false)</code> on the <code>RelationalMappingContext</code>.</p>
@@ -667,7 +682,7 @@ This behaviour can be disabled by calling <code>setForceQuote(false)</code> on t
 </div>
 </div>
 <div class="sect2">
-<h3 id="micrometer">Micrometer</h3>
+<h3 id="micrometer"><a class="anchor" href="#micrometer"></a>2.3. Micrometer</h3>
 <div class="paragraph">
 <p>此版本升级到Millimeter 1.5，这带来了许多不推荐的情况：</p>
 </div>
@@ -684,20 +699,20 @@ This behaviour can be disabled by calling <code>setForceQuote(false)</code> on t
 </div>
 </div>
 <div class="sect2">
-<h3 id="jackson">Jackson</h3>
+<h3 id="jackson"><a class="anchor" href="#jackson"></a>2.4. Jackson</h3>
 <div class="paragraph">
 <p>此版本升级到jackson2.11，其中包括对 <code>java.util.Date</code> and <code>java.util.Calendar</code> 默认格式的更改. 请参阅 <a href="https://github.com/FasterXML/jackson-databind/issues/2643">FasterXML/jackson-databind#2643</a></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-cloud-connectors-starter-被移除">Spring Cloud Connectors starter 被移除</h3>
+<h3 id="spring-cloud-connectors-starter-被移除"><a class="anchor" href="#spring-cloud-connectors-starter-被移除"></a>2.5. Spring Cloud Connectors starter 被移除</h3>
 <div class="paragraph">
 <p><code>Spring Cloud Connectors starter</code>  <a href="https://github.com/spring-projects/spring-boot/issues/17877">deprecated in 2.2 in favor of Java CFEnv</a>.
 这个 starter 已删除, Spring Cloud Connectors 依赖项不再包含在Spring Boot的托管依赖项中.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="内置-servlet-web-server-线程配置">内置 Servlet web server 线程配置</h3>
+<h3 id="内置-servlet-web-server-线程配置"><a class="anchor" href="#内置-servlet-web-server-线程配置"></a>2.6. 内置 Servlet web server 线程配置</h3>
 <div class="paragraph">
 <p>用于配置嵌入式Servlet web服务器使用的线程的配置属性 (Jetty, Tomcat, and Undertow) 已转移到专用的 <code>threads</code> 组.<br>
 这些属性目前可以在 <code>server.jetty.threads</code>, <code>server.tomcat.threads</code>, and <code>server.undertow.threads</code> 中找到.<br>
@@ -705,7 +720,7 @@ This behaviour can be disabled by calling <code>setForceQuote(false)</code> on t
 </div>
 </div>
 <div class="sect2">
-<h3 id="对默认错误页内容的更改">对默认错误页内容的更改</h3>
+<h3 id="对默认错误页内容的更改"><a class="anchor" href="#对默认错误页内容的更改"></a>2.7. 对默认错误页内容的更改</h3>
 <div class="paragraph">
 <p>默认情况下，错误消息和任何绑定错误不再包含在默认错误页中。 这降低了向客户泄露信息的风险。
 <code>server.error.include-message</code> and <code>server.error.include-binding-errors</code> 可以用来分别控制消息的包含和绑定错误.
@@ -713,28 +728,28 @@ This behaviour can be disabled by calling <code>setForceQuote(false)</code> on t
 </div>
 </div>
 <div class="sect2">
-<h3 id="磁盘空间运行状况指示器">磁盘空间运行状况指示器</h3>
+<h3 id="磁盘空间运行状况指示器"><a class="anchor" href="#磁盘空间运行状况指示器"></a>2.8. 磁盘空间运行状况指示器</h3>
 <div class="paragraph">
 <p>The auto-configured disk space health indicator no longer requires the path that is monitored to exist when the application starts.
 A non-existent path will be detected as having zero usable space resulting in a down response from the indicator.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="developmentonly-gradle-configuration-的自动创建"><code>developmentOnly</code> Gradle configuration 的自动创建</h3>
+<h3 id="developmentonly-gradle-configuration-的自动创建"><a class="anchor" href="#developmentonly-gradle-configuration-的自动创建"></a>2.9. <code>developmentOnly</code> Gradle configuration 的自动创建</h3>
 <div class="paragraph">
 <p>The <code>developmentOnly</code> 配置主要用于在springboot的DevTools上声明依赖关系，现在由springboot的Gradle插件自动创建.
 任何 <code>developmentOnly</code> 的手动配置都应该从Gradle脚本中删除，因为它的存在将导致build 失败，并显示消息 <code>cannot add a configuration with name“developmentOnly</code> ，因为该名称的配置已经存在`</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="移除maven-site-plugin-management">移除Maven Site Plugin management</h3>
+<h3 id="移除maven-site-plugin-management"><a class="anchor" href="#移除maven-site-plugin-management"></a>2.10. 移除Maven Site Plugin management</h3>
 <div class="paragraph">
 <p>Spring Boot&#8217;s 构建 不再使用 site plugin (<code>maven-site-plugin</code>) 并且它的插件管理已被删除.
 如果你依赖 Spring Boot 的版本管理，你应该添加你自己的插件管理.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="移除-maven-exec-plugin-自定义配置">移除 Maven Exec Plugin 自定义配置</h3>
+<h3 id="移除-maven-exec-plugin-自定义配置"><a class="anchor" href="#移除-maven-exec-plugin-自定义配置"></a>2.11. 移除 Maven Exec Plugin 自定义配置</h3>
 <div class="paragraph">
 <p>如果你继承自 <code>spring-boot-starter-parent</code>, 它不用再配置 Maven&#8217;s exec plugin (<code>exec-maven-plugin</code>) 用 <code>start-class</code> 去设置 main class . 如果你依赖那个, 您可以按如下方式恢复该行为:</p>
 </div>
@@ -751,14 +766,14 @@ A non-existent path will be detected as having zero usable space resulting in a 
 </div>
 </div>
 <div class="sect2">
-<h3 id="applicationcontextrunner-默认禁用-bean-overriding">ApplicationContextRunner 默认禁用 bean overriding</h3>
+<h3 id="applicationcontextrunner-默认禁用-bean-overriding"><a class="anchor" href="#applicationcontextrunner-默认禁用-bean-overriding"></a>2.12. ApplicationContextRunner 默认禁用 bean overriding</h3>
 <div class="paragraph">
 <p>为了与`SpringApplication`保持一致, <code>ApplicationContextRunner</code> 现在默认禁用 bean 覆盖.<br>
 如果您需要使用 bean 覆盖进行测试, <code>withAllowBeanDefinitionOverriding</code> 可以用来启用它.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="激活多个配置文件-activeprofiles">激活多个配置文件 <code>@ActiveProfiles</code></h3>
+<h3 id="激活多个配置文件-activeprofiles"><a class="anchor" href="#激活多个配置文件-activeprofiles"></a>2.13. 激活多个配置文件 <code>@ActiveProfiles</code></h3>
 <div class="paragraph">
 <p><code>@ActiveProfiles</code> 注释现在支持包含逗号的配置文件名称.<br>
 这意味着像 <code>@ActiveProfiles("p1,p2")</code> 这样的注释会将提供的值 <code>p1,p2</code> 视为单个名称的配置文件。<br>
@@ -766,20 +781,20 @@ A non-existent path will be detected as having zero usable space resulting in a 
 </div>
 </div>
 <div class="sect2">
-<h3 id="webserverinitializedevent-and-contextrefreshedevent">WebServerInitializedEvent and ContextRefreshedEvent</h3>
+<h3 id="webserverinitializedevent-and-contextrefreshedevent"><a class="anchor" href="#webserverinitializedevent-and-contextrefreshedevent"></a>2.14. WebServerInitializedEvent and ContextRefreshedEvent</h3>
 <div class="paragraph">
 <p>作为引入对 <a href="#graceful-shutdown">graceful shutdown</a> 支持的一部分，Web 服务器初始化现在在应用程序上下文刷新处理结束时执行，而不是在刷新处理完成后立即执行.
 因此，<code>WebServerInitializedEvent</code> 现在在 <code>ContextRefreshedEvent</code> 之前发布。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-boot-2-2-的弃用">Spring Boot 2.2 的弃用</h3>
+<h3 id="spring-boot-2-2-的弃用"><a class="anchor" href="#spring-boot-2-2-的弃用"></a>2.15. Spring Boot 2.2 的弃用</h3>
 <div class="paragraph">
 <p>Spring Boot 2.2 中弃用的大多数类、方法和属性已在此版本中删除。<br>
 请确保在升级之前您没有调用已弃用的方法。</p>
 </div>
 <div class="sect3">
-<h4 id="configuration-properties">Configuration properties</h4>
+<h4 id="configuration-properties"><a class="anchor" href="#configuration-properties"></a>2.15.1. Configuration properties</h4>
 <div class="paragraph">
 <p>许多属性已被重命名或弃用。您可以使用 <code>spring-boot-properties-migrator</code> 模块来识别这些属性。<br>
 一旦作为依赖项添加到您的项目中，这不仅会在启动时分析您的应用程序环境并打印诊断信息，还会在运行时为您临时迁移属性。</p>
@@ -787,9 +802,9 @@ A non-existent path will be detected as having zero usable space resulting in a 
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
-	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-	&lt;artifactId&gt;spring-boot-properties-migrator&lt;/artifactId&gt;
-	&lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-properties-migrator&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -813,22 +828,22 @@ A non-existent path will be detected as having zero usable space resulting in a 
 </div>
 </div>
 <div class="sect2">
-<h3 id="java-14-support">Java 14 support</h3>
+<h3 id="java-14-support"><a class="anchor" href="#java-14-support"></a>2.16. Java 14 support</h3>
 <div class="paragraph">
 <p>Spring Boot 2.3 添加了对 Java 14 的支持。也支持 Java 8 和 11。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="通过-cloud-native-buildpacks-构建-oci-镜像">通过 Cloud Native Buildpacks 构建 OCI 镜像</h3>
+<h3 id="通过-cloud-native-buildpacks-构建-oci-镜像"><a class="anchor" href="#通过-cloud-native-buildpacks-构建-oci-镜像"></a>2.17. 通过 Cloud Native Buildpacks 构建 OCI 镜像</h3>
 <div class="paragraph">
-<p>支持通过使用 <a href="https://buildpacks.io">Cloud Native Buildpacks</a>的方式  {docs}/spring-boot-features.html#building-docker-images[构建docker镜像] 并已通过以下方式添加到 Maven 和 Gradle 插件中  {maven-docs}/#build-image[<code>spring-boot:build-image</code> goal] , {maven-docs}/#build-image[<code>bootBuildImage</code> task].
+<p>支持通过使用 <a href="https://buildpacks.io">Cloud Native Buildpacks</a>的方式  <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/reference/html/spring-boot-features.html#building-docker-images">构建docker镜像</a> 并已通过以下方式添加到 Maven 和 Gradle 插件中  <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/maven-plugin/reference/html/#build-image"><code>spring-boot:build-image</code> goal</a> , <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/maven-plugin/reference/html/#build-image"><code>bootBuildImage</code> task</a>.
 <a href="https://paketo.io/">Paketo</a> 默认情况下使用 Java buildpack 来创建镜像.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="构建jar-层以包含在-docker-映像中">构建jar 层以包含在 Docker 映像中</h3>
+<h3 id="构建jar-层以包含在-docker-映像中"><a class="anchor" href="#构建jar-层以包含在-docker-映像中"></a>2.18. 构建jar 层以包含在 Docker 映像中</h3>
 <div class="paragraph">
-<p>对构建内容分层的 jar 文件的支持已添加到 {maven-docs}/#repackage-layers[Maven] 和 {gradle-docs}/#packaging-layered-jars[Gradle] plugins.<br>
+<p>对构建内容分层的 jar 文件的支持已添加到 <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/maven-plugin/reference/html/#repackage-layers">Maven</a> 和 <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/gradle-plugin/reference/html/#packaging-layered-jars">Gradle</a> plugins.<br>
 分层根据 jar 内容的更改频率将它们分离。<br>
 这种分离允许构建更高效的 Docker 镜像。<br>
 未更改的现有 分层可以重复使用，并将已更改的分层放置在顶部。<br></p>
@@ -856,14 +871,14 @@ Available commands:
 </div>
 </div>
 <div class="sect2">
-<h3 id="分解-fat-jar-时可预测的类路径排序">分解 Fat jar 时可预测的类路径排序</h3>
+<h3 id="分解-fat-jar-时可预测的类路径排序"><a class="anchor" href="#分解-fat-jar-时可预测的类路径排序"></a>2.19. 分解 Fat jar 时可预测的类路径排序</h3>
 <div class="paragraph">
 <p>使用 Maven 和 Gradle 构建的 Fat jars 现在包含一个索引文件。<br>
 jar 分解时，这个索引文件是用来保证classpath 的顺序和直接执行jar 时一样的。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="支持配置文件的通配符位置">支持配置文件的通配符位置</h3>
+<h3 id="支持配置文件的通配符位置"><a class="anchor" href="#支持配置文件的通配符位置"></a>2.20. 支持配置文件的通配符位置</h3>
 <div class="paragraph">
 <p>Spring Boot 现在在加载配置文件时支持通配符位置。<br>
 默认情况下，支持 jar 外部的 <code>config/*/</code> 通配符位置。<br>
@@ -871,14 +886,14 @@ jar 分解时，这个索引文件是用来保证classpath 的顺序和直接执
 </div>
 </div>
 <div class="sect2">
-<h3 id="graceful-shutdown">优雅停止</h3>
+<h3 id="graceful-shutdown"><a class="anchor" href="#graceful-shutdown"></a>2.21. 优雅停止</h3>
 <div class="paragraph">
 <p>所有四个嵌入式 Web 服务器都支持优雅停止 (Jetty, Reactor Netty, Tomcat, and Undertow) 以及反应式和基于 Servlet 的 Web 应用程序.<br>
-启用时使用 <code>server.shutdown=graceful</code>, 关机时, Web 服务器将不再允许新请求并且将等待关机期间的请求完成.可以使用配置 <code>spring.lifecycle.timeout-per-shutdown-phase</code> 来配置这个等待时间.参阅  {docs}/spring-boot-features.html#boot-features-graceful-shutdown[优雅关机] 获取更多详情</p>
+启用时使用 <code>server.shutdown=graceful</code>, 关机时, Web 服务器将不再允许新请求并且将等待关机期间的请求完成.可以使用配置 <code>spring.lifecycle.timeout-per-shutdown-phase</code> 来配置这个等待时间.参阅  <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/reference/html/spring-boot-features.html#boot-features-graceful-shutdown">优雅关机</a> 获取更多详情</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="liveness-readiness-探针">Liveness, Readiness 探针</h3>
+<h3 id="liveness-readiness-探针"><a class="anchor" href="#liveness-readiness-探针"></a>2.22. Liveness, Readiness 探针</h3>
 <div class="paragraph">
 <p>Spring Boot 现在内置了关于应用程序可用性的知识，跟踪它是否处于活动状态以及是否准备好处理流量。 health endpoint can be configured to expose the liveness (<code>/actuator/health/liveness</code>) and readiness (<code>/actuator/health/readiness</code>) of you application with the <code>management.health.probes.enabled=true</code> configuration property.
 在 Kubernetes 上运行时，这是自动完成的。</p>
@@ -888,12 +903,12 @@ jar 分解时，这个索引文件是用来保证classpath 的顺序和直接执
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-data-neumann-2">Spring Data Neumann</h3>
+<h3 id="spring-data-neumann-2"><a class="anchor" href="#spring-data-neumann-2"></a>2.23. Spring Data Neumann</h3>
 <div class="paragraph">
 <p>Spring Boot 2.3 附带一个 Spring Data 的 major 版本。请参阅 <a href="https://spring.io/blog/2020/05/12/spring-data-neumann-goes-ga">Spring Data Neumann goes GA</a> 了解更多。</p>
 </div>
 <div class="sect3">
-<h4 id="r2dbc-support">R2DBC support</h4>
+<h4 id="r2dbc-support"><a class="anchor" href="#r2dbc-support"></a>2.23.1. R2DBC support</h4>
 <div class="paragraph">
 <p>当 r2dbc 在类路径上时，<code>ConnectionFactory</code> 自动配置为与 jdbc`DataSource` 类似的安排。<br>
 如果 Spring Data 在类路径上，存储库也会像往常一样自动配置。</p>
@@ -904,13 +919,13 @@ jar 分解时，这个索引文件是用来保证classpath 的顺序和直接执
 </div>
 </div>
 <div class="sect2">
-<h3 id="webflux-应用程序的可配置基本路径">WebFlux 应用程序的可配置基本路径</h3>
+<h3 id="webflux-应用程序的可配置基本路径"><a class="anchor" href="#webflux-应用程序的可配置基本路径"></a>2.24. WebFlux 应用程序的可配置基本路径</h3>
 <div class="paragraph">
 <p>现在可以配置 WebFlux 应用程序的所有 Web 处理程序的基本路径。使用 <code>spring.webflux.base-path</code> 属性来做到这一点。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="web-应用程序中的date-time转换">Web 应用程序中的date-time转换</h3>
+<h3 id="web-应用程序中的date-time转换"><a class="anchor" href="#web-应用程序中的date-time转换"></a>2.25. Web 应用程序中的date-time转换</h3>
 <div class="paragraph">
 <p>Web 应用程序中时间和日期时间值的转换现在可以通过 application properties 进行配置。<br>
 这补充了对格式化日期值的现有支持。<br>
@@ -946,9 +961,9 @@ WebFlux 中, properties 分别是 <code>spring.webflux.format.time</code> and <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="actuator-改进">Actuator 改进</h3>
+<h3 id="actuator-改进"><a class="anchor" href="#actuator-改进"></a>2.26. Actuator 改进</h3>
 <div class="sect3">
-<h4 id="配置属性的端到端跟踪">配置属性的端到端跟踪</h4>
+<h4 id="配置属性的端到端跟踪"><a class="anchor" href="#配置属性的端到端跟踪"></a>2.26.1. 配置属性的端到端跟踪</h4>
 <div class="paragraph">
 <p>截至 <a href="https://github.com/spring-projects/spring-boot/issues/17886">#17886</a>, <code>/actuator/configprops</code> endpoint 提供有关配置属性的端到端信息，使其行为与环境 endpoint保持一致 .<br>
 例如，添加 <code>server.server-header=Spring Boot</code> 在 <code>application.properties</code> 中,  endpoint 将向您展示以下内容:</p>
@@ -963,33 +978,33 @@ WebFlux 中, properties 分别是 <code>spring.webflux.format.time</code> and <c
 </div>
 </div>
 <div class="sect3">
-<h4 id="metrics-endpoint-的名词将按字母排序">metrics endpoint 的名词将按字母排序</h4>
+<h4 id="metrics-endpoint-的名词将按字母排序"><a class="anchor" href="#metrics-endpoint-的名词将按字母排序"></a>2.26.2. metrics endpoint 的名词将按字母排序</h4>
 <div class="paragraph">
 <p><code>actuator/metrics</code> 中可用的度量名称现在按字母顺序排列，这样更容易找到您要查找的内容。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="query-less-datasource-health-indicator">Query-less datasource health indicator</h4>
+<h4 id="query-less-datasource-health-indicator"><a class="anchor" href="#query-less-datasource-health-indicator"></a>2.26.3. Query-less datasource health indicator</h4>
 <div class="paragraph">
 <p>在没有验证查询的情况下, <code>HealthIndicator</code> 数据源将处于 query-less mode, 使用 <code>java.sql.Connection#isValid</code> 验证其连接.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="为webmvc和webflux度量提供额外的tag">为webmvc和WebFlux度量提供额外的tag</h4>
+<h4 id="为webmvc和webflux度量提供额外的tag"><a class="anchor" href="#为webmvc和webflux度量提供额外的tag"></a>2.26.4. 为webmvc和WebFlux度量提供额外的tag</h4>
 <div class="paragraph">
 <p>除了默认情况下为MVC和WebFlux提供的tag之外，还可以使用其他tag。<br>
 对于MVC，可以使用 <code>WebMvcTagsContributor</code> <code>@Bean</code>，对于WebFlux 使用 <code>WebFluxTagsContributor</code> @Bean`进行贡献。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="wavefronts-sender-自动配置">Wavefront&#8217;s Sender 自动配置</h4>
+<h4 id="wavefronts-sender-自动配置"><a class="anchor" href="#wavefronts-sender-自动配置"></a>2.26.5. Wavefront&#8217;s Sender 自动配置</h4>
 <div class="paragraph">
 <p>Wavefront的自动配置已更新为定义一个 <code>WavefrontSender</code> bean。<br>
 这允许在单个连接上发布Wavefront的度量和轨迹。</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="native-kafka-metrics">Native Kafka metrics</h4>
+<h4 id="native-kafka-metrics"><a class="anchor" href="#native-kafka-metrics"></a>2.26.6. Native Kafka metrics</h4>
 <div class="paragraph">
 <p>Kafka度量是为自动配置的 <code>ConsumerFactory</code> 和 <code>ProducerFactory</code> 创建的消费者和生产者本地发布的。
 要为自定义工厂创建的组件生成度量，应添加侦听器，如以下示例所示：</p>
@@ -1014,7 +1029,7 @@ WebFlux 中, properties 分别是 <code>spring.webflux.format.time</code> and <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="rsocket-对-spring-integration-的支持">RSocket 对 Spring Integration 的支持</h3>
+<h3 id="rsocket-对-spring-integration-的支持"><a class="anchor" href="#rsocket-对-spring-integration-的支持"></a>2.27. RSocket 对 Spring Integration 的支持</h3>
 <div class="paragraph">
 <p>springboot现在为Spring Integration的RSocket支持提供了自动配置。</p>
 </div>
@@ -1023,20 +1038,20 @@ WebFlux 中, properties 分别是 <code>spring.webflux.format.time</code> and <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="绑定到-period">绑定到 <code>Period</code></h3>
+<h3 id="绑定到-period"><a class="anchor" href="#绑定到-period"></a>2.28. 绑定到 <code>Period</code></h3>
 <div class="paragraph">
 <p>如果一个属性需要表达一段时间，你可以使用`java.time.Period` 属性来实现。<br>
 与 <code>Duration</code> 支持类似，支持一种简单的格式（比如使用10w表达10周）在元数据配置也支持这样做。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="web服务切片测试">Web服务切片测试</h3>
+<h3 id="web服务切片测试"><a class="anchor" href="#web服务切片测试"></a>2.29. Web服务切片测试</h3>
 <div class="paragraph">
 <p>添加了注释 <code>@WebServiceClientTest</code> 以支持Web服务的“切片”测试。</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="依赖项升级">依赖项升级</h3>
+<h3 id="依赖项升级"><a class="anchor" href="#依赖项升级"></a>2.30. 依赖项升级</h3>
 <div class="paragraph">
 <p>springboot2.3迁移到几个Spring项目的新版本:</p>
 </div>
@@ -1134,7 +1149,7 @@ spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相同。
 </div>
 </div>
 <div class="sect2">
-<h3 id="其他">其他</h3>
+<h3 id="其他"><a class="anchor" href="#其他"></a>2.31. 其他</h3>
 <div class="paragraph">
 <p>除了上面列出的更改之外，还有许多小的调整和改进，包括：</p>
 </div>
@@ -1177,7 +1192,7 @@ spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相同。
 <p>Maven 对创建 fat jar 的支持现在遵从 <code>project.build.outputTimestamp</code> 属性，允许其输出可重现  <a href="https://maven.apache.org/guides/mini/guide-reproducible-builds.html">reproducible</a>.</p>
 </li>
 <li>
-<p>The Javadoc 的 Maven plugin is {root-docs}/maven-plugin/api/[now published].</p>
+<p>The Javadoc 的 Maven plugin is <a href="https://docs.spring.io/spring-boot/docs/2.3.0.RELEASE/maven-plugin/api/">now published</a>.</p>
 </li>
 <li>
 <p>自定义接口, <code>RSocketMessageHandlerCustomizer</code>,用于自定义自动配置的`RSocketMessageHandler`,</p>
@@ -1207,7 +1222,7 @@ spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相同。
 </div>
 </div>
 <div class="sect1">
-<h2 id="springboot2-3中的弃用">SpringBoot2.3中的弃用</h2>
+<h2 id="springboot2-3中的弃用"><a class="anchor" href="#springboot2-3中的弃用"></a>3. SpringBoot2.3中的弃用</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1228,7 +1243,7 @@ spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相同。
 </div>
 </div>
 <div class="sect1">
-<h2 id="new-and-noteworthy">New and Noteworthy</h2>
+<h2 id="new-and-noteworthy"><a class="anchor" href="#new-and-noteworthy"></a>4. New and Noteworthy</h2>
 <div class="sectionbody">
 <div class="admonitionblock tip">
 <table>
@@ -1237,7 +1252,7 @@ spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相同。
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-参阅 <a href="Spring-Boot-2.3.0-Configuration-Changelog.html#v2.3-configuration-changelog">Configuration properties change between <code>2.3.6.RELEASE</code> and <code>2.4.0</code></a> 查看有关配置更改的完整概述。
+参阅 <a href="Spring-Boot-2.3.0-Configuration-Changelog.html#_v2.3-configuration-changelog">Configuration properties change between <code>2.3.6.RELEASE</code> and <code>2.4.0</code></a> 查看有关配置更改的完整概述。
 </td>
 </tr>
 </table>
@@ -1247,8 +1262,8 @@ spring boot 2.3构建的Spring框架和Reactor生成与 spring boot 2.2相同。
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0-SNAPSHOT<br>
-Last updated 2021-07-14 01:35:51 UTC
+ 1.0-SNAPSHOT<br>
+Last updated 2021-07-14 07:02:12 UTC
 </div>
 </div>
 </body>
